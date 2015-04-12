@@ -1,0 +1,32 @@
+doctype html
+html
+  head 
+    title 开心100
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true 
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  body class="#{controller_name}-#{action_name}"
+    .header
+      .header-nav
+        .logo
+        ul
+          li
+            a href="#" 热门
+            .dropdown
+          li
+            a href='#' 神回复
+          li
+            a href='#' 趣图
+          li
+            a href='#' 视频
+          li
+            a href='#' 段子
+        .search
+          input type="text" placeholder="你想看点啥"
+          .search-icon
+
+    .main
+      .left
+        = yield
+      .right-bar
+    .footer

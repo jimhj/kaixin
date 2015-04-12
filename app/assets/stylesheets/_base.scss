@@ -1,0 +1,23 @@
+$primary-color: #FB6A53;
+
+@import "compass/reset";
+
+a {
+  text-decoration: none;
+  color: #666;
+
+  &:hover {
+    color: #FF6569;
+  }
+}
+
+input {
+  border: 1px solid #DDD;
+  padding: 10px 10px;
+  font-size: 14px;
+  border-radius: 8px;
+}
+
+.clearfix {
+  @include clearfix;  
+}

@@ -1,0 +1,92 @@
+@import "compass";
+@import "base";
+@import "jokes";
+
+body {
+  background-color: #F1F1F1;
+}
+
+.header {
+  width: 100%;
+  background-color: #FFF;
+  border-bottom: 2px #DDD solid;
+}
+
+.header .header-nav {
+  @include clearfix;
+  width: 1000px;
+  margin: 0 auto;
+  padding: 10px 0px;
+
+  .logo {
+    float: left;    
+    width: 200px;
+    height: 60px;
+    background-image: image-url('logo_v6.png');
+  }
+
+  ul {
+    @include clearfix;
+    float: left;
+    height: 60px;
+    line-height: 60px;
+    margin-left: 20px;
+  }
+
+  ul li {
+    float: left;
+    height: 60px;
+    width: 90px;
+    text-align: center;
+  }
+
+  ul li a {
+    font-size: 20px;
+  }
+
+  .search {
+    line-height: 60px;
+    float: right;
+    position: relative;
+  }
+
+  .search input {
+    border-radius: 20px;
+    width: 200px;
+  }
+
+  .search .search-icon {
+    background-image: image-url('sprit.png');
+    background-position: 0px -8px;
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    right: 10px;
+    top: 22px;
+    cursor: pointer;
+  }
+}
+
+.main {
+  width: 1000px;
+  min-height: 200px;
+  margin: 0 auto;
+  background-color: #000;
+  @include clearfix;
+}
+
+.main .left {
+  float: left;
+  width: 670px;
+  margin-right: 30px;
+  min-height: 100px;
+  background-color: #FFF;
+}
+
+.main .right-bar {
+  float: left;
+  width: 300px;
+  min-height: 100px;
+  background-color: #FFF;
+}
