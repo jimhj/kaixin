@@ -8,10 +8,10 @@ html
   body class="#{controller_name}-#{action_name}"
     .header
       .header-nav
-        .logo
+        a.logo href="#{root_url}"
         ul
           li
-            a href="#" 热门
+            a.dropdown-toggle.active href="#" 热门
             .dropdown
           li
             a href='#' 神回复

@@ -1,16 +1,39 @@
-$primary-color: #FB6A53;
+$primary-grey: #666;
+$primary-red: #864814;
 
 @import "compass/reset";
 
+@mixin bg-img($path, $w: 24px, $h: 26px) {
+  background-image: image-url($path);
+  background-repeat: none;
+  width: $w;
+  height: $h;  
+}
+
 a {
   text-decoration: none;
-  color: #666;
+  color: $primary-red;
 
   &:hover {
-    color: #FF6569;
+    color: darken($primary-red, 5%);
+    text-decoration: underline;
   }
 }
 
+// Icon
+span.icon {
+  display: inline-block;
+}
+
+span.icon-up-vote {
+  @include bg-img('up_vote.png');
+}
+
+span.icon-down-vote {
+  @include bg-img('down_vote.png');
+}
+
+// Form
 input {
   border: 1px solid #DDD;
   padding: 10px 10px;

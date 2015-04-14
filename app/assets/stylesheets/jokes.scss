@@ -1,0 +1,64 @@
+.joke-item {
+  background-color: #FFF;
+  border-bottom: 1px solid #e8e7e6;
+}
+
+.joke-item .user {
+  @include clearfix;
+  padding: 15px 15px 0px 15px;
+
+  .avatar {
+    float: left;
+  }
+
+  .avatar img {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+  }
+
+  .nickname {
+    float: left;
+    margin-left: 10px;
+    line-height: 20px;
+  }
+
+  .nickname .created_at {
+    display: block;
+    color: #666;
+    font-size: 12px;
+  }
+}
+
+.joke-item .content {
+  margin-top: 15px;
+  padding: 0px 15px 15px 15px;
+
+  h4 {
+    margin-bottom: 10px;
+  }
+
+  .body {
+    line-height: 28px;
+    font-size: 14px;
+    color: #666;
+  }
+}
+
+.joke-item .operation {
+  @include clearfix;
+  padding: 15px 15px;
+  background-color: #fafafa;
+  border-top: 1px solid #f3f2f2;
+
+  a {
+    color: #888;
+    float: left;
+    margin-right: 20px;
+  }
+
+  a i {
+    font-size: 12px;
+    margin-left: 2px;
+  }
+}
