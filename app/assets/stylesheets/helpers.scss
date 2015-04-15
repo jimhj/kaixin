@@ -1,13 +1,14 @@
 @mixin bg-img($path, $w: 24px, $h: 24px) {
   background-image: image-url($path);
-  background-repeat: none;
+  background-repeat: no-repeat;
   width: $w;
-  height: $h;  
+  height: $h;
 }
 
 // Icon
 i.kx {
   display: inline-block;
+  margin-right: 2px;
 
   &.kx-up-vote {
     @include bg-img('up_vote.png');
@@ -18,19 +19,18 @@ i.kx {
   }
 
   &.kx-comment {
-    @include bg-img('comment.png');
+    @include bg-img('comment.png', 26px, 25px);
   }
 
   &.kx-up-voted {
     @include bg-img('up_vote_dark.png');
-  }  
+  }
 }
-
 
 // Avatar
 .avatar {
   @include clearfix;
-  
+
   img {
     float: left;
     width: 40px;
@@ -39,14 +39,16 @@ i.kx {
   }
 
   &.small img {
-    width: 20px;
-    height: 20px;
-    border-radius: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
   }
 
   .nickname {
     float: left;
     margin-left: 10px;
+    width: 400px;
+    line-height: 20px;
   }
 }
 

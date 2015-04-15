@@ -1,6 +1,7 @@
 .joke-item {
   background-color: #FFF;
-  border-bottom: 1px solid #e8e7e6;
+  border-bottom: 1px solid #D4D4D4;
+  margin-bottom: 20px;
 }
 
 .joke-item .user {
@@ -11,7 +12,7 @@
 .joke-item .avatar {
   .nickname p {
     font-size: 50%;
-    margin-top: 5px;
+    margin-top: 0px;
     margin-bottom: 0px;
   }  
 }
@@ -28,6 +29,10 @@
     line-height: 28px;
     font-size: 14px;
     color: #666;
+
+    img {
+      max-width: 640px;
+    }
   }
 
   .comment {
@@ -58,10 +63,16 @@
 
   .comment .comment-body {
     @include clearfix;
+    position: relative;
     margin-top: 20px;
   }
 
-  .comment-body .avatar {}
+  .comment-body .likes {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: $brand-gray-light;
+  }
 }
 
 .joke-item .operation {
@@ -71,9 +82,9 @@
   border-top: 1px solid #f3f2f2;
 
   a {
-    color: #888;
     float: left;
     margin-right: 20px;
     font-size: 14px;
+    color: $brand-gray-light;
   }
 }
