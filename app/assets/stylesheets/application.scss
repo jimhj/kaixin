@@ -101,5 +101,16 @@ body {
   float: left;
   width: 300px;
   min-height: 100px;
-  background-color: #FFF;
+}
+
+.right-bar .oauth {
+  text-align: center;
+}
+
+.right-bar .login {
+  text-align: center;
+
+  span.text-muted {
+    margin: 0 5px;
+  }
 }

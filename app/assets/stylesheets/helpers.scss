@@ -19,12 +19,24 @@ i.kx {
   }
 
   &.kx-comment {
-    @include bg-img('comment.png', 26px, 25px);
+    @include bg-img('comment.png', 26px, 26px);
   }
 
   &.kx-up-voted {
     @include bg-img('up_vote_dark.png');
   }
+
+  &.kx-pencil {
+    @include bg-img('pencil.png');
+  }
+
+  &.kx-weibo {
+    @include bg-img('weibo.png', 19px, 15px);
+  }
+
+  &.kx-qq {
+    @include bg-img('qq.png', 15px, 16px);
+  }  
 }
 
 // Avatar

@@ -1,0 +1,51 @@
+ul.text-list {
+  list-style: none;
+
+  li {
+    border-bottom: 1px dotted #DDD;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+  }
+}
+
+ul.tag-list {
+  @include clearfix;
+  list-style: none;
+  
+  li {
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border: 1px solid $brand-red;
+    padding: 5px 5px;
+    border-radius: 4px;
+    a {
+      text-decoration: none;
+    }
+
+    &:hover {
+      background-color: $brand-red;
+      a { color: #FFF; }
+    }
+  }
+}
+
+ul.image-list {
+  @include clearfix;
+  list-style: none;
+
+  li {
+    float: left;
+    margin-bottom: 10px;
+    text-align: center;
+
+    &.odd {
+      margin-right: 30px;
+    }
+  }
+
+  li img {
+    width: 120px;
+    height: 80px;
+  }
+}
