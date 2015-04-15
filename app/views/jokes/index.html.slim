@@ -1,20 +1,34 @@
 .joke-item
   .user
     .avatar
-      = image_tag 'avatar.jpg'
-    .nickname
-      a href="#" 小小小花
-      span.created_at 大约 1 分钟前
+      a href="#"
+        = image_tag 'avatar.jpg'
+      .nickname
+        a href="#" 小小小花
+        p.text-muted 大约 1 分钟前
   .content
-    h4
+    h2
       a href="#" 知道为什么重男轻女了吧
     .body
       | 记得小学的时候，有次爸爸开车带我去外地玩，之后就遇见大雪封路，高速路停运了，我们就堵在高速上，我们就在车上吃喝起来，突然感觉尿急，正要开门下车，只见爸爸拉住了我，递给我一个矿泉水瓶子，哼了一声，我就明白什么意思了，敢问女生有这个功能么
-  .reply
+    .comment
+      .comment-nav
+        span 亮了
+      .comment-body
+        .avatar
+          a href="#"
+            = image_tag 'avatar.jpg'
+          .nickname
+            a href="#" 小小小花
+            p.text-muted 为何如此牛逼的说
+
   .operation
     a.ding href="#"
-      span.icon.icon-up-vote
-      i 100
+      i.kx.kx-up-vote
+      em 100
     a.cai href="#"
-      span.icon.icon-down-vote
-      i 201
+      i.kx.kx-down-vote
+      em 201
+    a.comment href="#"
+      i.kx.kx-comment
+      em 129

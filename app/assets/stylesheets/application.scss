@@ -1,5 +1,5 @@
-@import "compass";
-@import "base";
+@import "kx/kx";
+@import "helpers";
 @import "jokes";
 
 body {
@@ -15,21 +15,23 @@ body {
 .header .header-nav {
   @include clearfix;
   width: 1000px;
+  height: 90px;
   margin: 0 auto;
-  padding: 10px 0px;
 
   .logo {
     float: left;    
     width: 204px;
     height: 60px;
+    margin-top: 15px;
     background-image: image-url('logo_v7.png');
   }
 
   ul {
     @include clearfix;
+    list-style: none;
     float: left;
     height: 60px;
-    line-height: 60px;
+    margin-top: 15px;
     margin-left: 20px;
   }
 
@@ -45,25 +47,25 @@ body {
     line-height: 60px;
     display: block;
     color: #666;
-    &:hover {
-      color: $primary-red;
-      text-decoration: none;
-    }
 
     &.dropdown-toggle {
       width: 90px;
       background: url('sprit.png') -18px -25px no-repeat;
     }
+
+    &:hover {
+      text-decoration: none;
+      color: $brand-red;
+    }
   }
 
   .search {
-    line-height: 60px;
     float: right;
     position: relative;
+    margin-top: 25px;
   }
 
   .search input {
-    border-radius: 20px;
     width: 200px;
   }
 
@@ -75,7 +77,7 @@ body {
     height: 16px;
     position: absolute;
     right: 10px;
-    top: 22px;
+    top: 12px;
     cursor: pointer;
   }
 }

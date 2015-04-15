@@ -1,0 +1,52 @@
+@mixin bg-img($path, $w: 24px, $h: 24px) {
+  background-image: image-url($path);
+  background-repeat: none;
+  width: $w;
+  height: $h;  
+}
+
+// Icon
+i.kx {
+  display: inline-block;
+
+  &.kx-up-vote {
+    @include bg-img('up_vote.png');
+  }
+
+  &.kx-down-vote {
+    @include bg-img('down_vote.png');
+  }
+
+  &.kx-comment {
+    @include bg-img('comment.png');
+  }
+
+  &.kx-up-voted {
+    @include bg-img('up_vote_dark.png');
+  }  
+}
+
+
+// Avatar
+.avatar {
+  @include clearfix;
+  
+  img {
+    float: left;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+  }
+
+  &.small img {
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+  }
+
+  .nickname {
+    float: left;
+    margin-left: 10px;
+  }
+}
+
