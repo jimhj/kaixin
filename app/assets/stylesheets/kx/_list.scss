@@ -1,7 +1,25 @@
-ul.text-list {
+@mixin list-style {
+  @include clearfix;
   list-style: none;
+  padding: 0px;
+  margin: 0px;
+
+  & > li {
+    text-overflow: ellipsis;    
+    white-space: nowrap;  
+  }
+
+  & > li a {
+    display: block;
+    width: 100%;
+  }
+}
+
+ul.text-list {
+  @include list-style;
 
   li {
+    white-space: normal;
     border-bottom: 1px dotted #DDD;
     margin-bottom: 10px;
     padding-bottom: 10px;
@@ -9,30 +27,33 @@ ul.text-list {
 }
 
 ul.tag-list {
-  @include clearfix;
-  list-style: none;
+  @include list-style;
   
   li {
     float: left;
     margin-right: 10px;
     margin-bottom: 10px;
     border: 1px solid $brand-red;
-    padding: 5px 5px;
     border-radius: 4px;
+
     a {
+      white-space: nowrap;
+      word-wrap:break-word;      
+      display: inline-block;
+      padding: 5px 5px;      
       text-decoration: none;
     }
 
-    &:hover {
+    a:hover {
       background-color: $brand-red;
-      a { color: #FFF; }
+      color: #FFF;
+      text-decoration: none;
     }
   }
 }
 
 ul.image-list {
-  @include clearfix;
-  list-style: none;
+  @include list-style;
 
   li {
     float: left;
@@ -47,5 +68,9 @@ ul.image-list {
   li img {
     width: 120px;
     height: 80px;
+  }
+
+  .text {
+    margin-top: 5px;
   }
 }
