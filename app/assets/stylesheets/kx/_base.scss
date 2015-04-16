@@ -25,6 +25,8 @@ hr,
 .rule {
   height: 0;
   margin: 15px 0;
+  _margin: 8px 0;
+  *margin: 8px 0;
   overflow: hidden;
   background: transparent;
   border: 0;

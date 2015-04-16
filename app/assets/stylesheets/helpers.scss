@@ -43,7 +43,7 @@ i.kx {
 // Avatar
 .avatar {
   @include clearfix;
-
+  
   img {
     float: left;
     width: 40px;
@@ -63,5 +63,11 @@ i.kx {
     width: 400px;
     line-height: 20px;
   }
+
+  .nickname p {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 12px;    
+  }  
 }
 
