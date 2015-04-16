@@ -3,6 +3,7 @@
   background-repeat: no-repeat;
   width: $w;
   height: $h;
+  @include iePngTrans($path);  
 }
 
 // Icon

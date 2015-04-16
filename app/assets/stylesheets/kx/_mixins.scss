@@ -14,3 +14,9 @@
     content: "";
   }
 }
+
+// Works in ie6, 7
+@mixin iePngTrans ($path) {
+  _background: transparent;
+　_filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="#{image-path($path)}");    
+}
