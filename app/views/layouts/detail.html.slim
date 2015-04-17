@@ -21,7 +21,18 @@ html
             a href='#' 视频
           li
             a href='#' 段子
-    .main
-      .left-side
-      .right-side
-    .footer
+        .right.links
+          a href="#"
+            i.kx.kx-weibo
+            span 微博登录
+          a href="#"
+            i.kx.kx-qq
+            span QQ 
+          span.divider |
+          a href="#" 登录
+          a href="#" 注册
+  .main
+    .left-side
+      = yield
+    .right-side
+  .footer

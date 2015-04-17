@@ -35,9 +35,17 @@ i.kx {
     @include bg-img('weibo.png', 19px, 15px);
   }
 
+  &.kx-weibo-colorful {
+    @include bg-img('weibo_colorful.png', 19px, 15px);
+  }
+
   &.kx-qq {
     @include bg-img('qq.png', 15px, 16px);
-  }  
+  }
+
+  &.kx-qq-colorful {
+    @include bg-img('qq_colorful.png', 15px, 16px);
+  }
 }
 
 // Avatar
@@ -147,5 +155,36 @@ i.kx {
       color: #FFF;
       border-bottom: 2px solid darken($brand-red, 20%);
     }
+  }
+
+  .right {
+    @include clearfix;
+    height: 100%;
+    width: 300px;
+  }
+
+  .right span.divider, .right a {
+    margin: 0;
+    padding: 0;
+    color: #FFF;
+    float: left;
+    display: block;    
+    margin-right: 10px;
+    height: 40px;
+    line-height: 40px !important;
+
+    // IE6 hack
+    _height: auto;
+    _margin-top: 12px;
+    _line-height: normal;
+  }
+
+  .right a {
+    text-decoration: none;
+    font-size: 12px;
+
+    i.kx {
+      margin-right: 5px;
+    }       
   }
 }

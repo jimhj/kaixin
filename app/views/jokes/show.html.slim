@@ -1,0 +1,60 @@
+.joke-item
+  .user
+    .avatar
+      a href="#"
+        = image_tag 'avatar.jpg'
+      .nickname
+        a href="#" 小小小花
+        p.text-muted 大约 1 分钟前
+  .content
+    h4
+      a href="#{joke_path(211)}" 知道为什么重男轻女了吧
+    .body
+      | 记得小学的时候，有次爸爸开车带我去外地玩，之后就遇见大雪封路，高速路停运了，我们就堵在高速上，我们就在车上吃喝起来，突然感觉尿急，正要开门下车，只见爸爸拉住了我，递给我一个矿泉水瓶子，哼了一声，我就明白什么意思了，敢问女生有这个功能么
+    .comment
+      .comment-nav
+        span 神回复
+      .comment-body
+        .avatar.small
+          a href="#"
+            = image_tag 'avatar.jpg'
+          .nickname
+            a href="#" 小小小花
+            p.text-muted 为何如此牛逼的说为何如此牛逼的说为何如此牛逼的说为何如此牛逼的说为何如此牛逼的说为何如此牛逼的说为何如此牛逼的说
+          a.likes href="#"
+            i.kx.kx-up-voted
+            span.text-muted 17
+  .operation
+    a.ding href="#"
+      i.kx.kx-up-vote
+      span 100
+    a.cai href="#"
+      i.kx.kx-down-vote
+      span 201
+    a.comment href="#"
+      i.kx.kx-comment
+      span 129
+
+.box
+  .box-content
+    ul.image-list
+      - 10.times do
+        li class=(cycle('odd', 'even'))
+          a href="#"
+            = image_tag 'avatar.jpg'
+            .text 这样真的好吗
+
+.box.comment-list
+  .box-content
+    .require-login.clearfix
+      .left
+        a href="#" 登录
+        span 后才可以发表评论
+      .right
+        span 或者使用
+        a href="#"
+          i.kx.kx-weibo-colorful
+          span 微博登录
+        a href="#"
+          i.kx.kx-qq-colorful
+          span QQ 登录

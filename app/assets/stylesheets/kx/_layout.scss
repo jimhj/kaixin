@@ -14,3 +14,31 @@
   float: left;
   width: 300px;
 }
+
+.box {
+  @include clearfix;
+  background-color: #FFF;
+  margin-bottom: 20px;
+  width: 100%; 
+
+  .box-header {
+    @include clearfix;
+
+    background-color: #fafafa;
+    padding: 15px 15px;
+    border-bottom: 1px solid #f3f2f2;
+
+    h3 {
+      float: left;
+      margin: 0px 0px;
+    }
+
+    a.more {
+      float: right;
+    }
+  }
+
+  .box-content {
+    padding: 15px 15px !important;
+  }
+}

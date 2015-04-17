@@ -1,6 +1,7 @@
 @import "kx/kx";
 @import "helpers";
 @import "jokes";
+@import "comments";
 
 body {
   background-color: #F1F1F1;
@@ -20,9 +21,7 @@ body {
   }
 
   .search .search-icon {
-    background-image: image-url('sprit.png');
-    background-position: 0px 0px;
-    background-repeat: no-repeat;
+    background-color: #DDD;
     width: 16px;
     height: 16px;
     position: absolute;
@@ -32,6 +31,15 @@ body {
   }
 }
 
+.right-side .image-list {
+  li {
+    margin-right: 0px;
+  }
+
+  li.odd {
+    margin-right: 30px;
+  }
+}
 
 .right-side .oauth {
   text-align: center;
