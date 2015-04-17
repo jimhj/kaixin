@@ -1,0 +1,27 @@
+doctype html
+html
+  head 
+    title 开心100
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
+  body class="#{controller_name}-#{action_name}"
+    .header.header-slim
+      .header-nav
+        a.logo_small href="#{root_url}"
+        ul
+          li
+            a.dropdown-toggle.active href="#" 热门
+            .dropdown
+          li
+            a href='#' 神回复
+          li
+            a href='#' 趣图
+          li
+            a href='#' 视频
+          li
+            a href='#' 段子
+    .main
+      .left-side
+      .right-side
+    .footer

@@ -7,58 +7,11 @@ body {
   background: #F1F1F1 image-url('giftly.png') repeat;
 }
 
-.header {
-  width: 100%;
-  background-color: #FFF;
-  border-bottom: 1px solid #e3e2e1;
-}
-
 .header .header-nav {
   @include clearfix;
   width: 1000px;
   height: 90px;
   margin: 0 auto;
-
-  .logo {
-    float: left;    
-    width: 204px;
-    height: 60px;
-    margin-top: 15px;
-    background-image: image-url('logo_v7.png');
-  }
-
-  ul {
-    @include clearfix;
-    list-style: none;
-    float: left;
-    height: 60px;
-    margin-top: 15px;
-    margin-left: 20px;
-  }
-
-  ul li {
-    float: left;
-    height: 60px;
-    width: 90px;
-    text-align: center;
-  }
-
-  ul li a {
-    font-size: 20px;
-    line-height: 60px;
-    display: block;
-    color: #666;
-
-    &.dropdown-toggle {
-      width: 90px;
-      background: url('sprit.png') -18px -25px no-repeat;
-    }
-
-    &:hover {
-      text-decoration: none;
-      color: $brand-red;
-    }
-  }
 
   .search {
     float: right;
@@ -78,6 +31,7 @@ body {
     cursor: pointer;
   }
 }
+
 
 .right-side .oauth {
   text-align: center;

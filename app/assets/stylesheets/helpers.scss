@@ -71,3 +71,81 @@ i.kx {
   }  
 }
 
+// Navbar
+.header {
+  width: 100%;
+  background-color: #FFF;
+  border-bottom: 1px solid #e3e2e1;
+}
+
+.header .header-nav {
+  @include clearfix;
+  width: 1000px;
+  height: 90px;
+  margin: 0 auto;
+
+  .logo {
+    float: left;    
+    width: 204px;
+    height: 60px;
+    margin-top: 15px;
+    background-image: image-url('logo_v7.png');
+  }
+
+  ul {
+    @include clearfix;
+    list-style: none;
+    float: left;
+    margin-top: 15px;
+    margin-left: 20px;
+  }
+
+  ul li {
+    float: left;
+    width: 90px;
+    text-align: center;
+  }
+
+  ul li a {
+    font-size: 20px;
+    line-height: 60px;
+    height: 60px;
+    color: #666;
+    display: block;
+
+    &:hover {
+      text-decoration: none;
+      color: $brand-red;
+    }
+  }
+}
+
+.header-slim {
+  background-color: $brand-red;
+  border-bottom: none;
+}
+
+.header.header-slim .header-nav {
+  height: 40px !important;
+
+  ul {
+    margin-top: 0px;
+  }
+
+  ul li {
+    height: 40px;
+  }
+
+  ul li a {
+    font-size: 16px;
+    line-height: 40px;
+    height: 38px;
+    color: #FFF;
+    border-bottom: 2px solid $brand-red;
+
+    &:hover {
+      color: #FFF;
+      border-bottom: 2px solid darken($brand-red, 20%);
+    }
+  }
+}
