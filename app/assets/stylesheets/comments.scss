@@ -43,6 +43,17 @@
   }
 }
 
+.comment-list ul.comments.text-list li {
+  padding: 15px 0px;
+  position: relative;
+
+  i.kx.kx-light-up {
+    position: absolute;
+    right: 100px;
+    top: 10%;
+  }
+}
+
 .comments .left {
   width: 440px;
   overflow: hidden;

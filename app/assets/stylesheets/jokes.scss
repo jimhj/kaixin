@@ -25,6 +25,18 @@
     }
   }
 
+  .paginate {
+    margin-top: 10px;
+  }
+
+  .paginate a {
+    display: inline-block;
+    vertical-align: middle;
+    &.prev {
+      margin-right: 50px;
+    }
+  }
+
   .comment {
     margin-top: 20px;
     font-size: 12px;

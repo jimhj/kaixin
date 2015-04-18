@@ -50,6 +50,18 @@ i.kx {
   &.kx-qq-colorful {
     @include bg-img('qq_colorful.png', 15px, 16px);
   }
+
+  &.kx.kx-light-up {
+    @include bg-img('light_up.png', 61px, 60px);
+  }
+
+  &.kx.kx-next {
+    @include bg-img('next.png', 179px, 90px);
+  }
+
+  &.kx.kx-prev {
+    @include bg-img('prev.png', 178px, 59px);
+  }     
 }
 
 // Avatar
