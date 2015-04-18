@@ -1,86 +1,69 @@
-.joke-item
-  .user
-    .avatar
-      a href="#"
-        = image_tag 'avatar.jpg'
-      .nickname
-        a href="#" 小小小花
-        p.text-muted 大约 1 分钟前
-  .content
-    h4
-      a href="#{joke_path(211)}" 知道为什么重男轻女了吧
-    .body
-      | 记得小学的时候，有次爸爸开车带我去外地玩，之后就遇见大雪封路，高速路停运了，我们就堵在高速上，我们就在车上吃喝起来，突然感觉尿急，正要开门下车，只见爸爸拉住了我，递给我一个矿泉水瓶子，哼了一声，我就明白什么意思了，敢问女生有这个功能么
-    .paginate.text-center
-      a.prev href="#"
-        i.kx.kx-prev
-      a.next href="#"
-        i.kx.kx-next
-      p.text-muted 按 ← → 方向键也可以换笑话哦
-  .operation
-    a.ding href="#"
-      i.kx.kx-up-vote
-      span 100
-    a.cai href="#"
-      i.kx.kx-down-vote
-      span 201
-    a.comment href="#"
-      i.kx.kx-comment
-      span 129
+.left-side
+  .joke-item
+    .user
+      .avatar
+        a href="#"
+          = image_tag 'avatar.jpg'
+        .nickname
+          a href="#" 小小小花
+          p.text-muted 大约 1 分钟前
+    .content
+      h4
+        a href="#{joke_path(211)}" 知道为什么重男轻女了吧
+      .body
+        | 记得小学的时候，有次爸爸开车带我去外地玩，之后就遇见大雪封路，高速路停运了，我们就堵在高速上，我们就在车上吃喝起来，突然感觉尿急，正要开门下车，只见爸爸拉住了我，递给我一个矿泉水瓶子，哼了一声，我就明白什么意思了，敢问女生有这个功能么
+      .paginate.text-center
+        a.prev href="#"
+          i.kx.kx-prev
+        a.next href="#"
+          i.kx.kx-next
+        p.text-muted 按 ← → 方向键也可以换笑话哦
+    .operation
+      a.ding href="#"
+        i.kx.kx-up-vote
+        span 100
+      a.cai href="#"
+        i.kx.kx-down-vote
+        span 201
+      a.comment href="#"
+        i.kx.kx-comment
+        span 129
 
-.box
-  .box-content
-    ul.image-list.recommend
-      - 10.times do
-        li class=(cycle('', '', '', '', 'no-margin'))
-          a href="#"
-            = image_tag 'avatar.jpg'
-            .text 这样真的好吗
-
-.box.comment-list
-  .box-header
-    - if false
-      .require-login.clearfix
-        .left
-          a href="#" 登录
-          span 后才可以发表评论
-        .right
-          span 或者使用
-          a href="#"
-            i.kx.kx-weibo-colorful
-            span 微博登录
-          a href="#"
-            i.kx.kx-qq-colorful
-            span QQ 登录
-    - else
-      h3 评论(201)
-      .post-comment
-        textarea.form-control placeholder="快来发表你的神回复"
-        .limit
-          span.size 0
-          span.divider="/"
-          span.total 140
-        a.btn.btn-success.btn-lg href="#" 评论
-  .box-content
-    ul.text-list.comments
-      li.clearfix
-        .left
-          .avatar.small
+  .box
+    .box-content
+      ul.image-list.recommend
+        - 10.times do
+          li class=(cycle('', '', '', '', 'no-margin'))
             a href="#"
               = image_tag 'avatar.jpg'
-            .nickname
-              a href="#" 
-                span 小小小花
-                span.text-muted 3 分钟前
-              p 这真的是很牛哈安师大撒的这真的是很牛啊
-        .right
-          a.text-muted.reply 回复
-          a.ding href="#"
-            i.kx.kx-up-voted-sm
-            small.text-muted 192
-          span.text-muted 1楼
-        i.kx.kx-light-up    
-      - 6.times do
+              .text 这样真的好吗
+
+  .box.comment-list
+    .box-header
+      - if false
+        .require-login.clearfix
+          .left
+            a href="#" 登录
+            span 后才可以发表评论
+          .right
+            span 或者使用
+            a href="#"
+              i.kx.kx-weibo-colorful
+              span 微博登录
+            a href="#"
+              i.kx.kx-qq-colorful
+              span QQ 登录
+      - else
+        h3 评论(201)
+        .post-comment
+          textarea.form-control placeholder="快来发表你的神回复"
+          .limit
+            span.size 0
+            span.divider="/"
+            span.total 140
+          a.btn.btn-success.btn-lg href="#" 评论
+    .box-content
+      ul.text-list.comments
         li.clearfix
           .left
             .avatar.small
@@ -90,27 +73,57 @@
                 a href="#" 
                   span 小小小花
                   span.text-muted 3 分钟前
-                p 这真的是很牛啊，佩服佩服哈哈哈哈安师大撒的这真的是很牛啊，佩服佩服哈哈哈哈安师大撒的
+                p 这真的是很牛哈安师大撒的这真的是很牛啊
           .right
             a.text-muted.reply 回复
             a.ding href="#"
               i.kx.kx-up-voted-sm
               small.text-muted 192
             span.text-muted 1楼
-    ul.pagination
-      li.prev.disabled
-        a href="#" ← 上一页
-      li.active
-        a href="#" 1
-      li
-        a href="#" 2
-      li
-        a href="#" 3
-      li.disabled
-        a ...
-      li
-        a href="#" 7
-      li
-        a href="#" 8
-      li.next
-        a href="#" 下一页
+          i.kx.kx-light-up    
+        - 6.times do
+          li.clearfix
+            .left
+              .avatar.small
+                a href="#"
+                  = image_tag 'avatar.jpg'
+                .nickname
+                  a href="#" 
+                    span 小小小花
+                    span.text-muted 3 分钟前
+                  p 这真的是很牛啊，佩服佩服哈哈哈哈安师大撒的这真的是很牛啊，佩服佩服哈哈哈哈安师大撒的
+            .right
+              a.text-muted.reply 回复
+              a.ding href="#"
+                i.kx.kx-up-voted-sm
+                small.text-muted 192
+              span.text-muted 1楼
+      ul.pagination
+        li.prev.disabled
+          a href="#" ← 上一页
+        li.active
+          a href="#" 1
+        li
+          a href="#" 2
+        li
+          a href="#" 3
+        li.disabled
+          a ...
+        li
+          a href="#" 7
+        li
+          a href="#" 8
+        li.next
+          a href="#" 下一页
+.right-side
+  .box
+    .box-header
+      h3 新鲜出炉
+      a.more 更多
+    .box-content
+      ul.image-list.odd-margin
+        - 4.times do
+          li class=(cycle('odd', 'even'))
+            a href="#"
+              = image_tag 'avatar.jpg'
+              .text 这样真的好吗？

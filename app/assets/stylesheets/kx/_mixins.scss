@@ -20,3 +20,15 @@
   _background: transparent;
 　_filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="#{image-path($path)}");    
 }
+
+// Width Hack ie 6,7,8
+@mixin ieWidth ($width) {
+  _width: $width;
+  *width: $width;
+  width: #{$width}\0;
+}
+
+@mixin borderBox {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}

@@ -29,22 +29,9 @@ html
             i.kx.kx-qq
             span QQ 
           span.divider |
-          a href="#" 登录
-          a href="#" 注册
+          a href="#{login_path}" 登录
+          a href="#{signup_path}" 注册
   .main
-    .left-side
-      = yield
-    .right-side
-      .box
-        .box-header
-          h3 新鲜出炉
-          a.more 更多
-        .box-content
-          ul.image-list.odd-margin
-            - 4.times do
-              li class=(cycle('odd', 'even'))
-                a href="#"
-                  = image_tag 'avatar.jpg'
-                  .text 这样真的好吗？
+    = yield
   .footer
     .copy-right.text-center.text-muted Copyright 2005-2015 kaixin100.com 版权所有 京ICP备13039142号-1 京ICP证130395号

@@ -19,10 +19,11 @@
 
   .post-comment textarea {
     width: 100%;
-    box-sizing: border-box;
-    _width: 622px;
-    *width: 622px;
-    height: 80px;
+    height: 80px;    
+
+    @include borderBox;
+    // IE hack
+    @include ieWidth(622px);
   }
 
   .post-comment .limit {

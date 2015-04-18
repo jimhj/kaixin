@@ -145,7 +145,7 @@ i.kx {
 }
 
 .header-slim {
-  background-color: $brand-red;
+  background-color: $brand-red-light;
   border-bottom: none;
 }
 
@@ -165,11 +165,11 @@ i.kx {
     line-height: 40px;
     height: 38px;
     color: #FFF;
-    border-bottom: 2px solid $brand-red;
+    border-bottom: 2px solid $brand-red-light;
 
     &:hover {
       color: #FFF;
-      border-bottom: 2px solid darken($brand-red, 20%);
+      border-bottom: 2px solid darken($brand-red-light, 10%);
     }
   }
 

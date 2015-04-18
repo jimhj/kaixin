@@ -74,3 +74,8 @@
     background-color: darken($brand-blue, 10%);
   }
 }
+
+input.btn {
+  border: none;
+  display: inline-block;
+}
