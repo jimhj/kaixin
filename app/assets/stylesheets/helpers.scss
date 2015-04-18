@@ -27,6 +27,10 @@ i.kx {
     @include bg-img('up_vote_dark.png');
   }
 
+  &.kx-up-voted-sm {
+    @include bg-img('up_vote_dark_sm.png', 16px, 16px);
+  }
+
   &.kx-pencil {
     @include bg-img('pencil.png');
   }

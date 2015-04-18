@@ -1,8 +1,70 @@
-.comment-list {
+.comment-list .box-header {
+  h3 {
+    float: none;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px dashed #EDEDED;
+  }
+
   .require-login {
-    padding-bottom: 10px; 
-    border-bottom: 1px dashed #DDD;
     .left a { margin-right: 5px; }
     .right a { margin-left: 10px; }
   }
+
+  .post-comment {
+    @include clearfix;
+    width: 100%;
+    position: relative;
+  }
+
+  .post-comment textarea {
+    width: 100%;
+    box-sizing: border-box;
+    _width: 622px;
+    *width: 622px;
+    height: 80px;
+  }
+
+  .post-comment .limit {
+    position: absolute;
+    right: 10px;
+    bottom: 70px;
+    color: #999;
+
+    span.divider {
+      margin-right: 5px;
+      margin-left: 5px;
+    }
+  }
+
+  .post-comment a.btn {
+    float: right;
+    margin-top: 10px;
+  }
+}
+
+.comments .left {
+  width: 440px;
+  overflow: hidden;
+
+  .nickname .text-muted {
+    font-size: 12px;
+    margin-left: 10px;
+  }
+
+  .nickname p { margin-top: 5px; }
+}
+
+.comments .right {
+  text-align: right;
+
+  a.reply { display: none; }
+
+  a, span {
+    font-size: 12px;
+    display: inline-block;
+    float: left;
+  }
+
+  a { margin-right: 20px; }
 }

@@ -78,3 +78,10 @@
     color: $brand-gray-light;
   }
 }
+
+ul.recommend {
+  li { margin-right: 10px; }
+  li.no-margin {
+    margin-right: 0px;
+  }
+}

@@ -4,6 +4,11 @@
   margin: 20px auto;
 }
 
+.footer {
+  @include clearfix;
+  margin-bottom: 40px;    
+}
+
 .main .left-side {
   float: left;
   width: 670px;
