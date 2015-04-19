@@ -119,13 +119,16 @@ ul.recommend {
       *margin: -3px 0px 0px 0px !important;
     }
 
-    .form-footer {
+    .form-group.opt {
+      @include clearfix;
       border: 1px solid #ccc;
       border-top: none;
+      padding: 15px 10px !important;
       background: #F9F9F9;
+      @include ieWidth(596px);
     }
 
-    .form-footer input.file, .form-footer input.checkbox {
+    .opt input.file, .opt input.checkbox {
       font-size: 12px;
       margin-left: 5px;
     }

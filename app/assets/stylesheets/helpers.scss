@@ -61,6 +61,10 @@ i.kx {
 
   &.kx.kx-prev {
     @include bg-img('prev.png', 178px, 59px);
+  }
+
+  &.kx.kx-zoom {
+    @include bg-img('zoom.png', 16px, 15px);
   }     
 }
 

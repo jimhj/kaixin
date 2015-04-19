@@ -33,9 +33,4 @@ input.form-control, textarea.form-control {
   .form-group {
     margin-bottom: 15px;
   }
-
-  .form-footer {
-    @include clearfix;
-    padding: 15px 10px;
-  }
 }
