@@ -1,0 +1,40 @@
+.tags-index .box .box-content {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+.tags-index ul.tag-list {
+  padding-left: 15px;
+  width: 985px;
+
+  li {
+    overflow: hidden;
+    margin-right: 8px;
+  }
+
+  li a {
+    width: 130px;
+    text-align: center;
+    height: 36px;
+    line-height: 36px;
+    border: 1px solid #EAEAEA; 
+    background: #FAFAFA;
+    border-radius: 2px;            
+    padding: 0px 0px !important;
+    color: #666;
+
+    &.active, &:hover {
+      border: 1px solid darken($brand-red, 5%);
+      color: #FFF;
+    }
+
+    &.active, &.active:hover {
+      background-color: $brand-red-light;
+    }
+
+    &:hover {
+      border: 1px solid $brand-red;
+      background-color: lighten($brand-red-light, 5%);
+    }
+  }
+}

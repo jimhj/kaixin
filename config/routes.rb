@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :jokes
   resources :users
   resources :sessions
+  resources :tags
 
   get :signup, to: 'users#new'
   post :signup, to: 'users#create'
