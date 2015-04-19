@@ -63,6 +63,16 @@ body {
   }
 }
 
+.box.load-comments {
+  margin-bottom: 0px;
+}
+
+.box.load-comments .box-content {
+  border-top: 1px dotted #DDD;
+  // padding-bottom: 0px !important;
+  background-color: rgba(252, 253, 236, 0.43);
+}
+
 .copy-right {
   width: 1000px;
   margin: 0 auto;

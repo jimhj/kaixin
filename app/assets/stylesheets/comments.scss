@@ -80,3 +80,21 @@
 
   a { margin-right: 20px; }
 }
+
+.fast-comment {
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  border-bottom: 1px dotted #DDD;
+
+  textarea {
+    width: 510px;
+    height: 42px !important;
+    border-radius: 0px;
+  }
+
+  .btn {
+    width: 100px;
+    font-size: 16px;
+    border-radius: 0px;
+  }
+}
