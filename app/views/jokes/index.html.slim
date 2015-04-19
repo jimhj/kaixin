@@ -1,128 +1,211 @@
-- 2.times do
-  .joke-item
-    .user
-      .avatar
-        a href="#"
-          = image_tag 'avatar.jpg'
-        .nickname
-          a href="#" 小小小花
-          p.text-muted 大约 1 分钟前
-    .content
-      h4
-        a href="#{joke_path(211)}" 知道为什么重男轻女了吧
-      .body
-        | 记得小学的时候，有次爸爸开车带我去外地玩，之后就遇见大雪封路，高速路停运了，我们就堵在高速上，我们就在车上吃喝起来，突然感觉尿急，正要开门下车，只见爸爸拉住了我，递给我一个矿泉水瓶子，哼了一声，我就明白什么意思了，敢问女生有这个功能么
-      .comment
-        .comment-nav
-          span 神回复
-        .comment-body
-          .avatar.small
-            a href="#"
-              = image_tag 'avatar.jpg'
-            .nickname
-              a href="#" 小小小花
-              p.text-muted 为何如此牛逼的说为何如此牛逼的说为何如此牛逼的说为何如此牛逼的说为何如此牛逼的说为何如此牛逼的说为何如此牛逼的说
-            a.likes href="#"
-              i.kx.kx-up-voted
-              span.text-muted 17
+      .left-side
+        - 2.times do
+          .joke-item
+            .user
+              .avatar
+                a href="#"
+                  = image_tag 'avatar.jpg'
+                .nickname
+                  a href="#" 小小小花
+                  p.text-muted 大约 1 分钟前
+            .content
+              h4
+                a href="#{joke_path(211)}" 知道为什么重男轻女了吧
+              .body
+                | 记得小学的时候，有次爸爸开车带我去外地玩，之后就遇见大雪封路，高速路停运了，我们就堵在高速上，我们就在车上吃喝起来，突然感觉尿急，正要开门下车，只见爸爸拉住了我，递给我一个矿泉水瓶子，哼了一声，我就明白什么意思了，敢问女生有这个功能么
+              .comment
+                .comment-nav
+                  span 神回复
+                .comment-body
+                  .avatar.small
+                    a href="#"
+                      = image_tag 'avatar.jpg'
+                    .nickname
+                      a href="#" 小小小花
+                      p.text-muted 为何如此牛逼的说为何如此牛逼的说为何如此牛逼的说为何如此牛逼的说为何如此牛逼的说为何如此牛逼的说为何如此牛逼的说
+                    a.likes href="#"
+                      i.kx.kx-up-voted
+                      span.text-muted 17
 
-    .operation
-      a.ding href="#"
-        i.kx.kx-up-vote
-        span 100
-      a.cai href="#"
-        i.kx.kx-down-vote
-        span 201
-      a.comment href="#"
-        i.kx.kx-comment
-        span 129
+            .operation
+              a.ding href="#"
+                i.kx.kx-up-vote
+                span 100
+              a.cai href="#"
+                i.kx.kx-down-vote
+                span 201
+              a.comment href="#"
+                i.kx.kx-comment
+                span 129
 
-  .joke-item
-    .user
-      .avatar
-        a href="#"
-          = image_tag 'avatar.jpg'
-        .nickname
-          a href="#" 小小小花
-          p.text-muted 大约 1 分钟前
-    .content
-      .body
-        | 记得小学的时候，有次爸爸开车带我去外地玩，之后就遇见大雪封路，高速路停运了，我们就堵在高速上，我们就在车上吃喝起来，突然感觉尿急，正要开门下车，只见爸爸拉住了我，递给我一个矿泉水瓶子，哼了一声，我就明白什么意思了，敢问女生有这个功能么
-      .comment
-        .comment-nav
-          span 神回复
-        .comment-body
-          .avatar.small
-            a href="#"
-              = image_tag 'avatar.jpg'
-            .nickname
-              a href="#" 小小小花
-              p.text-muted 为何如此牛逼的说为何如此牛逼的说为何如此牛逼的说为何如此牛逼的说为何如此牛逼的说为何如此牛逼的说为何如此牛逼的说
-            a.likes href="#"
-              i.kx.kx-up-voted
-              span.text-muted 17
+          .joke-item
+            .user
+              .avatar
+                a href="#"
+                  = image_tag 'avatar.jpg'
+                .nickname
+                  a href="#" 小小小花
+                  p.text-muted 大约 1 分钟前
+            .content
+              .body
+                | 记得小学的时候，有次爸爸开车带我去外地玩，之后就遇见大雪封路，高速路停运了，我们就堵在高速上，我们就在车上吃喝起来，突然感觉尿急，正要开门下车，只见爸爸拉住了我，递给我一个矿泉水瓶子，哼了一声，我就明白什么意思了，敢问女生有这个功能么
+              .comment
+                .comment-nav
+                  span 神回复
+                .comment-body
+                  .avatar.small
+                    a href="#"
+                      = image_tag 'avatar.jpg'
+                    .nickname
+                      a href="#" 小小小花
+                      p.text-muted 为何如此牛逼的说为何如此牛逼的说为何如此牛逼的说为何如此牛逼的说为何如此牛逼的说为何如此牛逼的说为何如此牛逼的说
+                    a.likes href="#"
+                      i.kx.kx-up-voted
+                      span.text-muted 17
 
-    .operation
-      a.ding href="#"
-        i.kx.kx-up-vote
-        span 100
-      a.cai href="#"
-        i.kx.kx-down-vote
-        span 201
-      a.comment href="#"
-        i.kx.kx-comment
-        span 129
+            .operation
+              a.ding href="#"
+                i.kx.kx-up-vote
+                span 100
+              a.cai href="#"
+                i.kx.kx-down-vote
+                span 201
+              a.comment href="#"
+                i.kx.kx-comment
+                span 129
 
-  .joke-item
-    .user
-      .avatar
-        a href="#"
-          = image_tag 'avatar.jpg'
-        .nickname
-          a href="#" 小小小花
-          p.text-muted 大约 1 分钟前
-    .content
-      .body
-        = image_tag 'sample.jpg'
-      .comment
-        .comment-nav
-          span 神回复
-        .comment-body
-          .avatar.small
-            a href="#"
-              = image_tag 'avatar.jpg'
-            .nickname
-              a href="#" 小小小花
-              p.text-muted 为何如此牛逼的说为何如此牛逼的说为何如此牛逼的说为何如此牛逼的说为何如此牛逼的说为何如此牛逼的说为何如此牛逼的说
-            a.likes href="#"
-              i.kx.kx-up-voted
-              span.text-muted 17
+          .joke-item
+            .user
+              .avatar
+                a href="#"
+                  = image_tag 'avatar.jpg'
+                .nickname
+                  a href="#" 小小小花
+                  p.text-muted 大约 1 分钟前
+            .content
+              .body
+                = image_tag 'sample.jpg'
+              .comment
+                .comment-nav
+                  span 神回复
+                .comment-body
+                  .avatar.small
+                    a href="#"
+                      = image_tag 'avatar.jpg'
+                    .nickname
+                      a href="#" 小小小花
+                      p.text-muted 为何如此牛逼的说为何如此牛逼的说为何如此牛逼的说为何如此牛逼的说为何如此牛逼的说为何如此牛逼的说为何如此牛逼的说
+                    a.likes href="#"
+                      i.kx.kx-up-voted
+                      span.text-muted 17
 
-    .operation
-      a.ding href="#"
-        i.kx.kx-up-vote
-        span 100
-      a.cai href="#"
-        i.kx.kx-down-vote
-        span 201
-      a.comment href="#"
-        i.kx.kx-comment
-        span 129
+            .operation
+              a.ding href="#"
+                i.kx.kx-up-vote
+                span 100
+              a.cai href="#"
+                i.kx.kx-down-vote
+                span 201
+              a.comment href="#"
+                i.kx.kx-comment
+                span 129
 
-ul.pagination
-  li.prev.disabled
-    a href="#" ← 上一页
-  li.active
-    a href="#" 1
-  li
-    a href="#" 2
-  li
-    a href="#" 3
-  li.disabled
-    a ...
-  li
-    a href="#" 7
-  li
-    a href="#" 8
-  li.next
-    a href="#" 下一页
+        ul.pagination
+          li.prev.disabled
+            a href="#" ← 上一页
+          li.active
+            a href="#" 1
+          li
+            a href="#" 2
+          li
+            a href="#" 3
+          li.disabled
+            a ...
+          li
+            a href="#" 7
+          li
+            a href="#" 8
+          li.next
+            a href="#" 下一页
+      .right-side
+        .box
+          .box-content
+            .login
+              a href="#" 登录
+              span.text-muted 没有帐号？
+              a href="#" 现在注册一个
+              span.text-muted 或者
+            hr
+            .oauth
+              a.btn.btn-primary href="#" 
+                i.kx.kx-qq
+                span QQ 登录 
+              a.btn.btn-danger href="#" 
+                i.kx.kx-weibo
+                span 微博登录              
+            hr
+
+            a.btn.btn-success.btn-lg.btn-block href="#{new_joke_path}" 
+              i.kx.kx-pencil
+              span 我要投稿
+        
+        .box
+          .box-header
+            h3 笑点
+            a.more 更多
+          .box-content
+            ul.tag-list
+              - 2.times do
+                li: a href="#" 爆笑
+                li: a href="#" 夫妻笑话
+                li: a href="#" 经典笑话
+                li: a href="#" 承认笑话
+                li: a href="#" 冷笑话
+                li: a href="#" 幽默笑话
+                li: a href="#" 搞笑
+                li: a href="#" 内涵
+                li: a href="#" 邪恶
+                li: a href="#" 伤不起
+        .box
+          .box-header
+            h3 精彩趣图
+            a.more 更多
+          .box-content
+            ul.image-list.odd-margin
+              - 6.times do
+                li class=(cycle('odd', 'even'))
+                  a href="#"
+                    = image_tag 'avatar.jpg'
+                    .text 这样真的好吗？
+        .box
+          .box-header
+            h3 精彩段子
+            a.more 更多
+          .box-content
+            ul.text-list
+              li: a href="#" 面试的搞笑事件：隔壁老王又中枪了
+              li: a href="#" 搞笑面试经历：考官被面试者拷问住了
+              li: a href="#" 搞笑面试经历：去诺基亚面试手机响起hello moto！
+              li: a href="#" 承认笑话
+              li: a href="#" 灵异笑话~
+              li: a href="#" 幽默笑话
+              li: a href="#" 搞笑
+              li: a href="#" 内涵
+              li: a href="#" 邪恶
+              li: a href="#" 伤不起
+        .box
+          .box-header
+            h3 神回复
+            a.more 更多
+          .box-content
+            ul.text-list.replies
+              - 10.times do
+                li
+                  .avatar.small
+                    a href="#"
+                      = image_tag 'avatar.jpg'
+                    .nickname
+                      a href="#" 
+                        span 小小小花
+                        span.text-muted 3 分钟前
+                      p 这真的是很牛啊，佩服佩服哈哈哈哈安师大撒的

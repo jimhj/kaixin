@@ -27,7 +27,15 @@ input.form-control, textarea.form-control {
 }
 
 .form {
+  padding: 0px;
+  margin: 0px;
+
   .form-group {
     margin-bottom: 15px;
+  }
+
+  .form-footer {
+    @include clearfix;
+    padding: 15px 10px;
   }
 }

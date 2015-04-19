@@ -97,3 +97,41 @@ ul.recommend {
     margin-right: 0px;
   }
 }
+
+.jokes-new {
+  .new-joke .form {
+    padding: 10px 10px !important;
+
+    .form-control {
+      width: 100%;
+      @include ieWidth(600px);
+      border-radius: 0px;
+      background: #F9F9F9;
+    }
+
+    textarea { height: 300px; }    
+
+    .form-group { margin-bottom: 0px; }
+
+    .form-group.body {
+      margin-top: -1px;
+      _margin: -3px 0px 0px 0px !important;
+      *margin: -3px 0px 0px 0px !important;
+    }
+
+    .form-footer {
+      border: 1px solid #ccc;
+      border-top: none;
+      background: #F9F9F9;
+    }
+
+    .form-footer input.file, .form-footer input.checkbox {
+      font-size: 12px;
+      margin-left: 5px;
+    }
+
+    .submit {
+      margin-top: 20px;
+    }
+  }
+}

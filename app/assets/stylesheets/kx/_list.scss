@@ -25,6 +25,22 @@ ul.text-list {
   }
 }
 
+ol.text-list {
+  @include clearfix;
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+
+  li {
+    white-space: normal;
+    border-bottom: 1px dotted #DDD;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    list-style-position: inside;
+    list-style-type: decimal;    
+  }  
+}
+
 ul.tag-list {
   @include list-style;
   
