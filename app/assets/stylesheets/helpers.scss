@@ -148,9 +148,27 @@ i.kx {
   }
 }
 
-.header-slim {
+.header-top {
+  @include clearfix;
   background-color: $brand-red-light;
-  border-bottom: none;
+  width: 100%;
+}
+
+.header-top .header-nav {
+  @include clearfix;
+  height: 30px;
+  width: 1000px;
+  margin: 0 auto;
+  line-height: 30px;
+  font-size: 12px;
+  color: #FFF;
+}
+
+
+.header-slim {
+  background-color: #FFF;
+  // border-bottom: none;
+  border-bottom: 1px solid #ddd;
 }
 
 .header.header-slim .header-nav {
@@ -168,25 +186,29 @@ i.kx {
     font-size: 16px;
     line-height: 40px;
     height: 38px;
-    color: #FFF;
-    border-bottom: 2px solid $brand-red-light;
+    // color: #FFF;
+    border-bottom: 2px solid #FFF;
 
     &:hover {
-      color: #FFF;
-      border-bottom: 2px solid darken($brand-red-light, 10%);
+      // color: #FFF;
+      border-bottom: 2px solid $brand-red;
     }
   }
+}
 
+.header-nav {
   .right {
     @include clearfix;
     height: 100%;
-    width: 300px;
+    // width: 300px;
+    text-align: right;
   }
 
   .right span.divider, .right a {
     margin: 0;
     padding: 0;
-    color: #FFF;
+    // color: #FFF;
+    color: #666;
     float: left;
     display: block;    
     margin-right: 10px;
@@ -206,5 +228,5 @@ i.kx {
     i.kx {
       margin-right: 5px;
     }       
-  }
+  }  
 }

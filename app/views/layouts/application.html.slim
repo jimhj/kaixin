@@ -6,6 +6,20 @@ html
     = javascript_include_tag 'application'
     = csrf_meta_tags
   body class="#{controller_name}-#{action_name}"
+    / .header-top
+    /   .header-nav
+    /     .left
+    /       span 开心100，快乐每一天
+    /     .right.links
+    /       a href="#"
+    /         i.kx.kx-weibo
+    /         span 微博登录
+    /       a href="#"
+    /         i.kx.kx-qq
+    /         span QQ 
+    /       span.divider |
+    /       a href="#{login_path}" 登录
+    /       a href="#{signup_path}" 注册
     .header
       .header-nav
         a.logo href="#{root_url}"
