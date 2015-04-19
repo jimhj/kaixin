@@ -1,4 +1,14 @@
 .left-side
+  .box.profile
+    .box-content
+      .left.photo
+        = image_tag 'avatar.jpg', size: '120x120'
+      .left.info
+        h3 郭美美
+        p.text-muted
+          span 一共发表了
+          span.text-danger 178
+          span 个笑话
   - 2.times do
     .joke-item
       .user
@@ -129,44 +139,6 @@
       a href="#" 下一页
 .right-side
   .box
-    .box-content
-      .login
-        a href="#" 登录
-        span.text-muted 没有帐号？
-        a href="#" 现在注册一个
-        span.text-muted 或者
-      hr
-      .oauth
-        a.btn.btn-primary href="#" 
-          i.kx.kx-qq
-          span QQ 登录 
-        a.btn.btn-danger href="#" 
-          i.kx.kx-weibo
-          span 微博登录              
-      hr
-
-      a.btn.btn-success.btn-lg.btn-block href="#{new_joke_path}" 
-        i.kx.kx-pencil
-        span 我要投稿
-  
-  .box
-    .box-header
-      h3 笑点
-      a.more 更多
-    .box-content
-      ul.tag-list
-        - 2.times do
-          li: a href="#" 爆笑
-          li: a href="#" 夫妻笑话
-          li: a href="#" 经典笑话
-          li: a href="#" 承认笑话
-          li: a href="#" 冷笑话
-          li: a href="#" 幽默笑话
-          li: a href="#" 搞笑
-          li: a href="#" 内涵
-          li: a href="#" 邪恶
-          li: a href="#" 伤不起
-  .box
     .box-header
       h3 精彩趣图
       a.more 更多
@@ -193,19 +165,3 @@
         li: a href="#" 内涵
         li: a href="#" 邪恶
         li: a href="#" 伤不起
-  .box
-    .box-header
-      h3 神回复
-      a.more 更多
-    .box-content
-      ul.text-list.replies
-        - 10.times do
-          li
-            .avatar.small
-              a href="#"
-                = image_tag 'avatar.jpg'
-              .nickname
-                a href="#" 
-                  span 小小小花
-                  span.text-muted 3 分钟前
-                p 这真的是很牛啊，佩服佩服哈哈哈哈安师大撒的

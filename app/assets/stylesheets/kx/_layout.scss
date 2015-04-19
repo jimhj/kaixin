@@ -44,6 +44,7 @@
   }
 
   .box-content {
+    @include clearfix;
     padding: 15px 15px !important;
   }
 }

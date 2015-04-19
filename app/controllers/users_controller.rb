@@ -5,4 +5,8 @@ class UsersController < ApplicationController
   def create
     
   end
+
+  def show
+    render layout: 'detail'
+  end
 end
