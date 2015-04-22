@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   has_many :joke_votings, -> { where(votable_type: 'Joke') }
   has_many :comment_votings, -> { where(votable_type: 'Comment') }
 
-  validates :login, uniqueness: { case_sensitive: false }, allow_blank: true, format: { with: /\A[a-z0-9][a-z0-9-]*\z/i }
+  validates :login, uniqueness: { case_sensitive: false }, format: { with: /\A[a-z0-9][a-z0-9-]*\z/i }
   validates :email, uniqueness: { case_sensitive: false }, presence: true, format: { with: /\A([^@\s]+)@((?:[a-z0-9-]+\.)+[a-z]{2,})\z/i }  
   validates :mobile, uniqueness: { case_sensitive: false }, allow_blank: true  
 

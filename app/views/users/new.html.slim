@@ -3,22 +3,15 @@
     .box-header
       h3 注册
       a.more 已有帐号登录
-    .box-entend
-      .flash-messages 
-        .flash-global.flash-error.clearfix
-          .flash-title 由于以下错误不能提交:
-          ul
-            li 你好你好
-            li 不是不是
-            li 222222
+    = render 'share/form_error', target: @user
     .box-content
-      form.form.register-form
+      = form_for @user, html: { class: 'form register-form' } do |f|
         .form-group
-          input.form-control type="text" placeholder="邮箱"
+          = f.text_field :email, class: 'form-control', placeholder: '邮箱'
         .form-group
-          input.form-control type="text" placeholder="昵称"
+          = f.text_field :login, class: 'form-control', placeholder: '昵称'
         .form-group
-          input.form-control type="password" placeholder="密码"
+          = f.password_field :password, class: 'form-control', placeholder: '密码'
         .form-group
           input.btn.btn-success.btn-block type="submit" value="提交注册"
 
