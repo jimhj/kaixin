@@ -33,4 +33,11 @@ input.form-control, textarea.form-control {
   .form-group {
     margin-bottom: 15px;
   }
+
+  .form-group.has-error {
+    input.form-control, textarea.form-control {
+      color: #c00;
+      border: 1px solid #c00;
+    }
+  }
 }

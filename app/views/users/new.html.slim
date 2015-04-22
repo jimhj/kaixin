@@ -4,8 +4,15 @@
       h3 注册
       a.more 已有帐号登录
     .box-content
+      .flash-messages 
+        .flash-global.flash-error.clearfix
+          .flash-title 由于以下错误不能提交:
+          ul
+            li 你好你好
+            li 不是不是
+            li 222222
       form.form.register-form
-        .form-group
+        .form-group.has-error
           input.form-control type="text" placeholder="邮箱"
         .form-group
           input.form-control type="text" placeholder="昵称"
