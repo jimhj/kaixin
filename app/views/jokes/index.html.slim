@@ -137,7 +137,7 @@
             a href="#"
               = image_tag 'avatar.jpg'
             .nickname
-              a href="#"= current_user.login
+              a href="#{user_path(current_user)}"= current_user.login
               p.text-muted
                 | 一共发表了 <span class="text-danger"> 13 </span> 个笑料 
             / .right
