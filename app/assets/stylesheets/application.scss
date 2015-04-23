@@ -50,6 +50,17 @@ body {
   span.text-muted {
     margin: 0 5px;
   }
+
+  .avatar {
+    text-align: left;
+    border-left: 4px solid $brand-red;
+    // padding-left: 10px;
+    background-color: #F7F7F7;
+    padding: 10px 10px 10px 10px;
+  }
+  .avatar .nickname {
+    width: auto;
+  }
 }
 
 .right-side .replies {

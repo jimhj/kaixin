@@ -22,17 +22,17 @@ i.kx {
 
   &.kx-up-vote {
     @include bg-img;
-    background-position: -33px -33px;
+    background-position: -32px -33px;
   }  
 
   &.kx-down-vote {
     @include bg-img;
-    background-position: -63px -33px;
+    background-position: -62px -33px;
   }
 
   &.kx-comment {
-    @include bg-img(26px, 25px);
-    background-position: -99px -32px;
+    @include bg-img(26px, 26px);
+    background-position: -98px -32px;
   }
 
   &.kx-qq {
@@ -64,18 +64,23 @@ i.kx {
 
   &.kx-up-voted {
     @include bg-img;
-    background-position: -1px -33px;
+    background-position: 0px -33px;
   }
 
   &.kx-up-voted-sm {
     @include bg-img(16px, 16px);
-    background-position: -98px 0px;
+    background-position: -97px 0px;
   }  
 
   &.kx-pencil {
     @include bg-img;
     background-position: -137px -33px;
   }
+
+  &.kx-logout {
+    @include bg-img(14px, 15px);
+    background-position: -2px -68px;
+  }  
 }
 
 // Avatar

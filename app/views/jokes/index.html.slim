@@ -131,21 +131,32 @@
 .right-side
   .box
     .box-content
-      .login
-        a href="#{login_path}" 登录
-        span.text-muted 没有帐号？
-        a href="#{signup_path}" 现在注册一个
-        span.text-muted 或者
+      - if login?
+        .login
+          .avatar
+            a href="#"
+              = image_tag 'avatar.jpg'
+            .nickname
+              a href="#"= current_user.login
+              p.text-muted
+                | 一共发表了 <span class="text-danger"> 13 </span> 个笑料 
+            / .right
+            /   a href="#": i.kx.kx-logout   
+      - else 
+        .login.clearfix.no-login
+          a href="#{login_path}" 登录
+          span.text-muted 没有帐号？
+          a href="#{signup_path}" 现在注册一个
+          span.text-muted 或者
+        hr.no-login
+        .oauth.no-login
+          a.btn.btn-primary href="#" 
+            i.kx.kx-qq
+            span QQ 登录 
+          a.btn.btn-danger href="#" 
+            i.kx.kx-weibo
+            span 微博登录              
       hr
-      .oauth
-        a.btn.btn-primary href="#" 
-          i.kx.kx-qq
-          span QQ 登录 
-        a.btn.btn-danger href="#" 
-          i.kx.kx-weibo
-          span 微博登录              
-      hr
-
       a.btn.btn-success.btn-lg.btn-block href="#{new_joke_path}" 
         i.kx.kx-pencil
         span 我要投稿
