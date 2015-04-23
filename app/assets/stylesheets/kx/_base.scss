@@ -13,7 +13,8 @@ button {
 
 a {
   text-decoration: none;
-  color: $brand-red;
+  // color: $brand-red;
+  color: #666;
 
   &:hover, &:active {
     color: darken($brand-red, 5%);

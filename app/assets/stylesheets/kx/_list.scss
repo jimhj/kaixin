@@ -55,12 +55,14 @@ ul.tag-list {
       display: inline-block;
       padding: 5px 5px;      
       text-decoration: none;
-      border: 1px solid $brand-red;
+      border: 1px solid #DDD;
       border-radius: 4px;
+      color: #999;
     }
 
     a:hover {
       background-color: $brand-red;
+      border: 1px solid $brand-red;
       color: #FFF;
       text-decoration: none;
     }

@@ -87,6 +87,10 @@ i.kx {
 .avatar {
   @include clearfix;
   
+  a {
+    color: $brand-red;
+  }
+  
   img {
     float: left;
     width: 40px;
