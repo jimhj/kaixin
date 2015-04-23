@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
   
   def create
-    @user = User.new params.require(:user).permit(:email, :name, :password)
+    @user = User.new params.require(:user).permit(:login, :email, :password)
     if @user.save
       login_as @user
       redirect_back_or_default root_url

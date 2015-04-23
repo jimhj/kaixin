@@ -9,11 +9,12 @@ class CreateUsers < ActiveRecord::Migration
       t.string :avatar
       t.boolean :confirmed, default: false
       
-      t.integer  :sign_in_count, default: 0
-      t.datetime :current_sign_in_at
-      t.datetime :last_sign_in_at
-      t.string   :current_sign_in_ip
-      t.string   :last_sign_in_ip 
+      # 放到另外的表或者Redis里面 
+      # t.integer  :sign_in_count, default: 0
+      # t.datetime :current_sign_in_at
+      # t.datetime :last_sign_in_at
+      # t.string   :current_sign_in_ip
+      # t.string   :last_sign_in_ip 
       
       # 第三方登录
       t.string :weibo_token
