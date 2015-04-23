@@ -32,7 +32,7 @@ i.kx {
 
   &.kx-comment {
     @include bg-img(26px, 25px);
-    background-position: -99px -33px;
+    background-position: -99px -32px;
   }
 
   &.kx-qq {
@@ -59,7 +59,7 @@ i.kx {
 
   &.kx.kx-zoom {
     @include bg-img(16px, 15px);
-    background-position: -121px 0px;
+    background-position: -122px 0px;
   }
 
   &.kx-up-voted {
@@ -196,11 +196,9 @@ i.kx {
     font-size: 16px;
     line-height: 40px;
     height: 38px;
-    // color: #FFF;
     border-bottom: 2px solid #FFF;
 
     &:hover {
-      // color: #FFF;
       border-bottom: 2px solid $brand-red;
     }
   }
@@ -210,14 +208,12 @@ i.kx {
   .right {
     @include clearfix;
     height: 100%;
-    // width: 300px;
     text-align: right;
   }
 
   .right span.divider, .right a {
     margin: 0;
     padding: 0;
-    // color: #FFF;
     color: #666;
     float: left;
     display: block;    

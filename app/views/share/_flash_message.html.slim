@@ -1,0 +1,6 @@
+- [:success, :info, :warn, :danger, :error].each do |type|
+  - if flash[type]
+    .box-entend.flash-messages
+      .flash-global.clearfix class="flash-#{type}"
+        .flash-title 由于以下错误不能提交:
+        p= flash[type]

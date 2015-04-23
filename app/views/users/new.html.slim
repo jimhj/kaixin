@@ -2,7 +2,7 @@
   .box
     .box-header
       h3 注册
-      a.more 已有帐号登录
+      a.more href="#{login_path}" 已有帐号登录
     = render 'share/form_error', target: @user
     .box-content
       = form_for @user, html: { class: 'form register-form' } do |f|

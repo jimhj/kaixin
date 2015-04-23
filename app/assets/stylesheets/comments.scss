@@ -87,11 +87,13 @@
   border-bottom: 1px dotted #DDD;
 
   textarea {
+    @include borderBox;
     width: 510px;
     @include ieWidth(498px);
     height: 42px !important;
-    _height: 19px !important;
+    _height: 20px !important;
     *height: 20px !important;
+    height: 20px\0 !important;
     border-radius: 0px;
   }
 
