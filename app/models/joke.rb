@@ -1,4 +1,4 @@
 class Joke < ActiveRecord::Base
   belongs_to :user
-  has_many :photos
+  mount_uploaders :photos, PhotoUploader
 end
