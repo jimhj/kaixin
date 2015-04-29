@@ -25,6 +25,10 @@ gem 'sinatra', require: nil
 gem "hiredis", "~> 0.4.0"
 gem "redis", ">= 2.2.0"
 
+# File Upload
+gem 'carrierwave', '~> 0.10.0'
+gem 'mini_magick', '~> 4.2.3'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

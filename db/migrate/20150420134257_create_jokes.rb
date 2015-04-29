@@ -6,7 +6,7 @@ class CreateJokes < ActiveRecord::Migration
       t.belongs_to :auditor
       t.string :title
       t.text :content
-      t.integer :photos_count, default: 0
+      t.text :photos
       t.string :ip
       t.boolean :anonymous, default: false
       t.integer :up_votes_count, default: 0

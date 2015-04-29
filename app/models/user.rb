@@ -3,7 +3,6 @@ class User < ActiveRecord::Base
 
   has_many :jokes
   has_many :comments
-  has_many :photos
   has_many :joke_votings, -> { where(votable_type: 'Joke') }
   has_many :comment_votings, -> { where(votable_type: 'Comment') }
 
