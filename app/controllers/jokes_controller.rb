@@ -2,6 +2,7 @@ class JokesController < ApplicationController
   before_action :login_required, only: [:new, :create]
 
   def index
+    @jokes = Joke.order('created_at DESC')
   end
 
   def new

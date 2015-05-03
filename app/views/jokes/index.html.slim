@@ -1,5 +1,5 @@
 .left-side
-  - 2.times do
+  - @jokes.each do |joke|
     .joke-item
       .user
         .avatar
@@ -10,9 +10,11 @@
             p.text-muted 大约 1 分钟前
       .content
         h4
-          a href="#{joke_path(211)}" 知道为什么重男轻女了吧
+          a href="#{joke_path(joke)}"= render_joke_title(joke)
         .body
-          | 记得小学的时候，有次爸爸开车带我去外地玩，之后就遇见大雪封路，高速路停运了，我们就堵在高速上，我们就在车上吃喝起来，突然感觉尿急，正要开门下车，只见爸爸拉住了我，递给我一个矿泉水瓶子，哼了一声，我就明白什么意思了，敢问女生有这个功能么
+          = joke.content
+          .photo
+            = render_joke_photo joke          
         .comment
           .comment-nav
             span 神回复
@@ -37,79 +39,7 @@
         a.comment href="#"
           i.kx.kx-comment
           span 129
-
-    .joke-item
-      .user
-        .avatar
-          a href="#"
-            = image_tag 'avatar.jpg'
-          .nickname
-            a href="#" 小小小花
-            p.text-muted 大约 1 分钟前
-      .content
-        .body
-          | 记得小学的时候，有次爸爸开车带我去外地玩，之后就遇见大雪封路，高速路停运了，我们就堵在高速上，我们就在车上吃喝起来，突然感觉尿急，正要开门下车，只见爸爸拉住了我，递给我一个矿泉水瓶子，哼了一声，我就明白什么意思了，敢问女生有这个功能么
-        .comment
-          .comment-nav
-            span 神回复
-          .comment-body
-            .avatar.small
-              a href="#"
-                = image_tag 'avatar.jpg'
-              .nickname
-                a href="#" 小小小花
-                p.text-muted 为何如此牛逼的说为何如此牛逼的说为何如此牛逼的说为何如此牛逼的说为何如此牛逼的说为何如此牛逼的说为何如此牛逼的说
-              a.likes href="#"
-                i.kx.kx-up-voted
-                span.text-muted 17
-
-      .operation
-        a.ding href="#"
-          i.kx.kx-up-vote
-          span 100
-        a.cai href="#"
-          i.kx.kx-down-vote
-          span 201
-        a.comment href="#"
-          i.kx.kx-comment
-          span 129
-      = render 'share/comments'  
-
-    .joke-item
-      .user
-        .avatar
-          a href="#"
-            = image_tag 'avatar.jpg'
-          .nickname
-            a href="#" 小小小花
-            p.text-muted 大约 1 分钟前
-      .content
-        .body
-          = image_tag 'sample.jpg'
-        .comment
-          .comment-nav
-            span 神回复
-          .comment-body
-            .avatar.small
-              a href="#"
-                = image_tag 'avatar.jpg'
-              .nickname
-                a href="#" 小小小花
-                p.text-muted 为何如此牛逼的说为何如此牛逼的说为何如此牛逼的说为何如此牛逼的说为何如此牛逼的说为何如此牛逼的说为何如此牛逼的说
-              a.likes href="#"
-                i.kx.kx-up-voted
-                span.text-muted 17
-
-      .operation
-        a.ding href="#"
-          i.kx.kx-up-vote
-          span 100
-        a.cai href="#"
-          i.kx.kx-down-vote
-          span 201
-        a.comment href="#"
-          i.kx.kx-comment
-          span 129
+      = render 'share/comments'
 
   ul.pagination
     li.prev.disabled

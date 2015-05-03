@@ -5,7 +5,11 @@ module ApplicationHelper
 
     if length > 1
       sub_title = content_tag 'span' do
-        %Q(  (#{params[:photo].presence || 1}/#{joke.photos.count}))
+        if action_name == "index"
+          %Q((组图))
+        else
+          %Q((#{params[:photo].presence || 1}/#{joke.photos.count}))
+        end
       end
       title << sub_title.to_s
     end
@@ -28,7 +32,7 @@ module ApplicationHelper
     if ind.zero?
       ind = 1
     end
-    
+
     length = joke.photos.length
     prev_joke = Joke.where("id > ?", joke.id).order("id ASC").first
 

@@ -9,7 +9,7 @@
           p.text-muted 大约 1 分钟前
     .content
       h4
-        a href="#{joke_path(211)}"= render_joke_title(@joke)
+        a href="#{joke_path(@joke)}"= render_joke_title(@joke)
       .body
         = @joke.content
         .photo

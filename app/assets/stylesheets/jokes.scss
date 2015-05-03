@@ -15,6 +15,11 @@
 
   h4 {
     margin-bottom: 10px;
+    span {
+      font-size: 14px;
+      margin-left: 5px;
+      color: $brand-red-light;
+    }
   }
 
   .body {
@@ -25,6 +30,7 @@
     }
 
     .photo {
+      margin-top: 10px;
       text-align: center;
     }
   }
