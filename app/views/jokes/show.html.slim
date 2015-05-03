@@ -9,9 +9,12 @@
           p.text-muted 大约 1 分钟前
     .content
       h4
-        a href="#{joke_path(211)}" 知道为什么重男轻女了吧
+        a href="#{joke_path(211)}"= render_joke_title(@joke)
       .body
-        | 记得小学的时候，有次爸爸开车带我去外地玩，之后就遇见大雪封路，高速路停运了，我们就堵在高速上，我们就在车上吃喝起来，突然感觉尿急，正要开门下车，只见爸爸拉住了我，递给我一个矿泉水瓶子，哼了一声，我就明白什么意思了，敢问女生有这个功能么
+        = @joke.content
+        .photo
+          = render_joke_photo @joke
+
       .paginate.text-center
         a.prev href="#"
           i.kx.kx-prev

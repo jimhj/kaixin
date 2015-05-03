@@ -23,6 +23,10 @@
     img {
       max-width: 640px;
     }
+
+    .photo {
+      text-align: center;
+    }
   }
 
   .paginate {
@@ -98,7 +102,7 @@ ul.recommend {
   }
 }
 
-.jokes-new {
+.jokes-new, .jokes-create {
   .new-joke .form {
     padding: 10px 10px !important;
 
