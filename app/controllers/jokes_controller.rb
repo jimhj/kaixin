@@ -13,6 +13,7 @@ class JokesController < ApplicationController
   def create
     @joke = current_user.jokes.build joke_params    
     @joke.photos = params[:joke][:photos]
+    @joke.ip = request.remote_ip
 
     if @joke.save
       redirect_to @joke
