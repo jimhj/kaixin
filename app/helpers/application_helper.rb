@@ -17,10 +17,9 @@ module ApplicationHelper
   end
 
   def render_joke_photo(joke)
-    ind = params[:photo].to_i - 1
-    if ind < 0
-      ind = 0
-    end
+    ind = params[:photo].to_i
+    ind = 1 if ind.zero?
+    ind = ind - 1
     
     if img = joke.photos[ind]
       image_tag img.url
@@ -29,43 +28,29 @@ module ApplicationHelper
 
   def render_prev_joke_link(joke)
     ind = params[:photo].to_i
-    if ind.zero?
-      ind = 1
-    end
-
+    ind = 1 if ind.zero?
+    ind = ind - 1
     length = joke.photos.length
     prev_joke = Joke.where("id > ?", joke.id).order("id ASC").first
 
-    if length < 2
-      joke_path(prev_joke) rescue url_for
+    if length < 2 || ind < 1
+      joke_path(prev_joke) rescue nil
     else
-      ind = ind - 1
-      if ind <= 0
-        joke_path(prev_joke) rescue url_for
-      else
-        joke_path(joke, photo: ind)
-      end
+      joke_path(joke, photo: ind)
     end 
   end
 
   def render_next_joke_link(joke)
     ind = params[:photo].to_i
-    if ind.zero?
-      ind = 1
-    end
-
+    ind = 1 if ind.zero?
+    ind = ind + 1  
     length = joke.photos.length
     next_joke = Joke.where("id < ?", joke.id).order("id DESC").first
 
-    if length < 2
+    if length < 2 || ind > length
       joke_path(next_joke) rescue nil
     else
-      ind = ind + 1      
-      if ind > length
-        joke_path(next_joke) rescue nil
-      else
-        joke_path(joke, photo: ind)        
-      end
+      joke_path(joke, photo: ind)        
     end     
   end    
 end
