@@ -1,7 +1,6 @@
 class Joke < ActiveRecord::Base
   belongs_to :user
   mount_uploaders :photos, PhotoUploader
-  include ActiveView::Helpers
 
   validates :title, uniqueness: true, length: { maximum: 40 }, allow_blank: true
   validates :content, presence: true, if: Proc.new { |joke| joke.title.blank? }

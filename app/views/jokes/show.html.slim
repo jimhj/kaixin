@@ -16,9 +16,9 @@
           = render_joke_photo @joke
 
       .paginate.text-center
-        a.prev href="#"
+        a.prev href="#{render_prev_joke_link(@joke)}"
           i.kx.kx-prev
-        a.next href="#"
+        a.next href="#{render_next_joke_link(@joke)}"
           i.kx.kx-next
         p.text-muted 按 ← → 方向键也可以换笑话哦
     .operation

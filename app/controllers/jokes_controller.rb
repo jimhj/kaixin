@@ -11,8 +11,8 @@ class JokesController < ApplicationController
 
   def create
     @joke = current_user.jokes.build joke_params    
-    @joke.photos = [params[:joke][:photos]]
-    
+    @joke.photos = params[:joke][:photos]
+
     if @joke.save
       redirect_to @joke
     else
@@ -28,6 +28,6 @@ class JokesController < ApplicationController
   private
 
   def joke_params
-    params.require(:joke).permit(:title, :content, :anonymous)
+    params.require(:joke).permit(:title, :content, :photos, :anonymous)
   end
 end

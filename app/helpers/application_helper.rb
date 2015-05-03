@@ -1,35 +1,67 @@
 module ApplicationHelper
   def render_joke_title(joke)
     title = joke.title
-    current = params[:photo].presence || 1
+    length = joke.photos.length
 
-    if joke.photos.length > 1
-      sub_title = "(#{current}/#{joke.photos.count})"
-      title << sub_title
+    if length > 1
+      sub_title = content_tag 'span' do
+        %Q(  (#{params[:photo].presence || 1}/#{joke.photos.count}))
+      end
+      title << sub_title.to_s
     end
-    title
+    title.html_safe
   end
 
   def render_joke_photo(joke)
-    current = params[:photo].presence || 1
-    ind = current - 1
+    ind = params[:photo].to_i - 1
     if ind < 0
       ind = 0
     end
-    photo = joke.photos[ind]
-    image_tag photo
+    
+    if img = joke.photos[ind]
+      image_tag img.url
+    end
   end
 
   def render_prev_joke_link(joke)
-    if self.photos.length == 1
-      joke = Joke.where("id > ?", id).order("id ASC").first
-      joke_path(joke)
+    ind = params[:photo].to_i
+    if ind.zero?
+      ind = 1
+    end
+    
+    length = joke.photos.length
+    prev_joke = Joke.where("id > ?", joke.id).order("id ASC").first
+
+    if length < 2
+      joke_path(prev_joke) rescue url_for
     else
-      
+      ind = ind - 1
+      if ind <= 0
+        joke_path(prev_joke) rescue url_for
+      else
+        joke_path(joke, photo: ind)
+      end
     end 
   end
 
-  def next_link
-    Joke.where("id < ?", id).order("id DESC").first    
+  def render_next_joke_link(joke)
+    ind = params[:photo].to_i
+    if ind.zero?
+      ind = 1
+    end
+
+    length = joke.photos.length
+    next_joke = Joke.where("id < ?", joke.id).order("id DESC").first
+
+    if length < 2
+      joke_path(next_joke) rescue nil
+    else
+      ind = ind + 1      
+      if ind > length
+        joke_path(next_joke) rescue nil
+      else
+        joke_path(joke, photo: ind)        
+      end
+    end     
   end    
 end
