@@ -4,7 +4,15 @@ class Joke < ActiveRecord::Base
 
   validates :title, uniqueness: true, length: { maximum: 40 }, allow_blank: true
   validates :content, presence: true, if: Proc.new { |joke| joke.title.blank? }
-  validates :content, uniqueness: true, if: Proc.new { |joke| joke.photos.blank? }  
+  validates :content, uniqueness: true, if: Proc.new { |joke| joke.photos.blank? }
+
+  after_create :update_hot
+  after_touch :update_hot
+
+  before_create do
+    self.up_votes_count = rand(1000)
+    self.down_votes_count = self.up_votes_count * rand(50) / 100
+  end
 
   # See https://gist.github.com/xdite/1391980
   def calculate_hot

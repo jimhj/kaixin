@@ -35,6 +35,7 @@ db/schema.rb
 /config/newrelic.yml
 /config/deploy/production.rb
 /config/deploy/staging.rb
-/.DS_Store
+.DS_Store?
+.DS_Store
 /dump.rdb
 /.capistrano/*.*

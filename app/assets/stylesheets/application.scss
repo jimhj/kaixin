@@ -8,6 +8,14 @@
 body {
   background-color: #F1F1F1;
   background: #F1F1F1 image-url('giftly.png') repeat;
+  font-family: 'HanYiQiHei';
+}
+
+@font-face {
+  font-family: 'HanYiQiHei';
+  src: font-url('hanyiqihei.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
 .header .header-nav {
@@ -80,7 +88,6 @@ body {
 
 .box.load-comments .box-content {
   border-top: 1px dotted #DDD;
-  // padding-bottom: 0px !important;
   background-color: rgba(252, 253, 236, 0.43);
 }
 

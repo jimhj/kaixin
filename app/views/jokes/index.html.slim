@@ -3,10 +3,10 @@
     .joke-item
       .user
         .avatar
-          a href="#{user_path(1)}"
+          a href="#{user_path(joke.user)}"
             = image_tag 'avatar.jpg'
           .nickname
-            a href="#" 小小小花
+            a href="#{user_path(joke.user)}"= joke.user.login
             p.text-muted 大约 1 分钟前
       .content
         h4
@@ -32,13 +32,13 @@
       .operation
         a.ding href="#"
           i.kx.kx-up-vote
-          span 100
+          span= joke.up_votes_count
         a.cai href="#"
           i.kx.kx-down-vote
-          span 201
+          span= joke.down_votes_count
         a.comment href="#"
           i.kx.kx-comment
-          span 129
+          span= joke.comments_count
       = render 'share/comments'
 
   ul.pagination
