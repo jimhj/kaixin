@@ -21,9 +21,10 @@ class AvatarUploader < CarrierWave::Uploader::Base
     # For Rails 3.1+ asset pipeline compatibility:
     # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
 
-    pic_name = "%02d" % (model.id % 15).to_s
-    pic_name = pic_name << ".png"
-    ActionController::Base.helpers.asset_path "avatars/#{pic_name}"
+    # pic_name = "%02d" % (model.id % 15).to_s
+    # pic_name = pic_name << ".png"
+    # ActionController::Base.helpers.asset_path "avatars/#{pic_name}"
+    ActionController::Base.helpers.asset_path "avatar.png"
   end
 
   # Process files as they are uploaded:
