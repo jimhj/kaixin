@@ -24,13 +24,13 @@
     .operation
       a.ding href="#"
         i.kx.kx-up-vote
-        span 100
+        span= @joke.up_votes_count
       a.cai href="#"
         i.kx.kx-down-vote
-        span 201
+        span= @joke.down_votes_count
       a.comment href="#"
         i.kx.kx-comment
-        span 129
+        span= @joke.comments_count
 
   .box
     .box-content

@@ -4,7 +4,7 @@
       .user
         .avatar
           a href="#{user_path(joke.user)}"
-            = image_tag 'avatar.jpg'
+            = image_tag joke.user.avatar.url
           .nickname
             a href="#{user_path(joke.user)}"= joke.user.login
             p.text-muted 大约 1 分钟前
