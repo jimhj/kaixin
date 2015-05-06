@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   mount Sidekiq::Web => '/sidekiq'
 
   root 'jokes#index'
-  resources :jokes
+
+  resources :jokes do
+    resources :comments, only: [:create, :destroy, :index]
+  end
+
   resources :users
   resources :sessions
   resources :tags

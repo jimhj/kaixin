@@ -2,6 +2,7 @@ class Joke < ActiveRecord::Base
   mount_uploaders :photos, PhotoUploader
   
   belongs_to :user
+  has_many :comments, dependent: :destroy, as: :commentable
 
   validates :title, uniqueness: true, length: { maximum: 40 }, allow_blank: true
   validates :content, presence: true, if: Proc.new { |joke| joke.title.blank? }

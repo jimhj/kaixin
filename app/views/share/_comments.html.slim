@@ -5,41 +5,9 @@
         textarea.form-control placeholder="说点什么吧..."
       .left
         a.btn.btn-primary 评论
-    ul.text-list.comments
-            li.clearfix
-              .left
-                .avatar.small
-                  a href="#"
-                    = image_tag 'avatar.jpg'
-                  .nickname
-                    a href="#" 
-                      span 小小小花
-                      span.text-muted 3 分钟前
-                    p 这真的是很牛哈安师大撒的这真的是很牛啊
-              .right
-                a.text-muted.reply 回复
-                a.ding href="#"
-                  i.kx.kx-up-voted-sm
-                  small.text-muted 192
-                span.text-muted 1楼
-              i.kx.kx-light-up    
-            - 6.times do
-              li.clearfix
-                .left
-                  .avatar.small
-                    a href="#"
-                      = image_tag 'avatar.jpg'
-                    .nickname
-                      a href="#" 
-                        span 小小小花
-                        span.text-muted 3 分钟前
-                      p 这真的是很牛啊，佩服佩服哈哈哈哈安师大撒的这真的是很牛啊，佩服佩服哈哈哈哈安师大撒的
-                .right
-                  a.text-muted.reply 回复
-                  a.ding href="#"
-                    i.kx.kx-up-voted-sm
-                    small.text-muted 192
-                  span.text-muted 1楼
+    ul.text-list.comments  
+      - 6.times do
+        = render 'share/comment'
     .text-muted.text-center.clearfix
       a href="#" 点击查看更多 → 
       a.right.text-muted 收起 ↑

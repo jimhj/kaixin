@@ -1,0 +1,18 @@
+li.clearfix
+  .left
+    .avatar.small
+      a href="#{user_path(comment.user)}"
+        = image_tag comment.user.avatar.url
+      .nickname
+        a href="#{user_path(comment.user)}" 
+          span= comment.user.login
+          span.text-muted= comment.created_at
+        p= comment.body
+  .right
+    a.text-muted.reply 回复
+    a.ding href="#"
+      i.kx.kx-up-voted-sm
+      small.text-muted= comment.up_votes_count
+    span.text-muted 1楼
+  - if comment.hot?
+    i.kx.kx-light-up
