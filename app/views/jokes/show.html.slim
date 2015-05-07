@@ -68,8 +68,8 @@
           span.text-danger.left
           a.btn.btn-success.btn-lg href="javascript:;" 评论
     .box-content
-      ul.text-list.comments    
-        = render partial: 'share/comment_li', collection: @comments, as: :comment
+      ul.text-list.comments  
+        = render @comments  
       ul.pagination
         li.prev.disabled
           a href="#" ← 上一页

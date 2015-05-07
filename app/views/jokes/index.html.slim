@@ -39,7 +39,7 @@
         a.comment href="#"
           i.kx.kx-comment
           span= joke.comments_count
-      = render 'share/comments'
+      = render partial: 'share/comments', locals: { comments: joke.comments }
 
   ul.pagination
     li.prev.disabled
@@ -70,8 +70,8 @@
               a href="#{user_path(current_user)}"= current_user.login
               p.text-muted
                 | 一共发表了 <span class="text-danger"> 13 </span> 个笑料 
-            / .right
-            /   a href="#": i.kx.kx-logout   
+            .right
+              a href="#": i.kx.kx-logout   
       - else 
         .login.clearfix.no-login
           a href="#{login_path}" 登录

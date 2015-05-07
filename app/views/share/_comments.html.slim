@@ -5,9 +5,8 @@
         textarea.form-control placeholder="说点什么吧..."
       .left
         a.btn.btn-primary 评论
-    ul.text-list.comments  
-      - 6.times do
-        = render 'share/comment'
+    ul.text-list.comments 
+      = render comments
     .text-muted.text-center.clearfix
       a href="#" 点击查看更多 → 
       a.right.text-muted 收起 ↑
