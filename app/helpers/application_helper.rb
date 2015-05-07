@@ -52,5 +52,9 @@ module ApplicationHelper
     else
       joke_path(joke, photo: ind)        
     end     
-  end    
+  end
+
+  # def voted?(votable)
+    
+  # end    
 end

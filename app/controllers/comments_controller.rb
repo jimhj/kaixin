@@ -19,4 +19,7 @@ class CommentsController < ApplicationController
       }.to_json
     end
   end
+
+  def up_vote
+  end
 end

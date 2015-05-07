@@ -86,5 +86,5 @@ class ApplicationController < ActionController::Base
       expires: 2.weeks.from_now,
       httponly: true
     }
-  end 
+  end
 end

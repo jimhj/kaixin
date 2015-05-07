@@ -1,4 +1,5 @@
 class Joke < ActiveRecord::Base
+  include Votable
   mount_uploaders :photos, PhotoUploader
   
   belongs_to :user

@@ -2,6 +2,7 @@
 #= require jquery_ujs
 #= require jquery.placeholder 
 #= require comments
+#= require votings
 #= require_self
 
 $(document).ready ->

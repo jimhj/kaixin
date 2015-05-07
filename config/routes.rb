@@ -4,8 +4,16 @@ Rails.application.routes.draw do
 
   root 'jokes#index'
 
+  concern :votable do
+    post :up_vote
+    post :down_vote
+  end
+
   resources :jokes do
-    resources :comments, only: [:create, :destroy, :index]
+    concerns :votable
+    resources :comments, shallow: true do 
+      concerns :votable
+    end
   end
 
   resources :users
