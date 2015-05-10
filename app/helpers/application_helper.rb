@@ -54,7 +54,15 @@ module ApplicationHelper
     end     
   end
 
-  # def voted?(votable)
-    
-  # end    
+  def render_current_user_as_json
+    u = if login?
+      current_user
+        .as_json(only: [:login, :bio])
+        .merge(avatar: current_user.avatar_url)
+    else
+      nil
+    end
+
+    javascript_tag "window.current_user=#{u.to_json};"
+  end   
 end

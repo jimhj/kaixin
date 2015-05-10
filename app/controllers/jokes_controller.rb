@@ -32,14 +32,18 @@ class JokesController < ApplicationController
     @joke = Joke.find params[:joke_id]
     voting = @joke.up_votings.build
     voting.user = current_user
-    ivoting.save
+    voting.save
+
+    render text: voting.to_json
   end
 
   def down_vote
     @joke = Joke.find params[:joke_id]
     voting = @joke.down_votings.build
     voting.user = current_user
-    voting.save    
+    voting.save
+    
+    render text: voting.to_json  
   end
 
   private

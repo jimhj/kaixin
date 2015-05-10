@@ -30,10 +30,25 @@ i.kx {
     background-position: -62px -33px;
   }
 
+  &.kx-up-voted {
+    @include bg-img;
+    background-position: 0px -33px;
+  }
+
+  &.kx-down-voted {
+    @include bg-img;
+    background-position: 0px -94px;
+  }    
+
   &.kx-comment {
     @include bg-img(26px, 26px);
     background-position: -98px -32px;
   }
+
+  &.kx-commented {
+    @include bg-img(26px, 26px);
+    background-position: -98px -92px;
+  }  
 
   &.kx-qq {
     @include bg-img(16px, 16px);
@@ -60,11 +75,6 @@ i.kx {
   &.kx.kx-zoom {
     @include bg-img(16px, 15px);
     background-position: -122px 0px;
-  }
-
-  &.kx-up-voted {
-    @include bg-img;
-    background-position: 0px -33px;
   }
 
   &.kx-up-voted-sm {

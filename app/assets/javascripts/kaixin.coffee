@@ -1,0 +1,2 @@
+@kaixin = {}
+@kaixin.cookies = Cookies
