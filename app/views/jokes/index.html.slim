@@ -36,10 +36,9 @@
         a.cai href="javascript:;" data-votable_type="jokes" data-votable_id=joke.id data-vote="down_vote"
           i.kx.kx-down-voted
           span= joke.down_votes_count
-        a.comment href="javascript:;"
+        a.comment href="javascript:;" data-joke_id=joke.id
           i.kx.kx-commented
           span= joke.comments_count
-      = render partial: 'share/comments', locals: { comments: joke.comments }
 
   ul.pagination
     li.prev.disabled

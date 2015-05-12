@@ -1,5 +1,11 @@
 class CommentsController < ApplicationController
-  before_action :login_required
+  before_action :login_required, only: [:create]
+
+  def index
+    joke = Joke.find params[:joke_id]
+    comments = joke.comments.order('created_at desc').limit(10)
+    render partial: 'share/comments', locals: { comments: comments }, layout: false
+  end
 
   def create
     joke = Joke.find params[:joke_id]

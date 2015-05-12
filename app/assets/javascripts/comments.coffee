@@ -28,3 +28,23 @@ $(document).ready ->
       else
         $error.text res.error
     , 'json'
+
+  # 点击加载评论
+  $('.joke-item').on 'click', '.operation a.comment', ->
+    $t        = $(this)
+    joke_id   = $t.data 'joke_id'
+    url       = "/jokes/#{joke_id}/comments"
+    $comments = $t.parent().next('.box')
+
+    if $comments.length == 1
+      if $comments.is(':hidden')
+        $comments.slideDown()
+      else
+        $comments.slideUp()
+    else
+      $.get url, (res) ->
+        $comments = $(res)
+        $comments.css 'display', 'none'
+        $t.parent().after $comments
+        $comments.slideDown()
+      , 'html'
