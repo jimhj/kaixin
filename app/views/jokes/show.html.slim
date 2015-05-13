@@ -46,7 +46,7 @@
       - if not login?
         .require-login.clearfix
           .left
-            a href="#" 登录
+            a href="#{login_path(return_to: url_for)}" 登录
             span 后才可以发表评论
           .right
             span 或者使用

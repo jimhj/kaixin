@@ -1,8 +1,11 @@
 class Comment < ActiveRecord::Base
+  include Votable
+
   belongs_to :user
-  belongs_to :joke, polymorphic: true, counter_cache: true
+  belongs_to :commentable, polymorphic: true, counter_cache: true
 
   def hot?
-    up_votes_count > 10
+    p self
+    self == commentable.hot_comment
   end
 end

@@ -14,20 +14,21 @@
         .body
           = joke.content
           .photo
-            = render_joke_photo joke          
-        .comment
-          .comment-nav
-            span 神回复
-          .comment-body
-            .avatar.small
-              a href="#"
-                = image_tag 'avatar.jpg'
-              .nickname
-                a href="#" 小小小花
-                p.text-muted 为何如此牛逼的说为何如此牛逼的说为何如此牛逼的说为何如此牛逼的说为何如此牛逼的说为何如此牛逼的说为何如此牛逼的说
-              a.likes href="#"
-                i.kx.kx-up-voted
-                span.text-muted 17
+            = render_joke_photo joke  
+        - if joke.hot_comment.present?        
+          .comment
+            .comment-nav
+              span 神回复
+            .comment-body
+              .avatar.small
+                a href="#{user_path(joke.hot_comment.user)}"
+                  = image_tag joke.hot_comment.user.avatar.url
+                .nickname
+                  a href="#{user_path(joke.hot_comment.user)}"= joke.hot_comment.user.login
+                  p.text-muted= joke.hot_comment.body
+                a.likes.ding href="javascript:;" data-votable_type="comments" data-votable_id=joke.hot_comment.id data-vote="up_vote"
+                  i.kx.kx-up-voted
+                  span.text-muted= joke.hot_comment.up_votes_count
 
       .operation
         a.ding href="javascript:;" data-votable_type="jokes" data-votable_id=joke.id data-vote="up_vote"

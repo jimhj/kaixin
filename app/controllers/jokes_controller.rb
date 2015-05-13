@@ -2,7 +2,7 @@ class JokesController < ApplicationController
   before_action :login_required, only: [:new, :create]
 
   def index
-    @jokes = Joke.includes(:user).order('created_at DESC')
+    @jokes = Joke.preload(:comments, :user).order('created_at DESC')
   end
 
   def new

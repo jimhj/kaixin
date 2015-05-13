@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
     comment.body = params[:body]
     comment.user = current_user
     if comment.save
-      html = render_to_string(partial: 'share/comment_li', locals: { comment: comment })
+      html = render_to_string(partial: 'comment', locals: { comment: comment })
       render :text => {
         success: true,
         html: html
@@ -27,5 +27,11 @@ class CommentsController < ApplicationController
   end
 
   def up_vote
+    @comment = Comment.find params[:comment_id]
+    voting = @comment.up_votings.build
+    voting.user = current_user
+    voting.save
+
+    render text: voting.to_json
   end
 end

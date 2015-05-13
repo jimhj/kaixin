@@ -39,5 +39,9 @@ class Joke < ActiveRecord::Base
     # reload because comments_count has been cache in associations
     reload
     update_attribute :hot, calculate_hot
-  end  
+  end
+
+  def hot_comment
+    comments.where('up_votes_count > 0').order('created_at ASC').first
+  end
 end

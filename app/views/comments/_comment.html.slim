@@ -10,7 +10,7 @@ li.clearfix
         p= comment.body
   .right
     a.text-muted.reply 回复
-    a.ding href="#"
+    a.ding href="javascript:;" data-votable_type="comments" data-votable_id=comment.id data-vote="up_vote"
       i.kx.kx-up-voted-sm
       small.text-muted= comment.up_votes_count
     span.text-muted 1楼

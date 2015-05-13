@@ -14,6 +14,11 @@ kaixin.voted_jokes = ->
   r     = $.merge up, down
   $.unique r
 
+kaixin.voted_comments = ->
+  up = kaixin.cookies.get "up_vote_comments"
+  up = (up || "").split(',')
+  $.unique up
+
 kaixin._updateIco = ($i) ->  
   klasses = $i.attr('class').split(' ')
   kx      = klasses[0]
@@ -25,12 +30,12 @@ kaixin.updateVoteState = ->
   for joke_id in kaixin.up_vote_jokes()
     if joke_id != "" and joke_id != undefined
       $i = $("a.ding[data-votable_id='#{joke_id}']").find('i')
-      kaixin._updateIco $i
+      kaixin._updateIco($i)
 
   for joke_id in kaixin.down_vote_jokes()
     if joke_id != "" and joke_id != undefined
       $i = $("a.cai[data-votable_id='#{joke_id}']").find('i')
-      kaixin._updateIco $i
+      kaixin._updateIco($i)
 
 
 $(document).ready ->
@@ -46,12 +51,19 @@ $(document).ready ->
     url                = "/#{votable}/#{votable_id}/#{vote}"
     cache_key          = "#{vote}_#{votable}"  
     cached             = (kaixin.cookies.get(cache_key) || '').split(',')
-    
-    if kaixin.voted_jokes().indexOf("#{votable_id}") >= 0 or cached.indexOf("#{votable_id}") >= 0
-      console.log "已经投过票了"
+
+    if cached.indexOf("#{votable_id}") >= 0
+      console.log '已经投过票了'
       return false
 
-    $num = $t.find('span:last')
+    if votable == "jokes" and kaixin.voted_jokes().indexOf("#{votable_id}") >= 0 
+      console.log '已经投过票了'
+      return false
+
+    $num = $t.find('span')
+    if $num.length == 0
+      $num = $t.find('small')
+
     number = parseInt $num.text()      
     $num.text number + 1
     cached.push votable_id
