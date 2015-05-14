@@ -4,6 +4,8 @@ class Joke < ActiveRecord::Base
   
   belongs_to :user
   has_many :comments, dependent: :destroy, as: :commentable
+  has_many :taggings
+  has_many :tags, through: :taggings
 
   validates :title, uniqueness: true, length: { maximum: 40 }, allow_blank: true
   validates :content, presence: true, if: Proc.new { |joke| joke.title.blank? }

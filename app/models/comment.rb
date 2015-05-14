@@ -5,7 +5,6 @@ class Comment < ActiveRecord::Base
   belongs_to :commentable, polymorphic: true, counter_cache: true
 
   def hot?
-    p self
     self == commentable.hot_comment
   end
 end
