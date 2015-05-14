@@ -19,6 +19,18 @@ class Joke < ActiveRecord::Base
     self.down_votes_count = self.up_votes_count * rand(50) / 100
   end
 
+  def tag_list
+    tags.pluck(:name)
+  end
+
+  def tag_list=(tags)
+    tags = tags.split(",").map { |tag| tag.strip }.collect do |tag|
+      Tag.find_or_create_by! name: tag
+    end
+
+    self.tags = tags
+  end
+
   # See https://gist.github.com/xdite/1391980
   def calculate_hot
     score = (up_votes_count - down_votes_count).abs
