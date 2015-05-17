@@ -30,7 +30,7 @@ $(document).ready ->
     , 'json'
 
   # 点击加载评论
-  $('.joke-item').on 'click', '.operation a.comment', ->
+  $('.joke-item').on 'click', '.operation a.comment.loadComment', ->
     $t        = $(this)
     joke_id   = $t.data 'joke_id'
     url       = "/jokes/#{joke_id}/comments"

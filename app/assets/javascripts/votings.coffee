@@ -1,12 +1,15 @@
+kaixin._getArray = (str)->
+  array = (str || '').split(',')
+  array = kaixin.compact array
+  $.unique array
+
 kaixin.up_vote_jokes = ->
   up = kaixin.cookies.get 'up_vote_jokes'
-  up = (up || '').split(',')
-  $.unique up
+  kaixin._getArray up
 
 kaixin.down_vote_jokes = ->
   down = kaixin.cookies.get 'down_vote_jokes'
-  down = (down || '').split(',')  
-  $.unique down
+  kaixin._getArray down
 
 kaixin.voted_jokes = ->
   up    = kaixin.up_vote_jokes()
@@ -16,27 +19,22 @@ kaixin.voted_jokes = ->
 
 kaixin.voted_comments = ->
   up = kaixin.cookies.get "up_vote_comments"
-  up = (up || "").split(',')
-  $.unique up
+  kaixin._getArray up
 
 kaixin._updateIco = ($i) ->  
-  klasses = $i.attr('class').split(' ')
-  kx      = klasses[0]
-  ico     = klasses[1]
-  ico     = ico.replace /d$/, ''
-  $i.attr 'class', "#{kx} #{ico}"
+  return if $i.length == 0
+  klass = $i.attr 'class'
+  klass = klass.replace /d$/, ''
+  $i.attr 'class', klass
 
 kaixin.updateVoteState = ->
   for joke_id in kaixin.up_vote_jokes()
-    if joke_id != "" and joke_id != undefined
-      $i = $("a.ding[data-votable_id='#{joke_id}']").find('i')
-      kaixin._updateIco($i)
+    $i = $("a.ding[data-votable_id='#{joke_id}']").find('i')
+    kaixin._updateIco($i)
 
   for joke_id in kaixin.down_vote_jokes()
-    if joke_id != "" and joke_id != undefined
-      $i = $("a.cai[data-votable_id='#{joke_id}']").find('i')
-      kaixin._updateIco($i)
-
+    $i = $("a.cai[data-votable_id='#{joke_id}']").find('i')
+    kaixin._updateIco($i)
 
 $(document).ready ->
   # 更新当前客户端顶和踩的状态

@@ -22,14 +22,14 @@
           i.kx.kx-next
         p.text-muted 按 ← → 方向键也可以换笑话哦
     .operation
-      a.ding href="#"
-        i.kx.kx-up-vote
+      a.ding href="javascript:;" data-votable_type="jokes" data-votable_id=@joke.id data-vote="up_vote"
+        i.kx.kx-up-voted
         span= @joke.up_votes_count
-      a.cai href="#"
-        i.kx.kx-down-vote
+      a.cai href="javascript:;" data-votable_type="jokes" data-votable_id=@joke.id data-vote="down_vote"
+        i.kx.kx-down-voted
         span= @joke.down_votes_count
-      a.comment href="#"
-        i.kx.kx-comment
+      a.comment href="javascript:;" data-joke_id=@joke.id
+        i.kx.kx-commented
         span= @joke.comments_count
 
   .box
