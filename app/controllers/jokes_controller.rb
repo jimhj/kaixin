@@ -3,7 +3,27 @@ class JokesController < ApplicationController
 
   def index
     @jokes = Joke.preload(:comments, :user).order('created_at DESC')
-    @tags = Tag.order('taggings_count DESC').first(10)
+  end
+
+  def hot
+    @jokes = Joke.preload(:comments, :user).order('up_votes_count DESC, created_at DESC')
+    render action: :index
+  end
+
+  def qutu
+    @jokes = Joke.preload(:comments, :user).where.not(photos: nil).order('up_votes_count DESC, created_at DESC')
+    render action: :index
+  end
+
+  def duanzi
+    @jokes = Joke.preload(:comments, :user).where(photos: nil).order('up_votes_count DESC, created_at DESC')
+    render action: :index
+  end
+
+  def shenhuifu
+    @jokes = Joke.joins(:comments).preload(:comments, :user)
+    @jokes = @jokes.where("comments.up_votes_count > 0").order('created_at DESC')
+    render action: :index
   end
 
   def new

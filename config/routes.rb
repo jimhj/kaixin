@@ -14,6 +14,13 @@ Rails.application.routes.draw do
     resources :comments, shallow: true do 
       concerns :votable
     end
+
+    collection do
+      get :hot
+      get :shenhuifu
+      get :qutu
+      get :duanzi
+    end
   end
 
   resources :users

@@ -97,7 +97,7 @@
       a.more 更多
     .box-content
       ul.tag-list
-        - @tags.each do |tag|
+        - Tag.order('taggings_count DESC').first(10).each do |tag|
           li: a href="#"= tag.name
   .box
     .box-header
