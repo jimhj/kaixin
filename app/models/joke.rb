@@ -31,6 +31,15 @@ class Joke < ActiveRecord::Base
     self.tags = tags
   end
 
+  def tag_with(name)
+    if tag_list.include?(name)
+      return Tag.find_by(name: name)
+    end
+
+    tag = Tag.find_or_create_by!(name: name)
+    self.tags << tag
+  end
+
   # See https://gist.github.com/xdite/1391980
   def calculate_hot
     score = (up_votes_count - down_votes_count).abs

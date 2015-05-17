@@ -24,6 +24,7 @@ class JokesController < ApplicationController
 
   def show
     @joke = Joke.find params[:id]
+    @tags = @joke.tags
     @comments = @joke.comments
     render layout: 'detail'
   end

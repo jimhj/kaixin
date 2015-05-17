@@ -21,6 +21,9 @@
         a.next href="#{render_next_joke_link(@joke)}"
           i.kx.kx-next
         p.text-muted 按 ← → 方向键也可以换笑话哦
+      .tags
+        - @tags.each do |tag|
+          a href="#" ##{tag.name}#
     .operation
       a.ding href="javascript:;" data-votable_type="jokes" data-votable_id=@joke.id data-vote="up_vote"
         i.kx.kx-up-voted
