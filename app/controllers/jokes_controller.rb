@@ -3,6 +3,7 @@ class JokesController < ApplicationController
 
   def index
     @jokes = Joke.preload(:comments, :user).order('created_at DESC')
+    @tags = Tag.order('taggings_count DESC').first(10)
   end
 
   def new

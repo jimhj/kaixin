@@ -1,14 +1,6 @@
 .box
   .box-content
     ul.tag-list
-      - 20.times do
-        li: a href="#" 爆笑
-        li: a href="#" 夫妻笑话
-        li: a.active href="#" 经典笑话
-        li: a.active href="#" 承认笑话
-        li: a href="#" 冷笑话
-        li: a.active href="#" 幽默笑话
-        li: a href="#" 搞笑
-        li: a href="#" 内涵
-        li: a href="#" 邪恶
-        li: a href="#" 伤不起  
+      - @tags.each do |tag|
+        li
+          a class=('active' if tag.hot?) href="#"= tag.name 

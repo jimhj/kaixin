@@ -97,17 +97,8 @@
       a.more 更多
     .box-content
       ul.tag-list
-        - 2.times do
-          li: a href="#" 爆笑
-          li: a href="#" 夫妻笑话
-          li: a href="#" 经典笑话
-          li: a href="#" 承认笑话
-          li: a href="#" 冷笑话
-          li: a href="#" 幽默笑话
-          li: a href="#" 搞笑
-          li: a href="#" 内涵
-          li: a href="#" 邪恶
-          li: a href="#" 伤不起
+        - @tags.each do |tag|
+          li: a href="#"= tag.name
   .box
     .box-header
       h3 精彩趣图
