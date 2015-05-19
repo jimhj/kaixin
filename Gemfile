@@ -29,6 +29,9 @@ gem "redis", ">= 2.2.0"
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'mini_magick', '~> 4.2.3'
 
+# Pagination
+gem 'will_paginate', '~> 3.0.6'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

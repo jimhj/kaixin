@@ -3,6 +3,7 @@ class JokesController < ApplicationController
 
   def index
     @jokes = Joke.preload(:comments, :user).order('created_at DESC')
+    @jokes = @jokes.paginate(page: params[:page], per_page: 10)
   end
 
   def hot
