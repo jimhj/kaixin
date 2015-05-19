@@ -1,5 +1,6 @@
 class JokesController < ApplicationController
   before_action :login_required, only: [:new, :create]
+  before_action :find_jokes, only: %i(index hot qutu duanzi shenhuifu)
 
   def index
     @jokes = Joke.preload(:comments, :user).order('created_at DESC')
@@ -8,22 +9,26 @@ class JokesController < ApplicationController
 
   def hot
     @jokes = Joke.preload(:comments, :user).order('up_votes_count DESC, created_at DESC')
+    @jokes = @jokes.paginate(page: params[:page], per_page: 10)
     render action: :index
   end
 
   def qutu
     @jokes = Joke.preload(:comments, :user).where.not(photos: nil).order('up_votes_count DESC, created_at DESC')
+    @jokes = @jokes.paginate(page: params[:page], per_page: 10)
     render action: :index
   end
 
   def duanzi
     @jokes = Joke.preload(:comments, :user).where(photos: nil).order('up_votes_count DESC, created_at DESC')
+    @jokes = @jokes.paginate(page: params[:page], per_page: 10)
     render action: :index
   end
 
   def shenhuifu
     @jokes = Joke.joins(:comments).preload(:comments, :user)
     @jokes = @jokes.where("comments.up_votes_count > 0").order('created_at DESC')
+    @jokes = @jokes.paginate(page: params[:page], per_page: 10)
     render action: :index
   end
 
@@ -34,7 +39,6 @@ class JokesController < ApplicationController
 
   def create
     @joke = current_user.jokes.build joke_params    
-    @joke.photos = params[:joke][:photos]
     @joke.ip = request.remote_ip
 
     if @joke.save
@@ -71,7 +75,11 @@ class JokesController < ApplicationController
 
   private
 
+  def find_jokes
+    @jokes = Joke.preload(:comments, :user).order('created_at DESC').paginate(page: params[:page], per_page: 10)
+  end
+
   def joke_params
-    params.require(:joke).permit(:title, :content, :photos, :anonymous)
+    params.require(:joke).permit(:title, :content, :anonymous, :photos => [])
   end
 end
