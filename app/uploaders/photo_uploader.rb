@@ -12,8 +12,15 @@ class PhotoUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  # version :thumb do
-  #   process :resize_to_fit => [50, 50]
+  version :thumb do
+    process :resize_to_fit => [50, 50]
+  end  
+  
+  # def move_to_cache
+  #   true
+  # end
+  # def move_to_store
+  #   true
   # end  
 
   def store_dir

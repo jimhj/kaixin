@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
   def index
     joke = Joke.find params[:joke_id]
     comments = joke.comments.order('created_at desc').limit(10)
-    render partial: 'share/comments', locals: { comments: comments }, layout: false
+    render partial: 'share/comments', locals: { comments: comments, joke: joke }, layout: false
   end
 
   def create

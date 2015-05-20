@@ -60,7 +60,7 @@ class Joke < ActiveRecord::Base
 
   def update_hot
     # reload because comments_count has been cache in associations
-    reload
+    # reload
     update_attribute :hot, calculate_hot
   end
 

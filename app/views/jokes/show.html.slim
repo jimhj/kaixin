@@ -62,34 +62,17 @@
       - else
         h3 评论(#{@joke.comments_count})
         .post-comment
-          textarea.form-control placeholder="快来发表你的神回复"
-          = hidden_field_tag :joke_id, @joke.id
-          .limit
-            span.size 0
-            span.divider="/"
-            span.total 140
-          span.text-danger.left
-          a.btn.btn-success.btn-lg href="javascript:;" 评论
+          .input-field
+            textarea.form-control placeholder="快来发表你的神回复"
+            .limit
+              span.size 0
+              span.divider="/"
+              span.total 140
+            a.btn.btn-success.btn-lg.postComment data-joke_id=@joke.id href="javascript:;" 评论
+          .error.text-danger 
     .box-content
       ul.text-list.comments  
         = render @comments  
-      ul.pagination
-        li.prev.disabled
-          a href="#" ← 上一页
-        li.active
-          a href="#" 1
-        li
-          a href="#" 2
-        li
-          a href="#" 3
-        li.disabled
-          a ...
-        li
-          a href="#" 7
-        li
-          a href="#" 8
-        li.next
-          a href="#" 下一页
 .right-side
   .box
     .box-header

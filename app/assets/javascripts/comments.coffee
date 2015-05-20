@@ -1,13 +1,16 @@
 $(document).ready ->
-  $textarea = $('.post-comment textarea')
-  $textarea.keyup ->
+  $('body').on 'keyup', '.post-comment textarea, .fast-comment textarea', ->
     content = $.trim $(this).val()
-    length = content.length
-    $('.limit').find('.size').text length
+    length  = content.length
+    $limit  = $(this).next('.limit')
+    $limit.find('.size').text length
 
-  $('.post-comment').find('a.btn-success').click ->
-    $error = $(this).prev 'span.text-danger'
-    content = $.trim $textarea.val()
+  $('body').on 'click', 'a.postComment', ->
+    $error    = $(this).parents('.input-field').next '.error'
+    $textarea = $(this).parents('.input-field').find 'textarea'
+    content   = $.trim $textarea.val()
+    joke_id   = $(this).data 'joke_id'
+
     if content.length == 0
       $error.text "你还没有输入任何内容哦~"
       return
@@ -16,8 +19,6 @@ $(document).ready ->
       return
     else
       $error.text ''
-
-    joke_id = $('#joke_id').val()
 
     $.post "/jokes/#{joke_id}/comments", { body: content }, (res) ->
       if res.success?

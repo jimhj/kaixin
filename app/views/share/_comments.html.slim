@@ -1,12 +1,18 @@
 .box.load-comments
   .box-content
-    .fast-comment.clearfix
-      .left
-        textarea.form-control placeholder="说点什么吧..."
-      .left
-        a.btn.btn-primary 评论
+    .fast-comment
+      .input-field.clearfix
+        .left
+          textarea.form-control placeholder="说点什么吧..."
+          .limit
+            span.size 0
+            span.divider="/"
+            span.total 140
+        .left
+          a.btn.btn-primary.postComment data-joke_id=joke.id 评论
+      .error.text-danger 
     ul.text-list.comments 
       = render comments
     .text-muted.text-center.clearfix
-      a href="#" 点击查看更多 → 
+      a href="#{joke_path(joke)}" 点击查看更多 → 
       a.right.text-muted 收起 ↑

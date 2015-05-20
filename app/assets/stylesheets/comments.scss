@@ -89,6 +89,23 @@
   padding-bottom: 15px;
   margin-bottom: 15px;
   border-bottom: 1px dotted #DDD;
+  .input-field { position: relative; }
+  .text-danger {
+    font-size: 12px;
+    margin-top: 5px;
+  }
+
+  .limit {
+    position: absolute;
+    right: 140px;
+    bottom: 5px;
+    color: #999;
+
+    span.divider {
+      margin-right: 5px;
+      margin-left: 5px;
+    }
+  }
 
   textarea {
     @include borderBox;
