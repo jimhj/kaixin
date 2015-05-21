@@ -25,7 +25,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :sessions
-  resources :tags
+  resources :tags, only: [:index, :show]
 
   get :signup, to: 'users#new'
   post :signup, to: 'users#create'

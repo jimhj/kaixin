@@ -38,3 +38,27 @@
     }
   }
 }
+
+.tags-show {
+  .profile {
+    border-left: 4px solid $brand-red-light;
+  }
+
+  .profile .photo img {
+    border-radius: 8px;
+  }
+
+  .profile h3 {
+    margin-top: 0px;
+    margin-bottom: 5px;
+  }
+
+  .profile .info {
+    margin-left: 10px;
+    width: 500px;
+  }
+
+  .profile .description {
+    line-height: 24px;
+  }
+}

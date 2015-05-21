@@ -1,0 +1,85 @@
+.left-side
+  .box.profile
+    .box-content
+      .left.photo
+        = image_tag 'avatar.jpg', size: '120x120'
+      .left.info
+        h3.text-danger= @tag.name
+        p.text-muted.description 不作死就不会死！有些人偏偏不知轻重，自寻死路，这不是作死么！常人看来危险的东西，正是牛人们喜欢挑战的，挑战成功叫做碉堡，挑战失败就叫做“作死”了。
+    .box-footer
+      .pull-left
+        span.text-muted 一共 16 个相关笑话
+      .pull-right      
+
+  - @jokes.each do |joke|
+    .joke-item
+      .user
+        .avatar
+          a href="#{user_path(joke.user)}"
+            = image_tag joke.user.avatar.url
+          .nickname
+            a href="#{user_path(joke.user)}"= joke.user.login
+            p.text-muted 大约 1 分钟前
+      .content
+        h4
+          a href="#{joke_path(joke)}"= render_joke_title(joke)
+        .body
+          = joke.content
+          .photo
+            = render_joke_photo joke  
+        - if joke.hot_comment.present?        
+          .comment
+            .comment-nav
+              span 神回复
+            .comment-body
+              .avatar.small
+                a href="#{user_path(joke.hot_comment.user)}"
+                  = image_tag joke.hot_comment.user.avatar.url
+                .nickname
+                  a href="#{user_path(joke.hot_comment.user)}"= joke.hot_comment.user.login
+                  p.text-muted= joke.hot_comment.body
+                a.likes.ding href="javascript:;" data-votable_type="comments" data-votable_id=joke.hot_comment.id data-vote="up_vote"
+                  i.kx.kx-up-voted
+                  span.text-muted= joke.hot_comment.up_votes_count
+
+      .operation
+        a.ding href="javascript:;" data-votable_type="jokes" data-votable_id=joke.id data-vote="up_vote"
+          i.kx.kx-up-voted
+          span= joke.up_votes_count
+        a.cai href="javascript:;" data-votable_type="jokes" data-votable_id=joke.id data-vote="down_vote"
+          i.kx.kx-down-voted
+          span= joke.down_votes_count
+        a.comment.loadComment href="javascript:;" data-joke_id=joke.id
+          i.kx.kx-commented
+          span= joke.comments_count
+
+  = will_paginate @jokes, inner_window: 2
+
+.right-side
+  .box
+    .box-header
+      h3 精彩趣图
+      a.more 更多
+    .box-content
+      ul.image-list.odd-margin
+        - 6.times do
+          li class=(cycle('odd', 'even'))
+            a href="#"
+              = image_tag 'avatar.jpg'
+              .text 这样真的好吗？
+  .box
+    .box-header
+      h3 精彩段子
+      a.more 更多
+    .box-content
+      ul.text-list
+        li: a href="#" 面试的搞笑事件：隔壁老王又中枪了
+        li: a href="#" 搞笑面试经历：考官被面试者拷问住了
+        li: a href="#" 搞笑面试经历：去诺基亚面试手机响起hello moto！
+        li: a href="#" 承认笑话
+        li: a href="#" 灵异笑话~
+        li: a href="#" 幽默笑话
+        li: a href="#" 搞笑
+        li: a href="#" 内涵
+        li: a href="#" 邪恶
+        li: a href="#" 伤不起

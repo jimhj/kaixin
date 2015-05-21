@@ -32,6 +32,9 @@ gem 'mini_magick', '~> 4.2.3'
 # Pagination
 gem 'will_paginate', '~> 3.0.6'
 
+# Hanzi to Pinyin
+gem 'chinese_pinyin', '~> 0.7.0'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
