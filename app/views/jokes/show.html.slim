@@ -38,11 +38,11 @@
   .box
     .box-content
       ul.image-list.recommend
-        - 10.times do
+        - Joke.qutu.first(10).each do |joke|
           li class=(cycle('', '', '', '', 'no-margin'))
-            a href="#"
-              = image_tag 'avatar.jpg'
-              .text 这样真的好吗
+            a href="#{joke_path(joke)}"
+              = image_tag joke.photos[0].url
+              .text title="#{joke.title}"= joke.title.truncate(10)              
 
   .box.comment-list
     .box-header
@@ -77,11 +77,11 @@
   .box
     .box-header
       h3 新鲜出炉
-      a.more 更多
+      a.more href="#{qutu_jokes_path}" 更多
     .box-content
       ul.image-list.odd-margin
-        - 4.times do
+        - Joke.qutu.first(6).each do |joke|
           li class=(cycle('odd', 'even'))
-            a href="#"
-              = image_tag 'avatar.jpg'
-              .text 这样真的好吗？
+            a href="#{joke_path(joke)}"
+              = image_tag joke.photos[0].url
+              .text title="#{joke.title}"= joke.title.truncate(10)

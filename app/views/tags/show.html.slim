@@ -59,27 +59,19 @@
   .box
     .box-header
       h3 精彩趣图
-      a.more 更多
+      a.more href="#{qutu_jokes_path}" 更多
     .box-content
       ul.image-list.odd-margin
-        - 6.times do
+        - Joke.qutu.first(6).each do |joke|
           li class=(cycle('odd', 'even'))
-            a href="#"
-              = image_tag 'avatar.jpg'
-              .text 这样真的好吗？
+            a href="#{joke_path(joke)}"
+              = image_tag joke.photos[0].url
+              .text title="#{joke.title}"= joke.title.truncate(10)
   .box
     .box-header
       h3 精彩段子
-      a.more 更多
+      a.more href="#{duanzi_jokes_path}" 更多
     .box-content
       ul.text-list
-        li: a href="#" 面试的搞笑事件：隔壁老王又中枪了
-        li: a href="#" 搞笑面试经历：考官被面试者拷问住了
-        li: a href="#" 搞笑面试经历：去诺基亚面试手机响起hello moto！
-        li: a href="#" 承认笑话
-        li: a href="#" 灵异笑话~
-        li: a href="#" 幽默笑话
-        li: a href="#" 搞笑
-        li: a href="#" 内涵
-        li: a href="#" 邪恶
-        li: a href="#" 伤不起
+        - Joke.duanzi.first(10).each do |joke|
+          li: a href="#{joke_path(joke)}"= joke.title
