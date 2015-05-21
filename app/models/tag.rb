@@ -3,6 +3,8 @@ class Tag < ActiveRecord::Base
   has_many :jokes, through: :taggings
   validates_uniqueness_of :slug, on: :create
 
+  scope :hot, -> { order('taggings_count DESC') }
+
   def hot?
     taggings_count > 2
   end

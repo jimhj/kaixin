@@ -11,6 +11,14 @@ class Joke < ActiveRecord::Base
   validates :content, presence: true, if: Proc.new { |joke| joke.title.blank? }
   validates :content, uniqueness: true, if: Proc.new { |joke| joke.photos.blank? }
 
+  scope :qutu, -> {
+    preload(:comments, :user).where.not(photos: nil).order('up_votes_count DESC, created_at DESC')
+  }
+  
+  scope :duanzi, -> {
+    preload(:comments, :user).where(photos: nil).order('up_votes_count DESC, created_at DESC')
+  }
+
   after_create :update_hot
   after_touch :update_hot
 

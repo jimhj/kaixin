@@ -14,14 +14,12 @@ class JokesController < ApplicationController
   end
 
   def qutu
-    @jokes = Joke.preload(:comments, :user).where.not(photos: nil).order('up_votes_count DESC, created_at DESC')
-    @jokes = @jokes.paginate(page: params[:page], per_page: 10)
+    @jokes = Joke.qutu.paginate(page: params[:page], per_page: 10)
     render action: :index
   end
 
   def duanzi
-    @jokes = Joke.preload(:comments, :user).where(photos: nil).order('up_votes_count DESC, created_at DESC')
-    @jokes = @jokes.paginate(page: params[:page], per_page: 10)
+    @jokes = Joke.duanzi.paginate(page: params[:page], per_page: 10)
     render action: :index
   end
 
