@@ -1,17 +1,5 @@
 .left-side
-  / .box.profile
-  /   .box-content
-  /     .left.photo
-  /       = image_tag @user.avatar.url, size: '40x40'
-  /     .left.info
-  /       h3= @user.login
-  /       p.text-muted
-  /         span 一共发表了
-  /         span.text-danger #{@jokes.count}
-  /         span 个笑话
-  ul.nav-tab
-    li.active: a href="#" 修改资料
-    li: a href="#" 修改密码
+  = render 'settings/nav'
   .box
     = render 'share/form_error', target: current_user
     .box-content
@@ -26,7 +14,7 @@
         .form-group
           = f.label "login", class: 'form-control'
           .input-field
-            = f.text_field :login, class: 'form-control'
+            span.text-muted= current_user.login
         .form-group
           = f.label "bio", class: 'form-control'
           .input-field

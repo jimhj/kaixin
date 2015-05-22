@@ -1,0 +1,5 @@
+ul.nav-tab
+  li class=('active' if params[:controller] == 'settings/profiles')
+    a href="#{settings_profile_path}" 修改资料
+  li class=('active' if params[:controller] == 'settings/passwords')
+    a href="#{settings_password_path}" 修改密码

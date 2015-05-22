@@ -1,0 +1,23 @@
+.left-side
+  = render 'settings/nav'
+  .box
+    = render 'share/flash_message'
+    = render 'share/form_error', target: current_user
+    .box-content
+      = form_for current_user, url: settings_password_path, html: { class: 'form password-form' } do |f|
+        .form-group
+          = label_tag :current_password, '当前密码', class: 'form-control'
+          .input-field
+            = password_field_tag :current_password, nil, class: 'form-control'
+        .form-group
+          = label_tag :user_password, '新密码', class: 'form-control'
+          .input-field
+            = f.password_field :password, class: 'form-control'
+        .form-group
+          = label_tag :user_password_confirmation, '确认新密码', class: 'form-control'
+          .input-field
+            = f.password_field :password_confirmation, class: 'form-control'
+        .form-group
+          input.btn.btn-success.btn-block type="submit" value="保存修改"
+
+.right-side
