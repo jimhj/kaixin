@@ -65,6 +65,7 @@ GEM
     coffee-script-source (1.9.1)
     columnize (0.9.0)
     connection_pool (2.2.0)
+    dalli (2.7.4)
     debug_inspector (0.0.2)
     erubis (2.7.0)
     execjs (2.5.2)
@@ -188,6 +189,7 @@ DEPENDENCIES
   carrierwave!
   chinese_pinyin (~> 0.7.0)
   coffee-rails (~> 4.1.0)
+  dalli (~> 2.7.4)
   hiredis (~> 0.4.0)
   jbuilder (~> 2.0)
   jquery-rails

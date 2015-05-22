@@ -8,8 +8,7 @@ class JokesController < ApplicationController
   end
 
   def hot
-    @jokes = Joke.preload(:comments, :user).order('up_votes_count DESC, created_at DESC')
-    @jokes = @jokes.paginate(page: params[:page], per_page: 10)
+    @jokes = Joke.hot.paginate(page: params[:page], per_page: 10)
     render action: :index
   end
 
@@ -24,7 +23,7 @@ class JokesController < ApplicationController
   end
 
   def shenhuifu
-    @jokes = Joke.joins(:comments).preload(:comments, :user)
+    @jokes = Joke.joins(:comments)
     @jokes = @jokes.where("comments.up_votes_count > 0").order('created_at DESC')
     @jokes = @jokes.paginate(page: params[:page], per_page: 10)
     render action: :index

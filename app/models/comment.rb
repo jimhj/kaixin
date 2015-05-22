@@ -9,6 +9,7 @@ class Comment < ActiveRecord::Base
   }
 
   def hot?
-    self == commentable.hot_comment
+    self.id == commentable.hot_comment.try(:id)
+    # false
   end
 end

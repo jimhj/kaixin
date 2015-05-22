@@ -25,6 +25,9 @@ gem 'sinatra', require: nil
 gem "hiredis", "~> 0.4.0"
 gem "redis", ">= 2.2.0"
 
+# Cache
+gem 'dalli', '~> 2.7.4'
+
 # File Upload
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'mini_magick', '~> 4.2.3'

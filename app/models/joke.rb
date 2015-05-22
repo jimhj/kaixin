@@ -11,12 +11,16 @@ class Joke < ActiveRecord::Base
   validates :content, presence: true, if: Proc.new { |joke| joke.title.blank? }
   validates :content, uniqueness: true, if: Proc.new { |joke| joke.photos.blank? }
 
+  scope :hot, -> {
+    preload(:user).order('up_votes_count DESC, created_at DESC')
+  }
+
   scope :qutu, -> {
-    preload(:comments, :user).where.not(photos: nil).order('up_votes_count DESC, created_at DESC')
+    hot.where.not(photos: nil)
   }
   
   scope :duanzi, -> {
-    preload(:comments, :user).where(photos: nil).order('up_votes_count DESC, created_at DESC')
+    hot.where(photos: nil)
   }
 
   after_create :update_hot
@@ -73,6 +77,6 @@ class Joke < ActiveRecord::Base
   end
 
   def hot_comment
-    comments.where('up_votes_count > 0').order('created_at ASC').first
+    Rails.cache.read("joke:#{self.id}:hot_comment")
   end
 end
