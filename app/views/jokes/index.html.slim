@@ -49,12 +49,12 @@
       - if login?
         .login
           .avatar
-            a href="#"
-              = image_tag 'avatar.jpg'
+            a href="#{user_path(current_user)}"
+              = image_tag current_user.avatar.url
             .nickname
               a href="#{user_path(current_user)}"= current_user.login
               p.text-muted
-                | 一共发表了 <span class="text-danger"> 13 </span> 个笑料 
+                | 一共发表了 <span class="text-danger"> #{current_user.jokes.count} </span> 个笑料 
             .right
               a href="#{logout_path}" data-method='DELETE': i.kx.kx-logout   
       - else 
@@ -79,7 +79,7 @@
   .box
     .box-header
       h3 笑点
-      a.more 更多
+      a.more href="#{tags_path}" 更多
     .box-content
       ul.tag-list
         - Tag.hot.first(10).each do |tag|
@@ -110,7 +110,7 @@
       a.more href="#{shenhuifu_jokes_path}" 更多
     .box-content
       ul.text-list.replies
-        - Comment.hot.first(5).each do |comment|
+        - Comment.hot.each do |comment|
           li
             .avatar.small
               a href="#{user_path(comment.user)}"

@@ -23,8 +23,7 @@ class JokesController < ApplicationController
   end
 
   def shenhuifu
-    @jokes = Joke.joins(:comments)
-    @jokes = @jokes.where("comments.up_votes_count > 0").order('created_at DESC')
+    @jokes = Joke.distinct.joins(:comments).where("comments.up_votes_count > 0").order('jokes.created_at DESC')
     @jokes = @jokes.paginate(page: params[:page], per_page: 10)
     render action: :index
   end
