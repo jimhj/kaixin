@@ -262,3 +262,14 @@ i.kx {
     }       
   }  
 }
+
+.box.profile {
+  border-left: 4px solid $brand-red-light;
+
+  .photo img {
+    border-radius: 8px;
+  }
+
+  h3 { margin-top: 0px; }
+  .info { margin-left: 10px; }
+}

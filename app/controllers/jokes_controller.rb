@@ -1,6 +1,5 @@
 class JokesController < ApplicationController
   before_action :login_required, only: [:new, :create]
-  before_action :find_jokes, only: %i(index hot qutu duanzi shenhuifu)
 
   def index
     @jokes = Joke.preload(:comments, :user).order('created_at DESC')
@@ -70,10 +69,6 @@ class JokesController < ApplicationController
   end
 
   private
-
-  def find_jokes
-    @jokes = Joke.preload(:comments, :user).order('created_at DESC').paginate(page: params[:page], per_page: 10)
-  end
 
   def joke_params
     params.require(:joke).permit(:title, :content, :anonymous, :photos => [])

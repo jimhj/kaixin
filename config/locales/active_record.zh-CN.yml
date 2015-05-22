@@ -1,0 +1,10 @@
+---
+zh-CN:
+  activerecord:
+    attributes:
+      user:
+        avatar: "我的头像"
+        bio: "个性签名"
+        password: "密码"
+        password_confirmation: "密码确认"
+        login: "用户昵称"

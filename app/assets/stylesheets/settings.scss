@@ -1,0 +1,59 @@
+.profiles-show, .passwords-show, .profiles-update, .passwords-update {
+  ul.nav-tab {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background: #FFF;
+    border-bottom: 1px solid #ebecef; 
+    padding-left: 10px;
+    @include clearfix;
+  }
+
+  .nav-tab li {
+    float: left;
+  }
+
+  .nav-tab li a {
+    display: inline-block;
+    padding: 15px 15px;
+    font-size: 16px;
+    text-decoration: none;
+  }
+
+  .nav-tab li.active a {
+    border-bottom: 2px solid $brand-red-light;
+    margin-bottom: -1px;
+    color: $brand-red;
+  }
+
+  form {
+    .form-group {
+      @include clearfix;
+
+      input.form-control, textarea.form-control {
+        width: 300px;
+      }
+
+      input.btn-success {
+        margin-left: 80px;
+      }
+    }
+
+    label.form-control, .input-field { float: left; }
+
+    label.form-control {
+      width: 60px;
+      text-align: right;
+    }
+
+    .input-field { margin-left: 20px; }
+
+    .input-field.user-avatar {
+      @include clearfix;
+      .image img {
+        width: 100px;
+        height: 100px;
+      }
+    }
+  }
+}
