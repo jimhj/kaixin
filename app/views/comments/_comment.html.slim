@@ -6,7 +6,7 @@ li.clearfix
       .nickname
         a href="#{user_path(comment.user)}" 
           span= comment.user.login
-          span.text-muted= comment.created_at
+          span.text-muted.timeago title=comment.created_at
         p= comment.body
   .right
     a.text-muted.reply 回复

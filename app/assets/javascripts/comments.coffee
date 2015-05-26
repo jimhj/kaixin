@@ -49,3 +49,5 @@ $(document).ready ->
         $t.parent().after $comments
         $comments.slideDown()
       , 'html'
+
+    $comments.find('.timeago').timeago()
