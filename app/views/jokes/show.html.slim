@@ -2,10 +2,10 @@
   .joke-item
     .user
       .avatar
-        a href="#"
-          = image_tag 'avatar.jpg'
+        a href="#{user_path(@joke.user)}"
+          = image_tag @joke.user.avatar.url
         .nickname
-          a href="#" 小小小花
+          a href="#{user_path(@joke.user)}"= @joke.user.login
           p.text-muted 大约 1 分钟前
     .content
       h4
@@ -72,7 +72,7 @@
           .error.text-danger 
     .box-content
       ul.text-list.comments  
-        = render @comments  
+        = render @comments, cache: true
 .right-side
   .box
     .box-header

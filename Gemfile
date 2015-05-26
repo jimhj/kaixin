@@ -38,6 +38,9 @@ gem 'will_paginate', '~> 3.0.6'
 # Hanzi to Pinyin
 gem 'chinese_pinyin', '~> 0.7.0'
 
+# Collection Render Cache
+gem 'multi_fetch_fragments', '~> 0.0.17'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -48,5 +51,6 @@ group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'thin'
 end
 
