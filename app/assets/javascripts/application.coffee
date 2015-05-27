@@ -4,9 +4,9 @@
 #= require cookies
 #= require jquery.timeago
 #= require jquery.timeago.zh-CN
-#= require kaixin
-#= require comments
-#= require votings
+# = require kaixin
+# = require comments
+# = require votings
 #= require_self
 
 $(document).ready ->

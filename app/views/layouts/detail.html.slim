@@ -23,15 +23,20 @@ html
           li
             a href='#{tags_path}' 笑点
         .right.links
-          a href="#"
-            i.kx.kx-weibo-colorful
-            span 微博登录
-          a href="#"
-            i.kx.kx-qq-colorful
-            span QQ 
-          span.divider |
-          a href="#{login_path}" 登录
-          a href="#{signup_path}" 注册
+          - if login?
+            a href="#{user_path(current_user)}"
+              = current_user.login
+            a , 欢迎回来 
+          - else
+            a href="#"
+              i.kx.kx-weibo-colorful
+              span 微博登录
+            a href="#"
+              i.kx.kx-qq-colorful
+              span QQ 
+            span.divider |
+            a href="#{login_path}" 登录
+            a href="#{signup_path}" 注册
   .main
     = yield
   .footer

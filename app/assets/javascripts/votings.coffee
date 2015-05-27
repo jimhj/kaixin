@@ -1,5 +1,5 @@
-kaixin._getArray = (str)->
-  array = (str || '').split(',')
+kaixin._getArray = (str) ->
+  array = (str || '').split(/,/)
   array = kaixin.compact array
   $.unique array
 
@@ -48,14 +48,14 @@ $(document).ready ->
     vote               = $t.data 'vote'
     url                = "/#{votable}/#{votable_id}/#{vote}"
     cache_key          = "#{vote}_#{votable}"  
-    cached             = (kaixin.cookies.get(cache_key) || '').split(',')
+    cached             = (kaixin.cookies.get(cache_key) || '').split(/,/)
 
     if cached.indexOf("#{votable_id}") >= 0
-      console.log '已经投过票了'
+      # console.log '已经投过票了'
       return false
 
     if votable == "jokes" and kaixin.voted_jokes().indexOf("#{votable_id}") >= 0 
-      console.log '已经投过票了'
+      # console.log '已经投过票了'
       return false
 
     $num = $t.find('span')
