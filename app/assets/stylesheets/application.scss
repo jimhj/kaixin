@@ -19,6 +19,8 @@ body {
 //   font-style: normal;
 // }
 
+.header .header-top {}
+
 .header .header-nav {
   @include clearfix;
   width: 1000px;

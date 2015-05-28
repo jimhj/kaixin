@@ -10,7 +10,7 @@ html
     .header.header-slim
       .header-nav
         a.logo.logo_small href="#{root_url}"
-        ul
+        ul.nav
           li
             a.dropdown-toggle.active href="#{hot_jokes_path}" 热门
             .dropdown
@@ -24,9 +24,15 @@ html
             a href='#{tags_path}' 笑点
         .right.links
           - if login?
-            a href="#{user_path(current_user)}"
-              = current_user.login
-            a , 欢迎回来 
+            .u-center
+              = image_tag current_user.avatar.url, size: '20x20'
+              ul.menu
+                li: a href="#{user_path(current_user)}" 我的主页
+                li: a href="#{settings_profile_path}" 资料设置
+                li.noborder: a href="#{logout_path}" data-method="DELETE" 退出登录      
+            span.divider.text-muted.welcome #{current_user.login}, 欢迎回来
+    
+
           - else
             a href="#"
               i.kx.kx-weibo-colorful

@@ -87,6 +87,11 @@ i.kx {
     background-position: -137px -33px;
   }
 
+  &.kx-profile {
+    @include bg-img(13px, 15px);
+    background-position: -33px -94px;
+  }
+
   &.kx-logout {
     @include bg-img(14px, 15px);
     background-position: -2px -68px;
@@ -133,6 +138,7 @@ i.kx {
   width: 100%;
   background-color: #FFF;
   border-bottom: 1px solid #e3e2e1;
+  position: relative;
 }
 
 .header .header-nav {
@@ -155,7 +161,7 @@ i.kx {
     }
   }
 
-  ul {
+  ul.nav {
     @include clearfix;
     list-style: none;
     float: left;
@@ -163,13 +169,13 @@ i.kx {
     margin-left: 20px;
   }
 
-  ul li {
+  ul.nav li {
     float: left;
     width: 90px;
     text-align: center;
   }
 
-  ul li a {
+  ul.nav li a {
     font-size: 20px;
     line-height: 60px;
     height: 60px;
@@ -184,19 +190,25 @@ i.kx {
 }
 
 .header-top {
-  @include clearfix;
-  background-color: $brand-red-light;
-  width: 100%;
-}
-
-.header-top .header-nav {
-  @include clearfix;
-  height: 30px;
-  width: 1000px;
-  margin: 0 auto;
-  line-height: 30px;
+  // @include clearfix;
+  // background-color: $brand-red-light;
+  // width: 100%;
+  position: absolute;
+  right: 10px;
+  top: 0px;
+  background-color: #ffd52b;
+  border-radius: 4px;
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
+  // border: 2px solid $brand-red;  
+  // border-top: none;
+  border-bottom: 4px solid #7a4624;
+  padding: 10px 10px;
+  
   font-size: 12px;
-  color: #FFF;
+  &, a { color: #7a4624; }
+  a, img { margin-right: 5px }
+
 }
 
 
@@ -209,16 +221,16 @@ i.kx {
 .header.header-slim .header-nav {
   height: 40px !important;
 
-  ul {
+  ul.nav {
     margin-left: 10px;
     margin-top: 0px;
   }
 
-  ul li {
+  ul.nav li {
     height: 40px;
   }
 
-  ul li a {
+  ul.nav li a {
     font-size: 16px;
     line-height: 40px;
     height: 38px;
@@ -240,12 +252,11 @@ i.kx {
   .right span.divider, .right a {
     margin: 0;
     padding: 0;
-    color: #666;
-    float: left;
-    display: block;    
+    color: #666; 
     margin-right: 10px;
     height: 40px;
     line-height: 40px !important;
+    display: inline-block;
 
     // IE6 hack
     _height: auto;
@@ -257,10 +268,49 @@ i.kx {
     text-decoration: none;
     font-size: 12px;
 
-    i.kx {
-      margin-right: 5px;
-    }       
-  }  
+    i.kx { margin-right: 5px; } 
+
+    &:last-child {
+      margin-right: 0px;
+    }      
+  }
+
+  span.welcome {
+    float: right;
+  }
+}
+
+.header .u-center {
+  float: right;
+  position: relative;
+  cursor: pointer;
+  width: 40px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.u-center ul {
+  position: absolute;
+  top: 20px;
+  left: -30px;
+  margin: 0;
+  list-style: none;
+  width: 80px;
+  background-color: #FFF;
+  text-align: center;
+  padding: 0px 10px;
+  display: none;
+}
+
+.u-center ul li {
+  border-bottom: 1px dashed #DDD;
+  &.noborder {
+    border-bottom: none;
+  }
+
+  a:hover {
+    color: $brand-red;
+  }
 }
 
 .box.profile {

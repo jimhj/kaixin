@@ -12,3 +12,8 @@
 $(document).ready ->
   $('input, textarea').placeholder()
   $('.timeago').timeago()
+
+  $('body').on 'mouseenter', '.u-center', ->
+    $(this).find('ul.menu').show()
+  .on 'mouseleave', '.u-center', ->
+    $(this).find('ul.menu').hide()

@@ -8,9 +8,20 @@ html
     = render 'share/png_fix'
   body class="#{controller_name}-#{action_name}"
     .header
+      .header-top
+        .header-inner
+          - if login?
+            a href="#{user_path(current_user)}"
+              = image_tag current_user.avatar.url, size: '15x15'       
+              span #{current_user.login}
+
+          - else
+            a href="#{login_path}" 登录
+            a.nomargin href="#{signup_path}" 注册
+
       .header-nav
         a.logo href="#{root_url}"
-        ul
+        ul.nav
           li
             a.dropdown-toggle.active href="#{hot_jokes_path}" 热门
             .dropdown
