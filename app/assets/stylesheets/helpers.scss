@@ -190,9 +190,6 @@ i.kx {
 }
 
 .header-top {
-  // @include clearfix;
-  // background-color: $brand-red-light;
-  // width: 100%;
   position: absolute;
   right: 10px;
   top: 0px;
@@ -200,8 +197,7 @@ i.kx {
   border-radius: 4px;
   border-top-right-radius: 0px;
   border-top-left-radius: 0px;
-  // border: 2px solid $brand-red;  
-  // border-top: none;
+
   border-bottom: 4px solid #7a4624;
   padding: 10px 10px;
   
@@ -214,7 +210,6 @@ i.kx {
 
 .header-slim {
   background-color: #FFF;
-  // border-bottom: none;
   border-bottom: 1px solid #ddd;
 }
 
@@ -247,24 +242,25 @@ i.kx {
     @include clearfix;
     height: 100%;
     text-align: right;
+
+    .no-login {
+      background-color: #ffd52b;
+      color: #7a4624;
+      padding: 0 10px;
+      border-bottom: 4px solid #7a4624;
+      height: 37px;
+      width: 160px;
+
+      @include ieWidth(180px);
+    }
   }
 
-  .right span.divider, .right a {
-    margin: 0;
-    padding: 0;
-    color: #666; 
+  .no-login a {
+    color: #7a4624; 
     margin-right: 10px;
     height: 40px;
     line-height: 40px !important;
     display: inline-block;
-
-    // IE6 hack
-    _height: auto;
-    _margin-top: 12px;
-    _line-height: normal;
-  }
-
-  .right a {
     text-decoration: none;
     font-size: 12px;
 
@@ -272,12 +268,17 @@ i.kx {
 
     &:last-child {
       margin-right: 0px;
-    }      
+    }  
+    // IE6 hack
+    _height: auto;
+    _margin-top: 12px;
+    _line-height: normal;
   }
 
-  span.welcome {
-    float: right;
-  }
+}
+
+.header .login {
+  @include clearfix;
 }
 
 .header .u-center {
@@ -287,6 +288,13 @@ i.kx {
   width: 40px;
   text-align: center;
   margin-top: 10px;
+
+}
+
+.header .welcome { 
+  float: right; 
+  height: 40px;
+  line-height: 40px;
 }
 
 .u-center ul {
@@ -304,6 +312,7 @@ i.kx {
 
 .u-center ul li {
   border-bottom: 1px dashed #DDD;
+  padding: 10px 0px;
   &.noborder {
     border-bottom: none;
   }
