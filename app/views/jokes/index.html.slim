@@ -46,39 +46,14 @@
 .right-side   
   .box
     .box-content
-      - if login?
-        .login
-          .avatar
-            a href="#{user_path(current_user)}"
-              = image_tag current_user.avatar.url
-            .nickname
-              a href="#{user_path(current_user)}"= current_user.login
-              p.text-muted
-                | 一共发表了 <span class="text-danger"> #{current_user.jokes.count} </span> 个笑料   
-      - else 
-        .login.clearfix.no-login
-          a href="#{login_path}" 登录
-          span.text-muted 没有帐号？
-          a href="#{signup_path}" 现在注册一个
-          span.text-muted 或者
-        hr.no-login
-        .oauth.no-login
-          a.btn.btn-success href="#" 
-            i.kx.kx-qq
-            span QQ 登录 
-          a.btn.btn-danger href="#" 
-            i.kx.kx-weibo
-            span 微博登录              
+      .search
+        input.form-control type="text" placeholder="你想看点啥"
+        i.kx.kx-zoom
       hr
       a.btn.btn-primary.btn-lg.btn-block href="#{new_joke_path}" 
         i.kx.kx-pencil
         span 我要投稿
 
-  .box
-    .box-content
-      .search
-        input.form-control type="text" placeholder="你想看点啥"
-        i.kx.kx-zoom   
   .box
     .box-header
       h3 笑点
