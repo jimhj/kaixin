@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   get :login, to: 'sessions#new'
   post :login, to: 'sessions#create'
   delete :logout, to: 'sessions#destroy'
+  get :login_state, to: 'sessions#login_state'
 
   namespace :settings do
     resource :password, only: [:show, :update]

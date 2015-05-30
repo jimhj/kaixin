@@ -22,24 +22,8 @@ html
             a href="#{duanzi_jokes_path}" 段子
           li
             a href='#{tags_path}' 笑点
-        .right.links
-          - if login?
-            .login
-              .u-center
-                = image_tag current_user.avatar.url, size: '20x20'
-                ul.menu
-                  li: a href="#{user_path(current_user)}" 我的主页
-                  li: a href="#{settings_profile_path}" 资料设置
-                  li.noborder: a href="#{logout_path}" data-method="DELETE" 退出登录      
-              .text-muted.welcome #{current_user.login}, 欢迎回来
-
-          - else
-            .no-login
-              a href="#" 微博登录
-              a href="#" QQ 
-              a |
-              a href="#{login_path}" 登录
-              a href="#{signup_path}" 注册
+            
+        = render 'share/no_login'
     .main
       = yield
   .footer

@@ -27,4 +27,10 @@ class SessionsController < ApplicationController
     logout
     redirect_to root_url
   end
+
+  def login_state
+    # html = render_to_string(partial: 'share/u_center')
+    # render text: html.to_json
+    render template: 'share/_u_center', layout: false
+  end
 end

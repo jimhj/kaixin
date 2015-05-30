@@ -26,19 +26,21 @@ body {
   width: 1000px;
   height: 90px;
   margin: 0 auto;
+}
 
-  .search {
-    float: right;
-    position: relative;
-    margin-top: 25px;
-  }
+.box .search {
+  position: relative;
+}
 
-  .search .kx.kx-zoom {
-    position: absolute;
-    right: 10px;
-    top: 12px;
-    cursor: pointer;
-  }
+.box .search input {
+  width: 100%;
+} 
+
+.search .kx.kx-zoom {
+  position: absolute;
+  right: 10px;
+  top: 12px;
+  cursor: pointer;
 }
 
 .right-side .image-list {

@@ -43,7 +43,7 @@
 
   = will_paginate @jokes, inner_window: 2
 
-.right-side
+.right-side   
   .box
     .box-content
       - if login?
@@ -54,9 +54,7 @@
             .nickname
               a href="#{user_path(current_user)}"= current_user.login
               p.text-muted
-                | 一共发表了 <span class="text-danger"> #{current_user.jokes.count} </span> 个笑料 
-            .right
-              a href="#{logout_path}" data-method='DELETE': i.kx.kx-logout   
+                | 一共发表了 <span class="text-danger"> #{current_user.jokes.count} </span> 个笑料   
       - else 
         .login.clearfix.no-login
           a href="#{login_path}" 登录
@@ -75,7 +73,12 @@
       a.btn.btn-primary.btn-lg.btn-block href="#{new_joke_path}" 
         i.kx.kx-pencil
         span 我要投稿
-  
+
+  .box
+    .box-content
+      .search
+        input.form-control type="text" placeholder="你想看点啥"
+        i.kx.kx-zoom   
   .box
     .box-header
       h3 笑点

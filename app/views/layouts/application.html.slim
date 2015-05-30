@@ -7,18 +7,7 @@ html
     = csrf_meta_tags
     = render 'share/png_fix'
   body class="#{controller_name}-#{action_name}"
-    .header
-      .header-top
-        .header-inner
-          - if login?
-            a href="#{user_path(current_user)}"
-              = image_tag current_user.avatar.url, size: '15x15'       
-              span #{current_user.login}
-
-          - else
-            a href="#{login_path}" 登录
-            a.nomargin href="#{signup_path}" 注册
-
+    .header.header-lg
       .header-nav
         a.logo href="#{root_url}"
         ul.nav
@@ -33,9 +22,8 @@ html
             a href="#{duanzi_jokes_path}" 段子
           li
             a href='#{tags_path}' 笑点
-        .search
-          input.form-control type="text" placeholder="你想看点啥"
-          i.kx.kx-zoom
+
+        = render 'share/no_login'  
 
     .main
       = yield

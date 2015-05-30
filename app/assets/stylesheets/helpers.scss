@@ -1,3 +1,16 @@
+// .no-border-bottom {
+//   border-bottom: none;
+// }
+
+// .no-border {
+//   border: none;
+// }
+
+@each $side in 'left', 'right', 'top', 'bottom' {
+  .no-margin-#{$side} { margin-#{$side}: 0px !important; }
+  .no-border-#{$side} { border-#{side}: none; }
+}
+
 @mixin bg-img($w: 24px, $h: 24px, $path: 'sprite.png') {
   background-image: image-url($path);
   background-repeat: no-repeat;
@@ -74,7 +87,7 @@ i.kx {
 
   &.kx.kx-zoom {
     @include bg-img(16px, 15px);
-    background-position: -122px 0px;
+    background-position: -121px 0px;
   }
 
   &.kx-up-voted-sm {
@@ -133,7 +146,8 @@ i.kx {
   }  
 }
 
-// Navbar
+// Navbar 
+// 写的太乱这一块
 .header {
   width: 100%;
   background-color: #FFF;
@@ -189,25 +203,6 @@ i.kx {
   }
 }
 
-.header-top {
-  position: absolute;
-  right: 10px;
-  top: 0px;
-  background-color: #ffd52b;
-  border-radius: 4px;
-  border-top-right-radius: 0px;
-  border-top-left-radius: 0px;
-
-  border-bottom: 4px solid #7a4624;
-  padding: 10px 10px;
-  
-  font-size: 12px;
-  &, a { color: #7a4624; }
-  a, img { margin-right: 5px }
-
-}
-
-
 .header-slim {
   background-color: #FFF;
   border-bottom: 1px solid #ddd;
@@ -237,20 +232,27 @@ i.kx {
   }
 }
 
+.header-lg .header-nav .right {
+  top: 25px;
+}
+
 .header-nav {
+  position: relative;
+
   .right {
     @include clearfix;
     height: 100%;
-    text-align: right;
+    background-color: #ffd52b;
+    color: #7a4624;
+    padding: 0 10px;
+    border-bottom: 4px solid #7a4624;
+    height: 37px;
+    position: absolute;
+    top: 0;
+    right: 0;
 
     .no-login {
-      background-color: #ffd52b;
-      color: #7a4624;
-      padding: 0 10px;
-      border-bottom: 4px solid #7a4624;
-      height: 37px;
       width: 160px;
-
       @include ieWidth(180px);
     }
   }
@@ -266,59 +268,51 @@ i.kx {
 
     i.kx { margin-right: 5px; } 
 
-    &:last-child {
-      margin-right: 0px;
-    }  
     // IE6 hack
     _height: auto;
     _margin-top: 12px;
     _line-height: normal;
   }
 
-}
-
-.header .login {
-  @include clearfix;
-}
-
-.header .u-center {
-  float: right;
-  position: relative;
-  cursor: pointer;
-  width: 40px;
-  text-align: center;
-  margin-top: 10px;
-
-}
-
-.header .welcome { 
-  float: right; 
-  height: 40px;
-  line-height: 40px;
-}
-
-.u-center ul {
-  position: absolute;
-  top: 20px;
-  left: -30px;
-  margin: 0;
-  list-style: none;
-  width: 80px;
-  background-color: #FFF;
-  text-align: center;
-  padding: 0px 10px;
-  display: none;
-}
-
-.u-center ul li {
-  border-bottom: 1px dashed #DDD;
-  padding: 10px 0px;
-  &.noborder {
-    border-bottom: none;
+  .login { 
+    @include clearfix; 
+    position: relative;  
   }
 
-  a:hover {
-    color: $brand-red;
+  .u-center {
+    float: right;
+    cursor: pointer;
+    width: 40px;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .u-center ul {
+    position: absolute;
+    top: 37px;
+    right: -10px;
+    margin: 0;
+    list-style: none;
+    width: 80px;
+    background-color: #ffd52b;
+    text-align: center;
+    padding: 0px 10px;
+    border-bottom: 4px solid #7a4624;
+    display: none;
+  }
+
+  .u-center ul li {
+    border-bottom: 1px dashed #7a4624;
+    padding: 10px 0px;
+
+    &.no-border-bottom { border-bottom: none; }
+    a { color: #7a4624; }
+  }
+
+  .welcome { 
+    float: right; 
+    height: 40px;
+    line-height: 40px;
   }
 }
 

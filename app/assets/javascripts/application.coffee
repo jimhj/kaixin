@@ -13,7 +13,12 @@ $(document).ready ->
   $('input, textarea').placeholder()
   $('.timeago').timeago()
 
-  $('body').on 'mouseenter', '.u-center', ->
-    $(this).find('ul.menu').show()
-  .on 'mouseleave', '.u-center', ->
-    $(this).find('ul.menu').hide()
+  $('body').on 'mouseenter', '.login', ->
+    $(this).find('ul.menu').slideDown('fast')
+  .on 'mouseleave', '.login', ->
+    $(this).find('ul.menu').slideUp()
+
+  $.get '/login_state', (res) ->
+    $('.right.links').replaceWith(res)
+  , 'html'
+
