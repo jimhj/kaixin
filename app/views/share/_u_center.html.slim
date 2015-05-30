@@ -2,7 +2,7 @@
   - if login?
     .login
       .u-center
-        = image_tag current_user.avatar.url, size: '20x20'
+        = image_tag current_user.avatar.tiny.url, size: '20x20'
         ul.menu
           li: a href="#{new_joke_path}" 发表笑料
           li: a href="#{user_path(current_user)}" 我的主页

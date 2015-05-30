@@ -1,8 +1,9 @@
 module ApplicationHelper
   def render_joke_title(joke)
     title = joke.title
-    length = joke.photos.length
+    return '' if title.blank?
 
+    length = joke.photos.length
     if length > 1
       sub_title = content_tag 'span' do
         if action_name == "index"
@@ -13,7 +14,8 @@ module ApplicationHelper
       end
       title << sub_title.to_s
     end
-    title.html_safe
+
+    %Q(<h4><a href="#{joke_path(joke)}">#{title}</a></h4>).html_safe
   end
 
   def render_joke_photo(joke)
@@ -22,7 +24,7 @@ module ApplicationHelper
     ind = ind - 1
     
     if img = joke.photos[ind]
-      image_tag img.url
+      image_tag img.normal.url
     end
   end
 

@@ -22,7 +22,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string :qq_token
       t.string :qq_uid
       t.string :wx_token
-      t.string :wx_uid
+      t.string :wx_openid
+      t.string :wx_unionid
 
       t.timestamps null: false
     end

@@ -13,9 +13,9 @@ class Comment < ActiveRecord::Base
     # false
   end
 
-  def self.hot
+  def self.hot(limit = 5)
     cache_keys = Joke.order('created_at DESC').first(100).map { |j| "joke:#{j.id}:hot_comment" }
     r = Rails.cache.read_multi(*cache_keys)
-    r.values[0..10]
+    r.values[0..limit]
   end
 end

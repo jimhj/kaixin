@@ -2,7 +2,7 @@
   .box.profile
     .box-content
       .left.photo
-        = image_tag @user.avatar.url, size: '120x120'
+        = image_tag @user.avatar.large.url, size: '120x120'
       .left.info
         h3= @user.login
         p.text-muted
@@ -14,7 +14,7 @@
       .user
         .avatar
           a href="#{user_path(joke.user)}"
-            = image_tag joke.user.avatar.url
+            = image_tag joke.user.avatar.thumb.url
           .nickname
             a href="#{user_path(joke.user)}"= joke.user.login
             p.text-muted.timeago title=joke.created_at
@@ -32,7 +32,7 @@
             .comment-body
               .avatar.small
                 a href="#{user_path(joke.hot_comment.user)}"
-                  = image_tag joke.hot_comment.user.avatar.url
+                  = image_tag joke.hot_comment.user.thumb.avatar.url
                 .nickname
                   a href="#{user_path(joke.hot_comment.user)}"= joke.hot_comment.user.login
                   p.text-muted= joke.hot_comment.body
@@ -60,7 +60,7 @@
       a.more 更多
     .box-content
       ul.tag-list
-        - Tag.hot.first(10).each do |tag|
+        - Tag.hot.each do |tag|
           li: a href="#{tag_path(tag.slug)}"= tag.name
   .box
     .box-header
@@ -68,7 +68,7 @@
       a.more href="#{qutu_jokes_path}" 更多
     .box-content
       ul.image-list.odd-margin
-        - Joke.qutu.first(6).each do |joke|
+        - Joke.qutu.each do |joke|
           li class=(cycle('odd', 'even'))
             a href="#{joke_path(joke)}"
               = image_tag joke.photos[0].url
@@ -79,7 +79,7 @@
       a.more href="#{duanzi_jokes_path}" 更多
     .box-content
       ul.text-list
-        - Joke.duanzi.first(10).each do |joke|
+        - Joke.duanzi.each do |joke|
           li: a href="#{joke_path(joke)}"= joke.title
 
   .box
@@ -88,7 +88,7 @@
       a.more href="#{shenhuifu_jokes_path}" 更多
     .box-content
       ul.text-list.replies
-        - Comment.hot.first(5).each do |comment|
+        - Comment.hot.each do |comment|
           li
             .avatar.small
               a href="#{user_path(comment.user)}"

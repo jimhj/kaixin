@@ -14,6 +14,7 @@ class CreateJokes < ActiveRecord::Migration
       t.integer :comments_count, default: 0
       t.float :hot, default: 0.0
       t.integer :status, index: true
+      t.boolean :recommended, default: false
       t.datetime :approved_at
       t.datetime :rejected_at
       t.datetime :deleted_at

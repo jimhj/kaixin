@@ -2,7 +2,7 @@ li.clearfix
   .left
     .avatar.small
       a href="#{user_path(comment.user)}"
-        = image_tag comment.user.avatar.url
+        = image_tag comment.user.avatar.thumb.url
       .nickname
         a href="#{user_path(comment.user)}" 
           span= comment.user.login

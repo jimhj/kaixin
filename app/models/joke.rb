@@ -15,12 +15,20 @@ class Joke < ActiveRecord::Base
     preload(:user).order('up_votes_count DESC, created_at DESC')
   }
 
-  scope :qutu, -> {
-    hot.where.not(photos: nil)
+  scope :qutu, -> (limit = 6) {
+    hot.where.not(photos: nil).limit(limit)
   }
   
-  scope :duanzi, -> {
-    hot.where(photos: nil)
+  scope :duanzi, -> (limit = 10) {
+    hot.where(photos: nil).where.not(title: nil).where.not(title: '').limit(limit)
+  }
+
+  scope :recommend, -> (limit = 10) { 
+    find_by_sql(
+      <<-SQL
+        select * from jokes where recommended is true and photos is not null order by random() limit #{limit};
+      SQL
+    )
   }
 
   after_create :update_hot

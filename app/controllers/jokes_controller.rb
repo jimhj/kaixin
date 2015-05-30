@@ -34,6 +34,7 @@ class JokesController < ApplicationController
 
   def create
     @joke = current_user.jokes.build joke_params    
+    
     @joke.ip = request.remote_ip
 
     if @joke.save
