@@ -42,7 +42,7 @@ gem 'chinese_pinyin', '~> 0.7.0'
 gem 'multi_fetch_fragments', '~> 0.0.17'
 
 # Use Unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
