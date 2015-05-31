@@ -52,30 +52,30 @@ namespace :unicorn do
 
   task :stop do
     on roles(:web, :db, :app) do
-      execute :kill, "-s QUIT `cat #{unicorn_pid}`"
+      execute :kill, "-s QUIT `cat #{fetch(:unicorn_pid)}`"
     end
   end
 
   task :restart do
     on roles(:web, :db, :app) do
-      execute :kill, "-s USR2 `cat #{unicorn_pid}`"
+      execute :kill, "-s USR2 `cat #{fetch(:unicorn_pid)}`"
     end    
   end
 
   task :reload do
     on roles(:web, :db, :app) do
-      execute :kill, "-s HUP `cat #{unicorn_pid}`"
+      execute :kill, "-s HUP `cat #{fetch(:unicorn_pid)}`"
     end     
   end
 
   task :force_reload do
     on roles(:web, :db, :app) do
-      execute :kill, "-s TERM `cat #{unicorn_pid}`"
+      execute :kill, "-s TERM `cat #{fetch(:unicorn_pid)}`"
       invoke 'unicorn:start'
     end
   end
 end
 
 namespace :deploy do
-  after :finished, 'unicorn:start' 
+  after :finished, 'unicorn:force_reload' 
 end

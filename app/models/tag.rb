@@ -6,7 +6,7 @@ class Tag < ActiveRecord::Base
   scope :hot, -> (limit = 10) { order('taggings_count DESC').limit(10) }
 
   def hot?
-    taggings_count > 10
+    taggings_count > 50
   end
 
   before_create do

@@ -22,7 +22,7 @@
         p.text-muted 按 ← → 方向键也可以换笑话哦
       .tags
         - @tags.each do |tag|
-          a href="#" ##{tag.name}#
+          a href="#{tag_path(tag.slug)}" ##{tag.name}#
     .operation
       a.ding href="javascript:;" data-votable_type="jokes" data-votable_id=@joke.id data-vote="up_vote"
         i.kx.kx-up-voted
@@ -36,12 +36,7 @@
 
   .box
     .box-content
-      ul.image-list.recommend
-        - Joke.recommend.each do |joke|
-          li class=(cycle('', '', '', '', 'no-margin'))
-            a href="#{joke_path(joke)}"
-              = image_tag joke.photos[0].thumb.url
-              .text title="#{joke.title}"= joke.title.truncate(10)              
+      = render 'jokes/recommend'           
 
   .box.comment-list
     .box-header
@@ -78,9 +73,4 @@
       h3 新鲜出炉
       a.more href="#{qutu_jokes_path}" 更多
     .box-content
-      ul.image-list.odd-margin
-        - Joke.qutu.each do |joke|
-          li class=(cycle('odd', 'even'))
-            a href="#{joke_path(joke)}"
-              = image_tag joke.photos[0].thumb.url
-              .text title="#{joke.title}"= joke.title.truncate(10)
+      = render 'jokes/qutu'

@@ -67,20 +67,14 @@
       h3 精彩趣图
       a.more href="#{qutu_jokes_path}" 更多
     .box-content
-      ul.image-list.odd-margin
-        - Joke.qutu.each do |joke|
-          li class=(cycle('odd', 'even'))
-            a href="#{joke_path(joke)}"
-              = image_tag joke.photos[0].thumb.url
-              .text title="#{joke.title}"= joke.title.truncate(10)
+      = render 'jokes/qutu'
+
   .box
     .box-header
       h3 精彩段子
       a.more href="#{duanzi_jokes_path}" 更多
     .box-content
-      ul.text-list
-        - Joke.duanzi.each do |joke|
-          li: a href="#{joke_path(joke)}"= joke.title
+      = render 'jokes/duanzi'
 
   .box
     .box-header
