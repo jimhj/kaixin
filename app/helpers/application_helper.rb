@@ -24,7 +24,7 @@ module ApplicationHelper
     ind = ind - 1
     
     if img = joke.photos[ind]
-      image_tag img.normal.url
+      image_tag img.middle.url
     end
   end
 
