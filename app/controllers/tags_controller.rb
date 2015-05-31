@@ -1,6 +1,6 @@
 class TagsController < ApplicationController
   def index
-    @tags = Tag.order('created_at DESC')
+    @tags = Tag.order('created_at ASC')
   end
 
 
