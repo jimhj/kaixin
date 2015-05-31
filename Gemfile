@@ -41,8 +41,14 @@ gem 'chinese_pinyin', '~> 0.7.0'
 # Collection Render Cache
 gem 'multi_fetch_fragments', '~> 0.0.17'
 
-# Use Unicorn as the app server
-gem 'unicorn'
+group :development do
+  # Deployment
+  gem 'capistrano', '~> 3.4.0'
+  gem 'capistrano-rvm'
+  gem 'capistrano-rails'
+  gem 'capistrano-bundler'
+  # gem "capistrano-resque", "~> 0.2.2"
+end
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
