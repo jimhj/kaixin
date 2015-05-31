@@ -11,8 +11,7 @@
       = render_joke_title(@joke)
       .body
         = simple_format @joke.content
-        .photo
-          = render_joke_photo @joke
+        = render_joke_photo @joke
 
       .paginate.text-center
         a.prev href="#{render_prev_joke_link(@joke)}"

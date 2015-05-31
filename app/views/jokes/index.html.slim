@@ -12,8 +12,7 @@
         = render_joke_title(joke)
         .body
           = simple_format joke.content
-          .photo
-            = render_joke_photo joke  
+          = render_joke_photo joke  
 
         - if joke.hot_comment.present?        
           .comment
