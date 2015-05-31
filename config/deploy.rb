@@ -77,5 +77,5 @@ namespace :unicorn do
 end
 
 namespace :deploy do
-  after :publishing, 'unicorn:start' 
+  after :finished, 'unicorn:start' 
 end

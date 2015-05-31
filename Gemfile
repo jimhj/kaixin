@@ -50,9 +50,6 @@ group :development do
   # gem "capistrano-resque", "~> 0.2.2"
 end
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
