@@ -15,9 +15,6 @@
 /app/.DS_Store
 /app/models/.DS_Store
 
-/config/application.rb
-
-config/application.rb
 db/schema.rb
 # Ignore all logfiles and tempfiles.
 /db/schema.rb
