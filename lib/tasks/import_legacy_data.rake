@@ -4,7 +4,7 @@ namespace :legacy do
     ActiveRecord::Base.transaction do
         puts "============ 开始导入用户数据 ===============\n"
 
-      imported_uids = Legacy::User.all[0..10].map.with_index do |user, i|
+      imported_uids = Legacy::User.all.map.with_index do |user, i|
         puts "导入第 #{i+1} 个用户...\n"
         # puts user.as_json
         # puts "\n"
