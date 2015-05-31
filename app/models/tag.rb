@@ -10,7 +10,14 @@ class Tag < ActiveRecord::Base
   end
 
   before_create do
-    self.slug = Pinyin.t(self.name, splitter: '-')
-    self.slug = "#{self.id}-#{self.slug}"
+    g_slug
+  end
+
+  def g_slug
+    self.slug = Pinyin.t(self.name, splitter: '')
+    
+    if Tag.find_by(slug: self.slug)
+      self.slug = "#{self.slug}#{rand(50)}"
+    end
   end
 end
