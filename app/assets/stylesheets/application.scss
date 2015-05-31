@@ -30,10 +30,13 @@ body {
 
 .box .search {
   position: relative;
+  width: 250px;
+  @include ieWidth(250px);
 }
 
 .box .search input {
-  width: 100%;
+  width: 250px;
+  @include ieWidth(250px);
 } 
 
 .search .kx.kx-zoom {
