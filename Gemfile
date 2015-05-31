@@ -41,6 +41,9 @@ gem 'chinese_pinyin', '~> 0.7.0'
 # Collection Render Cache
 gem 'multi_fetch_fragments', '~> 0.0.17'
 
+# Unicorn
+gem 'unicorn'
+
 group :development do
   # Deployment
   gem 'capistrano', '~> 3.4.0'
