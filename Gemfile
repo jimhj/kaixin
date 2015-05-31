@@ -9,7 +9,6 @@ gem 'coffee-rails', '~> 4.1.0'
 
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
-gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Slim for Template
 gem 'slim', '~> 3.0.3'
@@ -43,6 +42,9 @@ gem 'multi_fetch_fragments', '~> 0.0.17'
 
 # Unicorn
 gem 'unicorn'
+
+# SEO Tags
+gem 'meta-tags', '~> 2.0.0'
 
 group :development do
   # Deployment

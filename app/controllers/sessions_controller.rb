@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
 
   def new
     store_location params[:return_to]
+    @page_title = "登录"
   end
 
   def create

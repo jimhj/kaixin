@@ -1,4 +1,25 @@
 module ApplicationHelper
+  def render_meta_tags(layout: 'application')
+    site        = '笑话大全_最新搞笑图片_爆笑冷笑话精选_内涵段子幽默糗事_邪恶漫画_开心100'
+    keywords    = %w(笑话 笑话大全 搞笑图片 冷笑话 邪恶漫画 幽默笑话 内涵段子 经典笑话 开心100)
+    description = '开心100笑话大全与千万网友一起分享最新最热的爆笑笑话、搞笑图片、动态图、冷笑话、糗事笑话、成人笑话、内涵图、经典笑话、内涵段子、邪恶漫画等笑话大全。'
+
+    conf = {
+      reverse: true, 
+      separator: '_', 
+      suffix: '', 
+      prefix: '',
+      description: description,
+      keywords: keywords
+    }
+
+    if layout == 'application'
+      conf.merge!(site: site)
+    end
+
+    display_meta_tags(conf)
+  end
+
   def render_joke_title(joke)
     title = joke.title
     return '' if title.blank?

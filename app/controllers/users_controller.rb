@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   def new
     store_location params[:return_to]
     @user = User.new  
+    @page_title = "注册"
   end
   
   def create
@@ -19,6 +20,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find params[:id]
     @jokes = @user.jokes.order('created_at DESC').paginate(page: params[:page], per_page: 10)
+    @page_title = "#{@user.login}的所有笑料"
     render layout: 'detail'
   end
 end
