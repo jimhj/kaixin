@@ -2,6 +2,15 @@ Rails.application.routes.draw do
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
 
+  # 移动站的页面
+  constraints subdomain: 'm' do
+    scope module: 'mobile' do
+      p 123123123123123
+      get '/', to: 'jokes#index', as: :mobile_root
+      resources :jokes
+    end
+  end
+  
   root 'jokes#index'
 
   concern :votable do
@@ -37,5 +46,5 @@ Rails.application.routes.draw do
   namespace :settings do
     resource :password, only: [:show, :update]
     resource :profile, only: [:show, :update]
-  end  
+  end
 end

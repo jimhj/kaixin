@@ -23,9 +23,9 @@
       .content
         = render_joke_title(joke)
         .body
-          = joke.content
-          .photo
-            = render_joke_photo joke  
+          = simple_format joke.content
+          = render_joke_photo joke  
+          
         - if joke.hot_comment.present?        
           .comment
             .comment-nav
