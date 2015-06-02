@@ -1,0 +1,34 @@
+.header.clearfix
+  .pull-left
+    a.kx-logo href="#{mobile_root_path}"
+  .pull-right
+    a.menu-toggle: i.fa.fa-ellipsis-v.strong
+.header-nav
+  ul.nav.nav-pills
+    li.active: a href="#" 热门
+    li: a href="#" 趣图
+    li: a href="#" 段子
+    li: a href="#" 随机
+
+.main-container
+  .panel.joke-item
+    .panel-body
+      .user.clearfix
+        a.avatar.pull-left href="#{user_path(@joke.user)}"
+          = image_tag @joke.user.avatar.thumb.url, size: '40x40'
+        a.name.pull-left href="#{user_path(@joke.user)}"= @joke.user.login
+      a.content href="#{joke_path(@joke)}"
+        = render_joke_title @joke
+        .body
+          = simple_format @joke.content
+          = render_joke_photo @joke
+    .panel-footer.action-bar
+      a href="#"
+        i.fa.fa-smile-o
+        span 100
+      a href="#"
+        i.fa.fa-frown-o
+        span 200
+      a href="#"
+        i.fa.fa-comment-o
+        span 56

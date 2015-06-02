@@ -1,11 +1,17 @@
+class MobileConstraint
+  def self.matches?(request)
+    agent_str = request.user_agent.to_s.downcase
+    (agent_str =~ Regexp.new(MOBILE_USER_AGENTS)) or request.subdomain == 'm' 
+  end
+end 
+
 Rails.application.routes.draw do
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
 
   # 移动站的页面
-  constraints subdomain: 'm' do
+  constraints(MobileConstraint) do
     scope module: 'mobile' do
-      p 123123123123123
       get '/', to: 'jokes#index', as: :mobile_root
       resources :jokes
     end
