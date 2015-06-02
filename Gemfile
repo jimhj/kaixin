@@ -10,6 +10,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # Bootstrap for mobile
 gem 'bootstrap-sass', '~> 3.3.4'
 gem 'turbolinks'
+gem 'font-awesome-sass', '~> 4.3.0'
 
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'

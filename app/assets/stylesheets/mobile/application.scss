@@ -1,3 +1,66 @@
+$brand-primary: #514331;
+$navbar-border-radius: 0;
+$nav-pills-border-radius: 0;
+$nav-pills-active-link-hover-bg: #FFF;
+$panel-border-radius: 0;
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "bootstrap/theme";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+body {
+  background-color: #F1F1F1;
+  background: #F1F1F1 image-url('giftly.png') repeat;
+}
+
+.panel {
+  border: none;
+}
+
+.kx-logo {
+  display: block;
+  width: 80px;
+  height: 30px;
+  background-image: image-url('logo_small.png');  
+}
+
+.header {
+  padding: 10px 10px;
+  background-color: #ffba15;  
+  &, a { color: #FFF; }
+}
+
+.header a.menu-toggle {
+  font-size: 21px;
+  color: #FFFDF7;
+  width: 20px;
+  display: inline-block;
+  text-shadow: 1px solid #CCC;
+}
+
+.header-nav ul.nav {
+  background-color: #FFF;
+
+  li {
+    width: 25%;
+    margin-left: 0px;
+    text-align: center;
+    font-size: 16px;
+  }
+
+  li a, li.active a {
+    color: $brand-primary;
+    padding: 10px 15px;
+  }
+
+  li.active a {
+    color: #ffd52b;
+    border-bottom: 4px solid #ffd52b;
+  }
+}
+
+.main-container {
+  margin-top: 10px;
+}
