@@ -18,7 +18,7 @@
           a.avatar.pull-left href="#{user_path(joke.user)}"
             = image_tag joke.user.avatar.thumb.url, size: '40x40'
           a.name.pull-left href="#{user_path(joke.user)}"= joke.user.login
-        a.content href="#{joke_path(joke)}"
+        .content
           = render_joke_title joke
           .body
             = simple_format joke.content
@@ -30,9 +30,9 @@
         a href="#"
           i.fa.fa-frown-o
           span 200
-        a href="#"
+        a href="#{joke_path(joke)}"
           i.fa.fa-comment-o
           span 56
 
 .m-pagination
-  a.btn.btn-default.btn-lg.btn-block href="#" 下一页
+  a.btn.btn-warning.btn-lg.btn-block href="#" 下一页

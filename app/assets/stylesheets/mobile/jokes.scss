@@ -1,6 +1,4 @@
 .joke-item {
-  .user {}
-
   .user .avatar { margin-right: 10px; }
   .avatar img { border-radius: 20px; }
   .user .name { padding-top: 10px; }
@@ -10,13 +8,19 @@
     margin-top: 10px; 
     color: #333;
   } 
-
   .content h4 { margin-top: 0px; }
-  .content .body {
-    line-height: 26px;
+  .content .body { line-height: 26px; }
+  .content .body img { max-width: 100%; }
+
+  .tags { margin-top: 10px; }
+  .tags a { 
+    margin-right: 10px; 
+    font-size: 12px; 
   }
-  .content .body img {
-    max-width: 100%;
+
+  .paginate {
+    margin-top: 10px;
+    text-align: center;
   }
 
   .action-bar {
@@ -29,5 +33,19 @@
       font-size: 24px; 
       margin-right: 2px;
     }
+  }
+}
+
+.comment-list { 
+  &.panel .panel-body {
+    padding: 0px ;
+  }
+
+  .avatar img { border-radius: 20px; }
+  .body { margin-left: 10px; }
+
+  .post-comment { background-color: #FAFAFA; }
+  .post-comment input {
+    border-radius: 0px;
   }
 }
