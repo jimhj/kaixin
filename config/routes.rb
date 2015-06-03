@@ -9,11 +9,21 @@ Rails.application.routes.draw do
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
 
+  concern :sessionable do
+    get :signup, to: 'users#new'
+    post :signup, to: 'users#create'
+    get :login, to: 'sessions#new'
+    post :login, to: 'sessions#create'
+    delete :logout, to: 'sessions#destroy'
+    get :login_state, to: 'sessions#login_state'
+  end
+
   # 移动站的页面
   constraints(MobileConstraint) do
     scope module: 'mobile' do
       get '/', to: 'jokes#index', as: :mobile_root
       resources :jokes
+      concerns :sessionable
     end
   end
   
@@ -22,7 +32,7 @@ Rails.application.routes.draw do
   concern :votable do
     post :up_vote
     post :down_vote
-  end
+  end  
 
   resources :jokes do
     concerns :votable
@@ -39,15 +49,8 @@ Rails.application.routes.draw do
   end
 
   resources :users
-  resources :sessions
   resources :tags, only: [:index, :show]
-
-  get :signup, to: 'users#new'
-  post :signup, to: 'users#create'
-  get :login, to: 'sessions#new'
-  post :login, to: 'sessions#create'
-  delete :logout, to: 'sessions#destroy'
-  get :login_state, to: 'sessions#login_state'
+  concerns :sessionable
 
   namespace :settings do
     resource :password, only: [:show, :update]

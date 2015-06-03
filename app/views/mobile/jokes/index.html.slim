@@ -1,15 +1,3 @@
-.header.clearfix
-  .pull-left
-    a.kx-logo href="#{mobile_root_path}"
-  .pull-right
-    a.menu-toggle: i.fa.fa-ellipsis-v.strong
-.header-nav
-  ul.nav.nav-pills
-    li.active: a href="#" 热门
-    li: a href="#" 趣图
-    li: a href="#" 段子
-    li: a href="#" 随机
-
 .main-container
   - @jokes.each do |joke|
     .panel.joke-item

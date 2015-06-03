@@ -7,5 +7,22 @@ html
     = csrf_meta_tags
     meta name="viewport" content="width=device-width, initial-scale=1.0"
   body
+    .header.clearfix
+      .pull-left
+        a.kx-logo href="#{mobile_root_path}"
+      .dropdown.pull-right
+        a.menu-toggle data-toggle="dropdown" href="#this" data-target="#": i.fa.fa-ellipsis-v.strong
+        ul.dropdown-menu
+          li: a href="#" 注册
+          li.divider
+          li: a href="#" 登录
+
+    .header-nav
+      ul.nav.nav-pills
+        li.active: a href="#" 热门
+        li: a href="#" 趣图
+        li: a href="#" 段子
+        li: a href="#" 随机  
+
     = yield
     .footer.text-center.text-muted Copyright 2005-2015 kaixin100.com
