@@ -29,11 +29,16 @@ class Mobile::JokesController < Mobile::ApplicationController
     render action: :index
   end
 
+  def random
+    @joke = Joke.random || Joke.order('hot DESC').first
+    redirect_to joke_path(@joke)    
+  end
+
   def show
     @joke = Joke.find params[:id]
     @tags = @joke.tags
     @comments = @joke.comments
-    
+
     keywords = @tags.pluck(:name).to_a
     @page_title = @joke.title.presence || @joke.content
     @page_keywords = ([@page_title] + keywords).join(',')

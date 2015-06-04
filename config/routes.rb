@@ -28,6 +28,7 @@ Rails.application.routes.draw do
           get :shenhuifu
           get :qutu
           get :duanzi
+          get :random
         end        
       end
 

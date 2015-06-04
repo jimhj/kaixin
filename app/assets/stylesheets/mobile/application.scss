@@ -74,13 +74,21 @@ a, a:visited {
     font-size: 16px;
   }
 
+  li.active {
+    
+  }
+
   li a, li.active a {
+    height: 100%;
     color: $brand-primary;
-    padding: 10px 15px;
+    border-bottom: 4px solid #FFF;
+
+    &:hover {
+      background-color: #FFF;
+    }
   }
 
   li.active a {
-    color: #E36F22;
     border-bottom: 4px solid #E36F22;
   }
 }

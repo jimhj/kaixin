@@ -39,6 +39,15 @@ class Joke < ActiveRecord::Base
     self.down_votes_count = self.up_votes_count * rand(50) / 100
   end
 
+  def self.random
+    # See: http://stackoverflow.com/questions/8674718/best-way-to-select-random-rows-postgresql
+    sql = <<-SQL
+      select * from jokes where random() < 0.01 limit 1;
+    SQL
+
+    find_by_sql(sql).first
+  end  
+
   def tag_list
     tags.pluck(:name)
   end
