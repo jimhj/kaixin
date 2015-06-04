@@ -15,40 +15,41 @@
             a href="#{tag_path(tag.slug)}" ##{tag.name}#
 
       .paginate.clearfix
-        a.btn.btn-warning: i.fa.fa-chevron-left
-        a.btn.btn-success
+        a.btn.btn-warning href="#{render_prev_joke_link(@joke)}"
+          i.fa.fa-chevron-left
+        a.btn.btn-success href="#{render_next_joke_link(@joke)}"
           span 下一条
           i.fa.fa-chevron-right.ml-5
 
     .panel-footer.action-bar
-      a href="#"
+      a href="#this"
         i.fa.fa-smile-o
-        span 100
-      a href="#"
+        span= @joke.up_votes_count
+      a href="#this"
         i.fa.fa-frown-o
-        span 200
-      a href="#"
+        span= @joke.down_votes_count
+      a href="#this"
         i.fa.fa-comment-o
-        span 56
+        span= @joke.comments_count
 
   .panel.comment-list
     .panel-heading.clearfix.text-muted
       .pull-left 评论
-      .pull-right 共 16 条
+      .pull-right 共 #{@joke.comments_count} 条
     .panel-body
       .list-group
-        - 5.times do
+        - @joke.comments.each do |comment|
           .list-group-item.clearfix
             .pull-left.avatar
-              a href="#"
-                = image_tag 'avatar.jpg', size: '40x40'
+              a href="#this"
+                = image_tag comment.user.avatar.thumb.url, size: '40x40'
             .pull-left.body
-              .name: a href="#" 老美女
-              .list-group-item-text.text-muted 哈哈哈哈哈
+              .name: a href="#"= comment.user.login
+              .list-group-item-text.text-muted= comment.body
             .pull-right
               a href="#"
                 i.fa.fa-smile-o
-                span 100
+                span= comment.up_votes_count
         .list-group-item.post-comment.clearfix
           form.form-inline
             .input-group

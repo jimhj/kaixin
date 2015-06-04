@@ -22,7 +22,15 @@ Rails.application.routes.draw do
   constraints(MobileConstraint) do
     scope module: 'mobile', as: :mobile do
       root to: 'jokes#index'
-      resources :jokes
+      resources :jokes do
+        collection do
+          get :hot
+          get :shenhuifu
+          get :qutu
+          get :duanzi
+        end        
+      end
+
       concerns :sessionable
     end
   end
