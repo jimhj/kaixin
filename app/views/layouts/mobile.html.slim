@@ -13,9 +13,20 @@ html
       .dropdown.pull-right
         a.menu-toggle data-toggle="dropdown" href="#this" data-target="#": i.fa.fa-ellipsis-v.strong
         ul.dropdown-menu
-          li: a href="#" 注册
+          li
+            a href="#"
+              i.fa.fa-pencil 
+              span.ml-5 投稿    
+          li.divider              
+          li
+            a href="#{signup_path}" 
+              i.fa.fa-user
+              span.ml-5 注册
           li.divider
-          li: a href="#" 登录
+          li
+            a href="#{login_path}" 
+              i.fa.fa-sign-in
+              span.ml-5 登录
 
     .header-nav
       ul.nav.nav-pills

@@ -12,15 +12,15 @@
             = simple_format joke.content
             = render_joke_photo joke
       .panel-footer.action-bar
-        a href="#"
+        a href="#{joke_path(joke)}"
           i.fa.fa-smile-o
-          span 100
-        a href="#"
+          span= joke.up_votes_count
+        a href="#{joke_path(joke)}"
           i.fa.fa-frown-o
-          span 200
+          span= joke.down_votes_count
         a href="#{joke_path(joke)}"
           i.fa.fa-comment-o
-          span 56
+          span= joke.comments_count
 
 .m-pagination
-  a.btn.btn-warning.btn-lg.btn-block href="#" 下一页
+  = mobile_paginate

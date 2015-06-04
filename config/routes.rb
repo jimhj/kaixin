@@ -20,8 +20,8 @@ Rails.application.routes.draw do
 
   # 移动站的页面
   constraints(MobileConstraint) do
-    scope module: 'mobile' do
-      get '/', to: 'jokes#index', as: :mobile_root
+    scope module: 'mobile', as: :mobile do
+      root to: 'jokes#index'
       resources :jokes
       concerns :sessionable
     end
