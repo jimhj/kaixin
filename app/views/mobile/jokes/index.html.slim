@@ -10,7 +10,7 @@
           = render_joke_title joke
           .body
             = simple_format joke.content
-            = render_joke_photo joke
+            = render_joke_photo joke, "mobile"
       .panel-footer.action-bar
         a href="#{joke_path(joke)}"
           i.fa.fa-smile-o

@@ -39,14 +39,15 @@ module ApplicationHelper
     %Q(<h4><a href="#{joke_path(joke)}">#{title}</a></h4>).html_safe
   end
 
-  def render_joke_photo(joke)
+  def render_joke_photo(joke, device = "desktop")
     ind = params[:photo].to_i
     ind = 1 if ind.zero?
     ind = ind - 1
     
     if img = joke.photos[ind]
       content_tag 'div', class: 'photo' do
-        image_tag img.middle.url
+        version = (device == "desktop" ? :middle : :small)
+        image_tag img.url(version)
       end
     end
   end
