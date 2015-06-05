@@ -18,45 +18,40 @@ Rails.application.routes.draw do
     get :login_state, to: 'sessions#login_state'
   end
 
-  # 移动站的页面
-  constraints(MobileConstraint) do
-    scope module: 'mobile', as: :mobile do
-      root to: 'jokes#index'
-      resources :jokes do
-        collection do
-          get :hot
-          get :shenhuifu
-          get :qutu
-          get :duanzi
-          get :random
-        end        
-      end
-
-      concerns :sessionable
-    end
-  end
-  
-  root 'jokes#index'
-
   concern :votable do
     post :up_vote
     post :down_vote
   end  
 
-  resources :jokes do
-    concerns :votable
-    resources :comments, shallow: true do 
+  concern :jokeable do
+    resources :jokes do
       concerns :votable
-    end
+      resources :comments, shallow: true do 
+        concerns :votable
+      end
 
-    collection do
-      get :hot
-      get :shenhuifu
-      get :qutu
-      get :duanzi
-    end
+      collection do
+        get :hot
+        get :shenhuifu
+        get :qutu
+        get :duanzi
+        get :random
+      end
+    end    
   end
 
+  # 移动站的页面
+  constraints(MobileConstraint) do
+    scope module: 'mobile', as: :mobile do
+      root to: 'jokes#index'
+      concerns :jokeable
+      concerns :sessionable
+    end
+  end
+  
+  # 桌面站
+  root 'jokes#index'
+  concerns :jokeable
   resources :users
   resources :tags, only: [:index, :show]
   concerns :sessionable
