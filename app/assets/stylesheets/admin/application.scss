@@ -1,0 +1,62 @@
+@import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+.sub-navbar {
+  background: #f9f9f9;
+
+  .sub-navbar-nav {
+    text-align: center;
+
+    > li {
+      display: inline-block;
+
+      > a {
+        color: $gray-light;
+
+        &:hover {
+          background: transparent;
+          color: $gray-dark;
+          padding-bottom: 8px;
+          border-bottom: 2px solid $link-color;
+        }
+      }
+
+      &.active {
+        a {
+          color: $gray-dark;
+          padding-bottom: 8px;
+          border-bottom: 2px solid $link-color;
+        }
+      }
+    }
+  }
+}
+
+table {
+  width: 100%;
+}
+
+table td, table th {
+  padding: 5px 10px;
+  font-size: 12px;
+
+  &.title {
+    width: 200px;
+  }
+
+  &.body {
+    width: 300px;
+    line-height: 24px;
+  }
+
+  &.photos {
+    width: 200px;
+  }
+
+  &.time {
+    width: 140px;
+    color: #999;
+  }
+
+}

@@ -1,0 +1,39 @@
+/ .sub-navbar
+/   ul.nav.sub-navbar-nav
+/     li class="active"
+/       a href="#" 热门
+/     li 
+/       a href="#" 趣图
+/     li 
+/       a href="#" 段子      
+
+.container
+  table.table-bordered.table-hover.table-striped
+    thead
+      tr
+        th ID
+        th 标题
+        th 内容
+        th 图片
+        th 时间
+        th 操作
+        th 操作
+    tbody
+      - @jokes.each do |joke|
+        tr
+          td
+            a href="#{joke_path(joke)}" target="_blank"= joke.id
+          td.title= joke.title
+          td.body= joke.content.truncate(200)
+          td.photos
+            - joke.photos.each do |p|
+              = image_tag p.thumb.url, width: '60'
+          td.time= joke.created_at.strftime('%F %T')
+          td
+            a href="#" 拒绝
+          td
+            a href="#" 推荐
+
+  = will_paginate @jokes, renderer: BootstrapPagination::Rails
+
+

@@ -5,6 +5,15 @@ class MobileConstraint
   end
 end 
 
+# class AdminConstraint
+#   def self.matches?(request)
+#     if request.session[:user_id]
+#       user = User.find request.session[:user_id]
+#       user && user.admin?
+#     end
+#   end
+# end
+
 Rails.application.routes.draw do
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
@@ -59,5 +68,21 @@ Rails.application.routes.draw do
   namespace :settings do
     resource :password, only: [:show, :update]
     resource :profile, only: [:show, :update]
+  end
+
+  # 管理后台
+  namespace :admin do
+    root to: 'jokes#index'
+    resources :jokes do
+      collection do
+        get :hot
+        get :shenhuifu
+        get :qutu
+        get :duanzi
+      end    
+    end      
+    
+    resources :users
+    resources :comments
   end
 end

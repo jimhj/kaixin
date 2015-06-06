@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    title 开心100
+    = stylesheet_link_tag    "admin/application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "admin/application", "data-turbolinks-track" => true
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    = csrf_meta_tags
+
+  body
+    nav.navbar.navbar-static-top.navbar-inverse
+      .container-fluid
+        .navbar-header
+          a.navbar-brand href=admin_root_path 首页
+        ul.nav.navbar-nav.navbar-right
+          li
+            a href=root_path
+              i.fa.fa-sign-out
+        #navbar.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li class=('active' if controller_name == 'users')
+              a href=admin_users_path 用户
+            li class=('active' if controller_name == 'jokes')
+              a href=admin_jokes_path 笑话
+            li class=('active' if controller_name == 'comments')
+              a href=admin_comments_path 评论
+
+    = yield

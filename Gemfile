@@ -38,6 +38,7 @@ gem 'mini_magick', '~> 4.2.3'
 
 # Pagination
 gem 'will_paginate', '~> 3.0.6'
+gem 'will_paginate-bootstrap'
 
 # Hanzi to Pinyin
 gem 'chinese_pinyin', '~> 0.7.0'

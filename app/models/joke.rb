@@ -11,6 +11,16 @@ class Joke < ActiveRecord::Base
   validates :content, presence: true, if: Proc.new { |joke| joke.title.blank? }
   validates :content, uniqueness: true, if: Proc.new { |joke| joke.photos.blank? }
 
+  enum status: { 
+    :pending  => 0,
+    :approved => 1, 
+    :rejected => 2
+  }
+
+  default_scope {
+    where(status: Joke.statuses[:approved])
+  }
+
   scope :hot, -> {
     preload(:user).order('up_votes_count DESC, created_at DESC')
   }

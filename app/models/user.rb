@@ -23,4 +23,8 @@ class User < ActiveRecord::Base
     user = find_by_id(token.split('$').first)
     (user && Rack::Utils.secure_compare(user.remember_token, token)) ? user : nil
   end  
+
+  def admin?
+    CONFIG['admin_emails'] && CONFIG['admin_emails'].include?(email)
+  end  
 end
