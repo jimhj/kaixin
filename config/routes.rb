@@ -79,7 +79,14 @@ Rails.application.routes.draw do
         get :shenhuifu
         get :qutu
         get :duanzi
-      end    
+      end
+
+      member do
+        post :approve
+        post :reject
+        post :recommend
+        post :unrecommend
+      end
     end      
     
     resources :users

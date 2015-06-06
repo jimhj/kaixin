@@ -1,0 +1,3 @@
+var button = '<a class="btn btn-success btn-xs" data-method="POST" data-remote="true" href="<%= approve_admin_joke_path(@joke) %>">通过</a>';
+
+$("tr.joke-item-<%= @joke.id %>").find('.censorship').empty().append(button);

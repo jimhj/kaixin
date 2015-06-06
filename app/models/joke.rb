@@ -17,20 +17,20 @@ class Joke < ActiveRecord::Base
     :rejected => 2
   }
 
-  default_scope {
+  scope :approved, -> {
     where(status: Joke.statuses[:approved])
   }
 
   scope :hot, -> {
-    preload(:user).order('up_votes_count DESC, created_at DESC')
+    approved.preload(:user).order('up_votes_count DESC, created_at DESC')
   }
 
   scope :qutu, -> (limit = 6) {
-    hot.where.not(photos: nil).limit(limit)
+    approved.hot.where.not(photos: nil).limit(limit)
   }
   
   scope :duanzi, -> (limit = 10) {
-    hot.where(photos: nil).where.not(title: nil).where.not(title: '').limit(limit)
+    approved.hot.where(photos: nil).where.not(title: nil).where.not(title: '').limit(limit)
   }
 
   scope :recommend, -> (limit = 10) { 

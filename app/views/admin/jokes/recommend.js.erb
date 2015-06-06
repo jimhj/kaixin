@@ -1,0 +1,3 @@
+var button = '<a class="btn btn-default btn-xs" data-method="POST" data-remote="true" href="<%= unrecommend_admin_joke_path(@joke) %>">取消推荐</a>';
+
+$("tr.joke-item-<%= @joke.id %>").find('.recommend').empty().append(button);

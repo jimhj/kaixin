@@ -1,26 +1,28 @@
 class Admin::JokesController < Admin::ApplicationController
+  before_action :find_joke, only: [:approve, :reject, :recommend, :unrecommend]
+
   def index
-    @jokes = Joke.unscoped.preload(:comments, :user).order('created_at DESC')
+    @jokes = Joke.preload(:comments, :user).order('created_at DESC')
     @jokes = @jokes.paginate(paginate_params)
   end
 
   def hot
-    @jokes = Joke.unscoped.hot.paginate(paginate_params)
+    @jokes = Joke.hot.paginate(paginate_params)
     render action: :index
   end
 
   def qutu
-    @jokes = Joke.unscoped.qutu.paginate(paginate_params)
+    @jokes = Joke.qutu.paginate(paginate_params)
     render action: :index
   end
 
   def duanzi
-    @jokes = Joke.unscoped.duanzi.paginate(paginate_params)
+    @jokes = Joke.duanzi.paginate(paginate_params)
     render action: :index
   end
 
   def shenhuifu
-    @jokes = Joke.unscoped.distinct.joins(:comments).where("comments.up_votes_count > 0").order('jokes.created_at DESC')
+    @jokes = Joke.distinct.joins(:comments).where("comments.up_votes_count > 0").order('jokes.created_at DESC')
     @jokes = @jokes.paginate(paginate_params)
     render action: :index
   end
@@ -32,16 +34,27 @@ class Admin::JokesController < Admin::ApplicationController
   def create
   end
 
-  def edit
+  def approve
+    @joke.approved!
   end
 
-  def block
+  def reject
+    @joke.rejected!
   end
 
   def recommend
+    @joke.update_attribute :recommended, true
+  end
+
+  def unrecommend
+    @joke.update_attribute :recommended, false
   end
 
   private
+
+  def find_joke
+    @joke = Joke.find params[:id]
+  end
 
   def joke_params
     params.require(:joke).permit(:title, :content, :anonymous, :photos => [])
