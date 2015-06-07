@@ -1,0 +1,32 @@
+.container
+  .sub-navbar
+    ul.nav.sub-navbar-nav
+      li.active: a href="#{url_for}" 列表
+      li: a href="#{new_admin_website_path}" 新建友链
+
+  .main
+    table.table-bordered.table-hover.table-striped
+      thead
+        tr
+          th ID
+          th 网站
+          th 链接
+          th 排序
+          th 操作
+
+
+      tbody
+        - @websites.each do |website|
+          tr
+            td
+              a href="#{edit_admin_website_path(website)}"= website.id
+            td= website.name
+            td
+              a href="#{website.url}"= website.url
+            td= website.priority
+            td
+              a href="#{admin_website_path(website)}" data-method="DELETE" data-confirm="确定删除吗" 删除
+
+    = will_paginate @users, renderer: BootstrapPagination::Rails
+
+

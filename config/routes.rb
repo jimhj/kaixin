@@ -92,5 +92,6 @@ Rails.application.routes.draw do
     resources :tags    
     resources :users
     resources :comments
+    resources :websites
   end
 end

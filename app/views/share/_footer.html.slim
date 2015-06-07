@@ -4,8 +4,8 @@
       .website
         .left 友情链接
         .left.links
-          - WEBSITE.each do |name, link|
-            a href="#{link}"= name
+          - Website.order('priority DESC, created_at ASC').each do |website|
+            a href="#{website.url}"= website.name
 
     .copy-right.text-center.text-muted Copyright 2005-2015 kaixin100.com 版权所有 京ICP备13039142号-1 京ICP证130395号
 

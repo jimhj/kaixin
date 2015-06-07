@@ -41,6 +41,6 @@ class Admin::TagsController < Admin::ApplicationController
   end
 
   def paginate_params
-    { page: params[:page], per_page: 10, total_entries: 2000 }
+    { page: params[:page], per_page: 40, total_entries: 2000 }
   end  
 end

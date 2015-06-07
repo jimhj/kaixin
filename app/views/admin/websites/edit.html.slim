@@ -2,8 +2,8 @@
   .sub-navbar
     ul.nav.sub-navbar-nav
       li class=('active' if action_name == 'index')
-        a href="#{admin_tags_path}" 列表
+        a href="#{admin_websites_path}" 列表
       li class=('active' if %w(new create edit update).include?(action_name))
-        a href=edit_admin_tag_path 新建标签
+        a href=edit_admin_website_path 编辑友链
   .main
     = render 'form'
