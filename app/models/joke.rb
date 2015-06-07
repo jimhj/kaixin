@@ -18,19 +18,19 @@ class Joke < ActiveRecord::Base
   }
 
   scope :approved, -> {
-    where(status: Joke.statuses[:approved])
+    where(status: Joke.statuses[:approved]).preload(:user)
   }
 
   scope :hot, -> {
-    approved.preload(:user).order('up_votes_count DESC, created_at DESC')
+    approved.order('up_votes_count DESC, created_at DESC')
   }
 
   scope :qutu, -> (limit = 6) {
-    approved.hot.where.not(photos: nil).order('created_at DESC').limit(limit)
+    approved.where.not(photos: nil).order('created_at DESC').limit(limit)
   }
   
   scope :duanzi, -> (limit = 10) {
-    approved.hot.where(photos: nil)
+    approved.where(photos: nil)
                 .where.not(title: nil)
                 .where.not(title: '').order('created_at DESC').limit(limit)
   }
