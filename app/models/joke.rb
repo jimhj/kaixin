@@ -26,11 +26,13 @@ class Joke < ActiveRecord::Base
   }
 
   scope :qutu, -> (limit = 6) {
-    approved.hot.where.not(photos: nil).limit(limit)
+    approved.hot.where.not(photos: nil).order('created_at DESC').limit(limit)
   }
   
   scope :duanzi, -> (limit = 10) {
-    approved.hot.where(photos: nil).where.not(title: nil).where.not(title: '').limit(limit)
+    approved.hot.where(photos: nil)
+                .where.not(title: nil)
+                .where.not(title: '').order('created_at DESC').limit(limit)
   }
 
   scope :recommend, -> (limit = 10) { 

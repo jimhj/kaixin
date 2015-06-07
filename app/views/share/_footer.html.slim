@@ -1,0 +1,22 @@
+.footer
+  .inner
+    - if url_for == root_path
+      .website
+        .left 友情链接
+        .left.links
+          - WEBSITE.each do |name, link|
+            a href="#{link}"= name
+
+    .copy-right.text-center.text-muted Copyright 2005-2015 kaixin100.com 版权所有 京ICP备13039142号-1 京ICP证130395号
+
+javascript:
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?e3840f963bf7aa7b7fb51455cf965137";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  })();
+
+= render_current_user_as_json
+

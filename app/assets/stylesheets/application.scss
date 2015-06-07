@@ -54,6 +54,11 @@ body {
   li.odd {
     margin-right: 30px;
   }
+
+  .text {
+    width: 120px;
+    overflow: hidden;
+  }
 }
 
 .right-side .oauth {
@@ -110,10 +115,38 @@ body {
   background-color: rgba(252, 253, 236, 0.43);
 }
 
-.copy-right {
+
+.footer {
+  width: 100%;
+  border-top: 1px dotted #CCC;
+  // background-color: #FAFAFA;  
+}
+
+.footer .inner {
   width: 1000px;
   margin: 0 auto;
+  &, a { color: #999999; }
   font-size: 12px;
+}
+
+.inner .website {
+  @include clearfix;
   padding-top: 10px;
-  border-top: 1px dotted #CCC;
+  border-bottom: 1px dotted #CCC;
+
+  .links { 
+    margin-left: 10px; 
+    width: 900px;
+  }
+
+  .links a {
+    display: inline-block;
+    margin-right: 10px; 
+    margin-bottom: 10px;
+  }
+}
+
+.inner .copy-right {
+  margin-top: 10px;
+  padding-top: 10px;
 }
