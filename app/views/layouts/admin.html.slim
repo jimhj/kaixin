@@ -23,5 +23,7 @@ html
               a href=admin_jokes_path 笑话
             li class=('active' if controller_name == 'comments')
               a href=admin_comments_path 评论
+            li class=('active' if controller_name == 'tags')
+              a href=admin_tags_path 标签
 
     = yield

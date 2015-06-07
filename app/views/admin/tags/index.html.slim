@@ -1,0 +1,35 @@
+.container
+  .sub-navbar
+    ul.nav.sub-navbar-nav
+      li.active: a href="#{url_for}" 列表
+      li: a href="#{new_admin_tag_path}" 新建标签
+
+  .main
+    table.table-bordered.table-hover.table-striped
+      thead
+        tr
+          th ID
+          th 名称
+          th 图片
+          th SEO Title
+          th SEO Keywords
+          th SEO Description
+          th 标签数量
+          th 操作
+
+      tbody
+        - @tags.each do |tag|
+          tr class="tag-item-#{tag.id}"
+            td= tag.id
+            td.title= tag.name
+            td
+            td= tag.seo_title
+            td= tag.seo_keywords
+            td.body= tag.seo_description
+            td= tag.taggings_count
+            td
+              a href="#{edit_admin_tag_path(tag)}" 编辑
+
+    = will_paginate @tags, renderer: BootstrapPagination::Rails
+
+

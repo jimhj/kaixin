@@ -1,0 +1,33 @@
+.container
+  .sub-navbar
+    ul.nav.sub-navbar-nav
+      li.active: a href="#{url_for}" 列表
+
+  .main
+    table.table-bordered.table-hover.table-striped
+      thead
+        tr
+          th ID
+          th 邮箱
+          th 昵称
+          th 头像
+          th 笑话数
+          th 评论数
+          th 注册时间
+
+
+      tbody
+        - @users.each do |user|
+          tr
+            td= user.id
+            td= user.email
+            td= user.login
+            td
+              = image_tag user.avatar.thumb.url, size: '40x40'
+            td= user.jokes.count
+            td= user.comments.count
+            td= user.created_at.strftime('%F %T')
+
+    = will_paginate @users, renderer: BootstrapPagination::Rails
+
+

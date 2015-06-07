@@ -3,8 +3,8 @@ module Votable
 
   included do
     has_many :votings, as: :votable, dependent: :destroy
-    has_many :up_votings, as: :votable
-    has_many :down_votings, as: :votable
+    has_many :up_votings, as: :votable, dependent: :destroy
+    has_many :down_votings, as: :votable, dependent: :destroy
   end
 
   def voted_by?(user)

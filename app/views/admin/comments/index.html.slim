@@ -1,0 +1,33 @@
+.container
+  .sub-navbar
+    ul.nav.sub-navbar-nav
+      li.active: a href="#{url_for}" 列表
+
+  .main
+    table.table-bordered.table-hover.table-striped
+      thead
+        tr
+          th ID
+          th 内容
+          th 所属笑话ID
+          th 用户
+          th 发布时间
+          th 操作
+
+
+      tbody
+        - @comments.each do |comment|
+          tr class="comment-item-#{comment.id}"
+            td= comment.id
+            td= comment.body
+            td
+              a href="#{joke_path(comment.commentable_id)}"= comment.commentable_id
+            td
+              a href="#{user_path(comment.user)}"= comment.user.login
+            td= comment.created_at.strftime('%F %T')
+            td
+              a href="#{admin_comment_path(comment)}" data-method="DELETE" data-confirm="确认删除吗?" data-remote="true" 删除
+
+    = will_paginate @comments, renderer: BootstrapPagination::Rails
+
+

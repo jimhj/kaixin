@@ -1,6 +1,8 @@
 class Tag < ActiveRecord::Base
   has_many :taggings
   has_many :jokes, through: :taggings
+  validates_presence_of :name
+  validates_uniqueness_of :name, on: :create
   validates_uniqueness_of :slug, on: :create
 
   scope :hot, -> (limit = 10) { order('taggings_count DESC').limit(10) }

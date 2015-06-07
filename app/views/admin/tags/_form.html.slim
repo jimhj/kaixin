@@ -1,0 +1,26 @@
+= form_for @tag, url: url_for([:admin, @tag]), html: { class: 'form-horizontal', multipart: true } do |f|
+  = render 'admin/share/form_error', form: f
+  .form-group
+    label.col-sm-3.control-label 名称
+    .col-sm-9
+      = f.text_field :name, class: 'form-control', placeholder: '名称'
+  .form-group
+    label.col-sm-3.control-label Slug
+    .col-sm-9
+      = f.text_field :slug, class: 'form-control', placeholder: 'Slug'      
+  .form-group
+    label.col-sm-3.control-label SEO Title
+    .col-sm-9
+      = f.text_field :seo_title, class: 'form-control', placeholder: 'SEO Title'
+  .form-group
+    label.col-sm-3.control-label SEO Keywords
+    .col-sm-9
+      = f.text_field :seo_keywords, class: 'form-control', placeholder: 'SEO Keywords'
+  .form-group
+    label.col-sm-3.control-label SEO Description
+    .col-sm-9
+      = f.text_area :seo_description, class: 'form-control', placeholder: 'SEO Description'
+
+  .form-group
+    .col-sm-offset-3.col-sm-9
+      button.btn.btn-success type="submit" 保存标签
