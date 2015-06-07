@@ -1,0 +1,9 @@
+.container
+  .sub-navbar
+    ul.nav.sub-navbar-nav
+      li class=('active' if action_name == 'index')
+        a href="#{admin_jokes_path}" 列表
+      li class=('active' if %w(new create edit update).include?(action_name))
+        a href=new_admin_joke_path 新建笑话
+  .main
+    = render 'form'

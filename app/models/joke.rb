@@ -63,7 +63,7 @@ class Joke < ActiveRecord::Base
   end
 
   def tag_list=(tags)
-    tags = tags.split(",").map { |tag| tag.strip }.collect do |tag|
+    tags = tags.split(/,|，|\s/).map { |tag| tag.strip }.collect do |tag|
       Tag.find_or_create_by! name: tag
     end
 

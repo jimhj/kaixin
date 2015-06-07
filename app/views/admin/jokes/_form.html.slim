@@ -1,0 +1,30 @@
+= form_for @joke, url: url_for([:admin, @joke]), html: { class: 'form-horizontal', multipart: true } do |f|
+  = render 'admin/share/form_error', form: f
+  .form-group
+    label.col-sm-3.control-label 标题(可选)
+    .col-sm-9
+      = f.text_field :title, class: 'form-control', placeholder: '标题'
+  .form-group
+    label.col-sm-3.control-label 正文
+    .col-sm-9
+      = f.text_area :content, class: 'form-control', placeholder: '正文'
+  .form-group
+    label.col-sm-3.control-label 标签
+    .col-sm-9
+      = f.text_field :tag_list, class: 'form-control', placeholder: '用逗号或者空格隔开'
+  .form-group
+    label.col-sm-3.control-label 图片(可多选)
+    .col-sm-9
+      = f.file_field :photos, class: 'form-control', multiple: true 
+      div style="margin-top: 20px;"
+        - @joke.photos.each do |photo|
+          = image_tag photo.thumb.url
+  .form-group
+    .col-sm-offset-3.col-sm-9
+      .checkbox
+        label 
+          = f.check_box :anonymous
+          span 匿名  
+  .form-group
+    .col-sm-offset-3.col-sm-9
+      button.btn.btn-success type="submit" 保存笑话

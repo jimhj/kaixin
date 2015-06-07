@@ -1,39 +1,48 @@
 .container
-  table.table-bordered.table-hover.table-striped
-    thead
-      tr
-        th ID
-        th 标题
-        th 内容
-        th 图片
-        th 时间
-        th 操作
-        th 操作
-    tbody
-      - @jokes.each do |joke|
-        tr class="joke-item-#{joke.id}"
-          td
-            a href="#{joke_path(joke)}" target="_blank"= joke.id
-          td.title= joke.title
-          td.body= joke.content.truncate(200)
-          td.photos
-            - joke.photos.each do |p|
-              = image_tag p.thumb.url, width: '60'
-          td.time= joke.created_at.strftime('%F %T')
-          td.censorship
-            - if joke.pending?
-              a.btn.btn-success.btn-xs data-method="POST" data-remote=true href="#{approve_admin_joke_path(joke)}" 通过
-              a.btn.btn-danger.btn-xs data-method="POST" data-remote=true href="#{reject_admin_joke_path(joke)}" 拒绝  
-            - elsif joke.approved?
-              a.btn.btn-danger.btn-xs data-method="POST" data-remote=true href="#{reject_admin_joke_path(joke)}" 拒绝
-            - else
-              a.btn.btn-success.btn-xs data-method="POST" data-remote=true href="#{approve_admin_joke_path(joke)}" 通过           
-          td.recommend
-            - if joke.recommended?
-              a.btn.btn-default.btn-xs data-method="POST" data-remote=true href="#{unrecommend_admin_joke_path(joke)}" 取消推荐
-            - else
-              a.btn.btn-info.btn-xs data-method="POST" data-remote=true href="#{recommend_admin_joke_path(joke)}" 推荐
+  .sub-navbar
+    ul.nav.sub-navbar-nav
+      li class=('active' if action_name == 'index')
+        a href="#{url_for}" 列表
+      li class=('active' if action_name == 'new')
+        a href=new_admin_joke_path 新建笑话
 
-  = will_paginate @jokes, renderer: BootstrapPagination::Rails
+
+  .main
+    table.table-bordered.table-hover.table-striped
+      thead
+        tr
+          th ID
+          th 标题
+          th 内容
+          th 图片
+          th 时间
+          th 操作
+          th 操作
+      tbody
+        - @jokes.each do |joke|
+          tr class="joke-item-#{joke.id}"
+            td
+              a href="#{edit_admin_joke_path(joke)}"= joke.id
+            td.title= joke.title
+            td.body= joke.content.truncate(200)
+            td.photos
+              - joke.photos.each do |p|
+                = image_tag p.thumb.url, width: '60'
+            td.time= joke.created_at.strftime('%F %T')
+            td.censorship
+              - if joke.pending?
+                a.btn.btn-success.btn-xs data-method="POST" data-remote=true href="#{approve_admin_joke_path(joke)}" 通过
+                a.btn.btn-danger.btn-xs data-method="POST" data-remote=true href="#{reject_admin_joke_path(joke)}" 拒绝  
+              - elsif joke.approved?
+                a.btn.btn-danger.btn-xs data-method="POST" data-remote=true href="#{reject_admin_joke_path(joke)}" 拒绝
+              - else
+                a.btn.btn-success.btn-xs data-method="POST" data-remote=true href="#{approve_admin_joke_path(joke)}" 通过           
+            td.recommend
+              - if joke.recommended?
+                a.btn.btn-default.btn-xs data-method="POST" data-remote=true href="#{unrecommend_admin_joke_path(joke)}" 取消推荐
+              - else
+                a.btn.btn-info.btn-xs data-method="POST" data-remote=true href="#{recommend_admin_joke_path(joke)}" 推荐
+
+    = will_paginate @jokes, renderer: BootstrapPagination::Rails
 
 

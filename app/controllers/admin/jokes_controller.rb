@@ -1,5 +1,5 @@
 class Admin::JokesController < Admin::ApplicationController
-  before_action :find_joke, only: [:approve, :reject, :recommend, :unrecommend]
+  before_action :find_joke, only: [:edit, :update, :approve, :reject, :recommend, :unrecommend]
 
   def index
     @jokes = Joke.preload(:comments, :user).order('created_at DESC')
@@ -27,11 +27,31 @@ class Admin::JokesController < Admin::ApplicationController
     render action: :index
   end
 
-
   def new
+    @joke = current_user.jokes.new
+    @joke.anonymous = true
   end
 
   def create
+    @joke = current_user.jokes.build joke_params    
+    @joke.ip = request.remote_ip
+
+    if @joke.save
+      redirect_to admin_jokes_path
+    else
+      render :new
+    end    
+  end
+
+  def edit
+  end
+
+  def update
+    if @joke.update_attributes(joke_params)
+      redirect_to admin_jokes_path
+    else
+      render :edit
+    end
   end
 
   def approve
@@ -57,7 +77,7 @@ class Admin::JokesController < Admin::ApplicationController
   end
 
   def joke_params
-    params.require(:joke).permit(:title, :content, :anonymous, :photos => [])
+    params.require(:joke).permit(:title, :content, :anonymous, :tag_list, :photos => [])
   end
 
   def paginate_params
