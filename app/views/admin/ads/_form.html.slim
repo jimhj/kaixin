@@ -1,0 +1,23 @@
+= form_for @ad, url: url_for([:admin, @ad]), html: { class: 'form-horizontal', multipart: true } do |f|
+  = render 'admin/share/form_error', form: f
+  .form-group
+    label.col-sm-3.control-label 名称
+    .col-sm-9
+      = f.text_field :name, class: 'form-control', placeholder: '名称'
+  .form-group
+    label.col-sm-3.control-label 类型
+    .col-sm-9
+      = f.select :ad_type, options_for_select(Ad::TYPE, @ad.ad_type), class: 'form-control'
+  .form-group
+    label.col-sm-3.control-label 广告代码
+    .col-sm-9
+      = f.text_area :body, class: 'form-control', placeholder: '广告代码', rows: 10
+  .form-group
+    .col-sm-offset-3.col-sm-9
+      .checkbox
+        label 
+          = f.check_box :published
+          span 生效 
+  .form-group
+    .col-sm-offset-3.col-sm-9
+      button.btn.btn-success type="submit" 保存广告

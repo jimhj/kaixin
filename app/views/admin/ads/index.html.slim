@@ -1,0 +1,34 @@
+.container
+  .sub-navbar
+    ul.nav.sub-navbar-nav
+      li.active: a href="#{url_for}" 列表
+      li: a href="#{new_admin_ad_path}" 新建广告
+
+  .main
+    table.table-bordered.table-hover.table-striped
+      thead
+        tr
+          th ID
+          th 名称
+          th 类型
+          th 状态
+          th 操作
+
+      tbody
+        - @ads.each do |ad|
+          tr
+            td
+              a href="#{edit_admin_ad_path(ad)}"= ad.id
+            td= ad.name
+            td= ad.ad_type
+            td
+              - if ad.published?
+                span.label.label-success 激活
+              - else
+               span.label.label-default 未激活
+            td
+              a href="#{admin_ad_path(ad)}" data-method="DELETE" data-confirm="确定删除吗" 删除
+
+    = will_paginate @ads, renderer: BootstrapPagination::Rails
+
+

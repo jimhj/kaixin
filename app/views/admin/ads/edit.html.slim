@@ -1,0 +1,9 @@
+.container
+  .sub-navbar
+    ul.nav.sub-navbar-nav
+      li class=('active' if action_name == 'index')
+        a href="#{admin_ads_path}" 列表
+      li class=('active' if %w(new create edit update).include?(action_name))
+        a href=edit_admin_ad_path(@ad) 编辑广告
+  .main
+    = render 'form'

@@ -93,5 +93,6 @@ Rails.application.routes.draw do
     resources :users
     resources :comments
     resources :websites
+    resources :ads
   end
 end
