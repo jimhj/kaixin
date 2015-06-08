@@ -5,6 +5,8 @@ html
     = stylesheet_link_tag    'mobile/application', media: 'all', "data-turbolinks-track" => true
     = javascript_include_tag 'mobile/application', "data-turbolinks-track" => true
     = csrf_meta_tags
+    meta content="pc,mobile" name="applicable-device"
+    meta http-equiv="Cache-Control" content="no-transform"    
     meta name="viewport" content="width=device-width, initial-scale=1.0"
   body
     .header.clearfix

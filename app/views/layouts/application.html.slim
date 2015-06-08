@@ -5,6 +5,9 @@ html
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
     = csrf_meta_tags
+    meta content="pc,mobile" name="applicable-device"
+    meta http-equiv="Cache-Control" content="no-transform"
+    
     = render 'share/png_fix'
   body class="#{controller_name}-#{action_name}"
     .header.header-lg
