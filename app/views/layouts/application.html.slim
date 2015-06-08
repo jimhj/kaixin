@@ -7,22 +7,22 @@ html
     = csrf_meta_tags
     meta content="pc,mobile" name="applicable-device"
     meta http-equiv="Cache-Control" content="no-transform"
-    
+
     = render 'share/png_fix'
   body class="#{controller_name}-#{action_name}"
     .header.header-lg
       .header-nav
         a.logo href="#{root_url}"
         ul.nav
-          li.active
+          li class=('active' if action_name == 'hot')
             a href="#{hot_jokes_path}" 热门
-          li
+          li class=('active' if action_name == 'shenhuifu')
             a href="#{shenhuifu_jokes_path}" 神回复
-          li
+          li class=('active' if action_name == 'qutu')
             a href="#{qutu_jokes_path}" 趣图
-          li
+          li class=('active' if action_name == 'duanzi')
             a href="#{duanzi_jokes_path}" 段子
-          li
+          li class=('active' if controller_name == 'tags')
             a href='#{tags_path}' 笑点
 
         = render 'share/no_login'  
