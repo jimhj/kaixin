@@ -13,6 +13,10 @@
         = simple_format @joke.content
         = render_joke_photo @joke
 
+        - Ad.detail.each do |ad|
+          .text-center.mb-20.mt-30
+            = raw ad.body
+
       .paginate.text-center
         a.prev href="#{render_prev_joke_link(@joke)}"
           i.kx.kx-prev
@@ -35,7 +39,10 @@
 
   .box
     .box-content
-      = render 'jokes/recommend'           
+      = render 'jokes/recommend'
+
+  - Ad.recommend.each do |ad|
+    .box.ad= raw(ad.body)     
 
   .box.comment-list
     .box-header
@@ -67,9 +74,14 @@
       ul.text-list.comments  
         = render @comments, cache: true
 .right-side
+  - Ad.right_side_top.each do |ad|
+    .box.ad= raw(ad.body)
   .box
     .box-header
       h3 新鲜出炉
       a.more href="#{qutu_jokes_path}" 更多
     .box-content
       = render 'jokes/qutu'
+      
+  - Ad.right_side_fixed.each do |ad|
+    .box.ad= raw(ad.body)

@@ -55,6 +55,9 @@
   = will_paginate @jokes, inner_window: 2
 
 .right-side
+  - Ad.right_side_top.each do |ad|
+    .box.ad= raw(ad.body)
+
   .box
     .box-header
       h3 精彩趣图
@@ -67,3 +70,6 @@
       a.more href="#{duanzi_jokes_path}" 更多
     .box-content
       = render 'jokes/duanzi'
+      
+  - Ad.right_side_fixed.each do |ad|
+    .box.ad= raw(ad.body)

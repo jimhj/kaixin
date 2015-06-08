@@ -54,6 +54,9 @@
   = will_paginate @jokes, inner_window: 2
 
 .right-side  
+  - Ad.right_side_top.each do |ad|
+    .box.ad= raw(ad.body)
+
   .box
     .box-header
       h3 笑点
@@ -101,3 +104,6 @@
                 p.from
                   span.text-muted 来自
                   a href="#{joke_path(comment.commentable)}"= comment.commentable.title
+
+  - Ad.right_side_fixed.each do |ad|
+    .box.ad= raw(ad.body)

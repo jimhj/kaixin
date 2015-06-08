@@ -11,6 +11,13 @@
   .no-border-#{$side} { border-#{side}: none; }
 }
 
+@each $margin in 2, 5, 10, 15, 20, 25, 30, 50 {
+  .ml-#{$margin} { margin-left: #{$margin}px; }
+  .mr-#{$margin} { margin-right: #{$margin}px; }
+  .mt-#{$margin} { margin-top: #{$margin}px; }
+  .mb-#{$margin} { margin-bottom: #{$margin}px; }
+}
+
 @mixin bg-img($w: 24px, $h: 24px, $path: 'sprite.png') {
   background-image: image-url($path);
   background-repeat: no-repeat;
