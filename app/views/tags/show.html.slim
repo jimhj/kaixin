@@ -4,11 +4,11 @@
       .left.photo
         = image_tag 'avatar.jpg', size: '120x120'
       .left.info
-        h3.text-danger= @tag.name
+        h1.text-danger= @tag.name
         p.text-muted.description= @tag.seo_description
     .box-footer
       .pull-left
-        span.text-muted 一共 #{@jokes.count} 个相关笑话
+        span.text-muted 一共 #{@jokes.count} 个 "#{@tag.name}" 相关笑话
       .pull-right      
 
   - @jokes.each do |joke|
@@ -70,7 +70,7 @@
       a.more href="#{duanzi_jokes_path}" 更多
     .box-content
       = render 'jokes/duanzi'
-      
+
   .stickAd
     - Ad.right_side_fixed.each do |ad|
       .box.ad= raw(ad.body)
