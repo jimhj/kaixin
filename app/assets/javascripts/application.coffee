@@ -4,9 +4,10 @@
 #= require cookies
 #= require jquery.timeago
 #= require jquery.timeago.zh-CN
-# = require kaixin
-# = require comments
-# = require votings
+#= require jquery.sticky
+#= require kaixin
+#= require comments
+#= require votings
 #= require_self
 
 $(document).ready ->
@@ -21,4 +22,6 @@ $(document).ready ->
   $.get '/login_state', (res) ->
     $('.right.links').replaceWith(res)
   , 'html'
+
+  $('.stickAd').sticky(topSpacing: 0)
 

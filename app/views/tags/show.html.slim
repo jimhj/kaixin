@@ -71,5 +71,6 @@
     .box-content
       = render 'jokes/duanzi'
       
-  - Ad.right_side_fixed.each do |ad|
-    .box.ad= raw(ad.body)
+  .stickAd
+    - Ad.right_side_fixed.each do |ad|
+      .box.ad= raw(ad.body)
