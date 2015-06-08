@@ -11,7 +11,7 @@
       = render_joke_title(@joke)
       .body
         = simple_format @joke.content
-        = render_joke_photo @joke
+        = render_joke_photo @joke, link: render_next_joke_link(@joke)
 
         - Ad.detail.each do |ad|
           .text-center.mb-20.mt-30

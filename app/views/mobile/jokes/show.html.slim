@@ -9,7 +9,7 @@
         = render_joke_title @joke
         .body
           = simple_format @joke.content
-          = render_joke_photo @joke, "mobile"
+          = render_joke_photo @joke, device: "mobile"
         .tags
           - @tags.each do |tag|
             a href="#{tag_path(tag.slug)}" ##{tag.name}#
