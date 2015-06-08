@@ -9,7 +9,7 @@ class Comment < ActiveRecord::Base
   # }
 
   scope :recent, -> {
-    preload(:commentable, :user).order('comments.created_at DESC').limit(10)
+    preload(:commentable, :user).order('comments.created_at DESC').limit(5)
   }
 
   def hot?
