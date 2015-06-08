@@ -208,6 +208,10 @@ i.kx {
       color: $brand-red;
     }
   }
+
+  ul.nav li.active a {
+    color: $brand-red;
+  }
 }
 
 .header-slim {

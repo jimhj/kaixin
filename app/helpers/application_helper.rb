@@ -47,7 +47,9 @@ module ApplicationHelper
     if img = joke.photos[ind]
       content_tag 'div', class: 'photo' do
         version = (device == "desktop" ? :middle : :small)
-        image_tag img.url(version)
+        link_to render_next_joke_link(joke) do
+          image_tag img.url(version)
+        end
       end
     end
   end

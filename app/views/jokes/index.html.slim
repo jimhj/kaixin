@@ -84,7 +84,7 @@
       a.more href="#{shenhuifu_jokes_path}" 更多
     .box-content
       ul.text-list.replies
-        - Comment.hot.each do |comment|
+        - Comment.recent.each do |comment|
           li
             .avatar.small
               a href="#{user_path(comment.user)}"
@@ -96,7 +96,8 @@
                 p= comment.body
                 p.from
                   span.text-muted 来自
-                  a href="#{joke_path(comment.commentable)}"= comment.commentable.title
+                  a href="#{joke_path(comment.commentable)}"
+                    =(comment.commentable.title.presence || "笑话#{comment.commentable_id}")
   .stickAd
     - Ad.right_side_fixed.each do |ad|
       .box.ad= raw(ad.body)

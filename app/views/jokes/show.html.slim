@@ -18,9 +18,9 @@
             = raw ad.body
 
       .paginate.text-center
-        a.prev href="#{render_prev_joke_link(@joke)}"
+        a.prev.prevJoke href="#{render_prev_joke_link(@joke)}"
           i.kx.kx-prev
-        a.next href="#{render_next_joke_link(@joke)}"
+        a.next.nextJoke href="#{render_next_joke_link(@joke)}"
           i.kx.kx-next
         p.text-muted 按 ← → 方向键也可以换笑话哦
       .tags
@@ -82,7 +82,32 @@
       a.more href="#{qutu_jokes_path}" 更多
     .box-content
       = render 'jokes/qutu'
-      
+
   .stickAd
     - Ad.right_side_fixed.each do |ad|
       .box.ad= raw(ad.body)
+
+javascript:
+  $(document).ready(function () {
+    $('body').keyup(function (e) {
+      var link;
+      switch (e.keyCode) {
+        case 37:
+          link = $('.prevJoke').attr('href');
+          break;
+        case 39:
+          link = $('.nextJoke').attr('href');
+          break;        
+      }
+      if (link != "" && link != undefined)
+        window.location.href = link;        
+    });
+
+    $('.thumb a').click(function () {
+      var link = $('a.nextJoke').attr('href');
+      if (!$('a.nextJoke').is('.disabled')) {
+        window.location.href = link;
+      }
+      return false;
+    });
+  });

@@ -24,4 +24,3 @@ $(document).ready ->
   , 'html'
 
   $('.stickAd').sticky(topSpacing: 0)
-
