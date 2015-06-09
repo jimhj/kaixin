@@ -1,5 +1,7 @@
 class Joke < ActiveRecord::Base
-  include Votable
+  include Votable  
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks  
   mount_uploaders :photos, PhotoUploader
   
   belongs_to :user

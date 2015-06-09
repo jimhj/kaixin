@@ -5,7 +5,7 @@
         .left 友情链接
         .left.links
           - Website.order('priority DESC, created_at ASC').each do |website|
-            a href="#{website.url}"= website.name
+            a href="#{website.url}" target="_blank"= website.name
 
     .copy-right.text-center.text-muted Copyright 2008-2018 开心100 www.kaixin100.com 版权所有 京ICP备11031391号-8
 

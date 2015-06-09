@@ -88,13 +88,29 @@ GEM
     daemons (1.2.2)
     dalli (2.7.4)
     debug_inspector (0.0.2)
+    elasticsearch (1.0.12)
+      elasticsearch-api (= 1.0.12)
+      elasticsearch-transport (= 1.0.12)
+    elasticsearch-api (1.0.12)
+      multi_json
+    elasticsearch-model (0.1.7)
+      activesupport (> 3)
+      elasticsearch (> 0.4)
+      hashie
+    elasticsearch-rails (0.1.7)
+    elasticsearch-transport (1.0.12)
+      faraday
+      multi_json
     erubis (2.7.0)
     eventmachine (1.0.7)
     execjs (2.5.2)
+    faraday (0.9.1)
+      multipart-post (>= 1.2, < 3)
     font-awesome-sass (4.3.2.1)
       sass (~> 3.2)
     globalid (0.3.5)
       activesupport (>= 4.1.0)
+    hashie (3.4.2)
     hike (1.2.3)
     hiredis (0.4.5)
     hitimes (1.2.2)
@@ -120,6 +136,7 @@ GEM
     minitest (5.5.1)
     multi_fetch_fragments (0.0.17)
     multi_json (1.11.0)
+    multipart-post (2.0.0)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (2.9.2)
@@ -237,6 +254,8 @@ DEPENDENCIES
   chinese_pinyin (~> 0.7.0)
   coffee-rails (~> 4.1.0)
   dalli (~> 2.7.4)
+  elasticsearch-model
+  elasticsearch-rails
   font-awesome-sass (~> 4.3.0)
   hiredis (~> 0.4.0)
   jbuilder (~> 2.0)

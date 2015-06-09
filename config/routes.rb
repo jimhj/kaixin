@@ -45,6 +45,7 @@ Rails.application.routes.draw do
         get :qutu
         get :duanzi
         get :random
+        get :search
       end
     end    
   end

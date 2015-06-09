@@ -34,12 +34,12 @@ body {
 
 .box .search {
   position: relative;
-  width: 250px;
+  width: 270px;
   @include ieWidth(250px);
 }
 
 .box .search input {
-  width: 250px;
+  width: 100%;
   @include ieWidth(250px);
 } 
 

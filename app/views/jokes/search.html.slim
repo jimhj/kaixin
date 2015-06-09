@@ -1,4 +1,8 @@
 .left-side
+  .box
+    .box-header: h3 搜索 [#{params[:q]}]
+    .box-content 相关结果 #{@jokes.count} 条
+
   - @jokes.each do |joke|
     .joke-item
       .user
@@ -48,22 +52,10 @@
       = form_tag(search_jokes_path, class: 'search', method: 'GET') do
         input.form-control type="text" name="q" placeholder="你想看点啥"
         i.kx.kx-zoom
-      hr
-      a.btn.btn-primary.btn-lg.btn-block href="#{new_joke_path}" 
-        i.kx.kx-pencil
-        span 我要投稿
 
   - Ad.right_side_top.each do |ad|
     .box.ad= raw ad.body
 
-  .box
-    .box-header
-      h3 笑点
-      a.more href="#{tags_path}" 更多
-    .box-content
-      ul.tag-list
-        - Tag.hot.each do |tag|
-          li: a href="#{tag_path(tag.slug)}"= tag.name
   .box
     .box-header
       h3 精彩趣图
@@ -71,33 +63,7 @@
     .box-content
       = render 'jokes/qutu'
 
-  .box
-    .box-header
-      h3 精彩段子
-      a.more href="#{duanzi_jokes_path}" 更多
-    .box-content
-      = render 'jokes/duanzi'
 
-  .box
-    .box-header
-      h3 神回复
-      a.more href="#{shenhuifu_jokes_path}" 更多
-    .box-content
-      ul.text-list.replies
-        - Comment.recent.each do |comment|
-          li
-            .avatar.small
-              a href="#{user_path(comment.user)}"
-                = image_tag comment.user.avatar.url
-              .nickname
-                a href="#{user_path(comment.user)}"
-                  span= comment.user.login
-                  span.text-muted.timeago title=comment.created_at
-                p= comment.body
-                p.from
-                  span.text-muted 来自
-                  a href="#{joke_path(comment.commentable)}"
-                    =(comment.commentable.title.presence || "笑话#{comment.commentable_id}")
   .stickAd
     - Ad.right_side_fixed.each do |ad|
       .box.ad= raw(ad.body)

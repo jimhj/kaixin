@@ -84,6 +84,23 @@ class JokesController < ApplicationController
     render text: voting.to_json  
   end
 
+  def search
+    @jokes = Joke.search(
+      query: {
+        multi_match: {
+          query: params[:q].to_s,
+          fields: ['title', 'content']
+        }
+      },
+
+      filter: {
+        term: {
+          status: 'approved'
+        }
+      }
+    ).paginate(paginate_params).records      
+  end  
+
   private
 
   def joke_params

@@ -5,7 +5,7 @@ class Tag < ActiveRecord::Base
   validates_uniqueness_of :name, on: :create
   validates_uniqueness_of :slug, on: :create
 
-  scope :hot, -> (limit = 10) { order('taggings_count DESC').limit(10) }
+  scope :hot, -> { order('taggings_count DESC').limit(20) }
 
   def hot?
     taggings_count > 50

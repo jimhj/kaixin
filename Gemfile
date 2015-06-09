@@ -52,6 +52,10 @@ gem 'unicorn'
 # SEO Tags
 gem 'meta-tags', '~> 2.0.0'
 
+# Search
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
+
 group :development do
   # Deployment
   gem 'capistrano', '~> 3.4.0'
