@@ -18,6 +18,13 @@
   .mb-#{$margin} { margin-bottom: #{$margin}px; }
 }
 
+@each $padding in 2, 5, 10, 15, 20, 25, 30, 50 {
+  .pl-#{$padding} { padding-left: #{$padding}px; }
+  .pr-#{$padding} { padding-right: #{$padding}px; }
+  .pt-#{$padding} { padding-top: #{$padding}px; }
+  .pb-#{$padding} { padding-bottom: #{$padding}px; }
+}
+
 @mixin bg-img($w: 24px, $h: 24px, $path: 'sprite.png') {
   background-image: image-url($path);
   background-repeat: no-repeat;
