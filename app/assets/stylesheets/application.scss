@@ -159,7 +159,7 @@ body {
 .header .header-nav {
   @include clearfix;
   width: 1000px;
-  height: 90px;
+  height: 82px;
   margin: 0 auto;
   position: relative;
 
@@ -167,7 +167,7 @@ body {
     float: left;    
     width: 200px;
     height: 60px;
-    margin-top: 15px;
+    margin-top: 10px;
     background-image: image-url('logo.png');
     &.logo_small {
       width: 80px;
@@ -188,7 +188,7 @@ body {
     width: 90px;
     text-align: center;
     border-top: 4px solid #ffd52b;
-    height: 86px;
+    height: 78px;
     &:hover, &.active {
       border-top: 4px solid $brand-red;
     }    
@@ -196,8 +196,8 @@ body {
 
   ul.nav li a {
     font-size: 20px;
-    line-height: 86px;
-    height: 86px;
+    line-height: 82px;
+    height: 82px;
     display: block;
 
     &:hover {
