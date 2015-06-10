@@ -67,8 +67,11 @@
             a.btn.btn-success.btn-lg.postComment data-joke_id=@joke.id href="javascript:;" 评论
           .error.text-danger 
     .box-content
-      ul.text-list.comments  
-        = render @comments, cache: true
+      - if @comments.blank?
+        .text-center.text-muted 暂时还没有评论，快来抢沙发呀！
+      - else
+        ul.text-list.comments  
+          = render @comments, cache: true
 .right-side
   - Ad.right_side_top.each do |ad|
     .box.ad= raw(ad.body)
