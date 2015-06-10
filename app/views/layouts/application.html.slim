@@ -14,6 +14,8 @@ html
       .header-nav
         a.logo href="#{root_url}"
         ul.nav
+          li class=('active' if url_for == root_path)
+            a href="#{root_path}" 首页        
           li class=('active' if action_name == 'hot')
             a href="#{hot_jokes_path}" 热门
           li class=('active' if action_name == 'shenhuifu')
