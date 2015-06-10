@@ -62,8 +62,6 @@ class JokesController < ApplicationController
     else
       ([@joke.title, @joke.content] + keywords).join(',')
     end
-
-    render layout: 'detail'
   end
 
   def up_vote

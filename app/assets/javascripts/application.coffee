@@ -24,3 +24,6 @@ $(document).ready ->
   , 'html'
 
   $('.stickAd').sticky(topSpacing: 0)
+
+  $('.search .kx-zoom').click ->
+    $(this).parent()[0].submit()

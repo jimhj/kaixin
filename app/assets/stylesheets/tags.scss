@@ -22,19 +22,11 @@
     border-radius: 2px;            
     padding: 0px 0px !important;
     color: #666;
-
-    &.active, &:hover {
-      border: 1px solid darken($brand-red, 5%);
+    
+   &.active,  &.active:hover, &:hover {
       color: #FFF;
-    }
-
-    &.active, &.active:hover {
-      background-color: $brand-red-light;
-    }
-
-    &:hover {
       border: 1px solid $brand-red;
-      background-color: lighten($brand-red-light, 5%);
+      background-color: lighten($brand-red, 20%);
     }
   }
 }

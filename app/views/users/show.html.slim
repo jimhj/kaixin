@@ -1,14 +1,4 @@
 .left-side
-  .box.profile
-    .box-content
-      .left.photo
-        = image_tag @user.avatar.large.url, size: '120x120'
-      .left.info
-        h3= @user.login
-        p.text-muted
-          span 一共发表了
-          span.text-danger #{@jokes.count}
-          span 个笑话
   - @jokes.each do |joke|
     .joke-item
       .user
@@ -54,17 +44,20 @@
   = will_paginate @jokes, inner_window: 2
 
 .right-side  
+  .box.profile
+    .box-content
+      .photo
+        = image_tag @user.avatar.large.url, size: '120x120'
+      .info
+        h3= @user.login
+        p.text-muted
+          span 一共发表了
+          span.text-danger #{@jokes.count}
+          span 个笑话
   - Ad.right_side_top.each do |ad|
     .box.ad= raw(ad.body)
 
-  .box
-    .box-header
-      h3 笑点
-      a.more 更多
-    .box-content
-      ul.tag-list
-        - Tag.hot.each do |tag|
-          li: a href="#{tag_path(tag.slug)}"= tag.name
+
   .box
     .box-header
       h3 精彩趣图
@@ -76,34 +69,6 @@
             a href="#{joke_path(joke)}"
               = image_tag joke.photos[0].url
               .text title="#{joke.title}"= joke.title.truncate(10)
-  .box
-    .box-header
-      h3 精彩段子
-      a.more href="#{duanzi_jokes_path}" 更多
-    .box-content
-      ul.text-list
-        - Joke.duanzi.each do |joke|
-          li: a href="#{joke_path(joke)}"= joke.title
-
-  .box
-    .box-header
-      h3 神回复
-      a.more href="#{shenhuifu_jokes_path}" 更多
-    .box-content
-      ul.text-list.replies
-        - Comment.hot.each do |comment|
-          li
-            .avatar.small
-              a href="#{user_path(comment.user)}"
-                = image_tag comment.user.avatar.url
-              .nickname
-                a href="#{user_path(comment.user)}"
-                  span= comment.user.login
-                  span.text-muted 3 分钟前
-                p= comment.body
-                p.from
-                  span.text-muted 来自
-                  a href="#{joke_path(comment.commentable)}"= comment.commentable.title
 
   .stickAd
     - Ad.right_side_fixed.each do |ad|

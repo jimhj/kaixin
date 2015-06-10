@@ -2,11 +2,14 @@
   .inner
     - if url_for == root_path
       .website
-        .left 友情链接
-        .left.links
+        h4 友情链接
+        .links
           - Website.order('priority DESC, created_at ASC').each do |website|
             a href="#{website.url}" target="_blank"= website.name
 
+    .text-center.announce 
+      p 本站内容均来自互联网,本站不以营利为目的,这是一个注重分享交流的网站,为了建设健康向上的网络环境,请未满18周岁的少年在家长的陪同下观看。
+      p 如果喜欢，请支持正版！若侵犯到您的权益，联系我们处理。    
     .copy-right.text-center.text-muted Copyright 2008-2018 开心100 www.kaixin100.com 版权所有 京ICP备11031391号-8
 
 javascript:

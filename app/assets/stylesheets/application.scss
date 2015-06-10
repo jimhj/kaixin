@@ -9,17 +9,7 @@
 body {
   background-color: #F1F1F1;
   background: #F1F1F1 image-url('giftly.png') repeat;
-  // font-family: 'HanYiQiHei';
 }
-
-// @font-face {
-//   font-family: 'HanYiQiHei';
-//   src: font-url('hanyiqihei.ttf') format('truetype');
-//   font-weight: normal;
-//   font-style: normal;
-// }
-
-.header .header-top {}
 
 .header .header-nav {
   @include clearfix;
@@ -119,27 +109,34 @@ body {
   background-color: rgba(252, 253, 236, 0.43);
 }
 
-
 .footer {
   width: 100%;
-  border-top: 1px dotted #CCC;
-  // background-color: #FAFAFA;  
+  margin-top: 40px;
+  background-color: #4F4F4F;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  margin-bottom: 0px;
+  &, a { color: #999; }
 }
 
 .footer .inner {
   width: 1000px;
   margin: 0 auto;
-  &, a { color: #999999; }
   font-size: 12px;
 }
 
 .inner .website {
   @include clearfix;
-  padding-top: 10px;
-  border-bottom: 1px dotted #CCC;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #555;
+
+  h4 {
+    margin-top: 0px;
+    color: #FAFAFA;
+  }
 
   .links { 
-    margin-left: 10px; 
+    margin-right: 10px; 
     width: 900px;
   }
 
@@ -153,4 +150,169 @@ body {
 .inner .copy-right {
   margin-top: 10px;
   padding-top: 10px;
+}
+
+.footer .announce {
+  border-bottom: 1px solid #555;  
+}
+
+// Navbar 
+// 写的太乱这一块
+.header {
+  width: 100%;
+  background-color: #ffd52b;
+}
+
+.header .header-nav {
+  @include clearfix;
+  width: 1000px;
+  height: 90px;
+  margin: 0 auto;
+  position: relative;
+
+  .logo {
+    float: left;    
+    width: 200px;
+    height: 60px;
+    margin-top: 15px;
+    background-image: image-url('logo.png');
+    &.logo_small {
+      width: 80px;
+      height: 30px;
+      background-image: image-url('logo_small.png');
+      margin-top: 5px;
+    }
+  }
+
+  ul.nav {
+    @include clearfix;
+    list-style: none;
+    float: left;
+    margin-left: 20px;
+  }
+
+  ul.nav li {
+    float: left;
+    width: 90px;
+    text-align: center;
+    border-top: 4px solid #ffd52b;
+    height: 86px;
+    &:hover, &.active {
+      border-top: 4px solid $brand-red;
+    }    
+  }
+
+  ul.nav li a {
+    font-size: 20px;
+    line-height: 86px;
+    height: 86px;
+    display: block;
+
+    &:hover {
+      text-decoration: none;
+      color: $brand-red;
+    }
+  }
+
+  .right {
+    @include clearfix;
+    background-color: #ffd52b;
+    color: #7a4624;
+    position: absolute;
+    top: 25px;
+    right: 0;
+
+    .no-login {
+      width: 160px;
+      @include ieWidth(180px);
+    }
+  }
+
+  .no-login a {
+    color: #7a4624; 
+    margin-right: 10px;
+    height: 40px;
+    line-height: 40px !important;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 12px;
+
+    i.kx { margin-right: 5px; } 
+
+    // IE6 hack
+    _height: auto;
+    _margin-top: 12px;
+    _line-height: normal;
+  }
+
+  .login { 
+    @include clearfix; 
+    position: relative;  
+  }
+
+  .u-center {
+    float: right;
+    cursor: pointer;
+    width: 40px;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .u-center ul {
+    position: absolute;
+    top: 37px;
+    right: -10px;
+    margin: 0;
+    list-style: none;
+    width: 80px;
+    background-color: #ffd52b;
+    text-align: center;
+    padding: 0px 10px;
+    border-bottom: 4px solid #7a4624;
+    display: none;
+    z-index: 999;
+  }
+
+  .u-center ul li {
+    border-bottom: 1px dashed #7a4624;
+    padding: 10px 0px;
+
+    &.no-border-bottom { border-bottom: none; }
+  }
+
+  .welcome { 
+    float: right; 
+    height: 40px;
+    line-height: 40px;
+  }
+}
+
+.box.profile {
+  text-align: center;
+  .box-content { padding: 0px 0px !important; }
+  .photo {
+    background-color: #FAFAFA;
+    padding: 10px 0px;
+    border-bottom: 1px solid #DDD;
+    img { border-radius: 8px; }
+  }
+
+  .info { padding-top: 10px; }
+  .info h3 { 
+    margin-top: 0px; 
+    margin-bottom: 0px;
+  }
+}
+
+.box.tag {
+  h1 { 
+    font-size: 14px; 
+    margin-top: 0px;
+    margin-bottom: 0px;
+    float: left;
+  }
+
+  .box-content {
+    line-height: 22px;
+  }
 }

@@ -1,15 +1,9 @@
 .left-side
-  .box.profile
-    .box-content
-      .left.photo
-        = image_tag 'avatar.jpg', size: '120x120'
-      .left.info
-        h1.text-danger= @tag.name
-        p.text-muted.description= @tag.seo_description
-    .box-footer
-      .pull-left
-        span.text-muted 一共 #{@jokes.count} 个 "#{@tag.name}" 相关笑话
-      .pull-right      
+  .box.tag
+    .box-header
+      h1= @tag.name 
+      a.more.text-muted 一共 #{@jokes.count} 个 "#{@tag.name}" 相关笑话
+    .box-content= @tag.seo_description
 
   - @jokes.each do |joke|
     .joke-item

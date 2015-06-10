@@ -52,13 +52,9 @@
             a href="#{login_path(return_to: url_for)}" 登录
             span 后才可以发表评论
           .right
-            span 或者使用
-            a href="#"
-              i.kx.kx-weibo-colorful
-              span 微博登录
-            a href="#"
-              i.kx.kx-qq-colorful
-              span QQ 登录
+            a href="#" 微博登录
+            span.ml-5 或者
+            a href="#" QQ 登录
       - else
         h3 评论(#{@joke.comments_count})
         .post-comment
