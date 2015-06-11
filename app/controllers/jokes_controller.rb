@@ -62,6 +62,11 @@ class JokesController < ApplicationController
     else
       ([@joke.title, @joke.content] + keywords).join(',')
     end
+
+    set_meta_tags :title => @page_title,
+                  :description => @page_description,
+                  :keywords => @page_keywords,
+                  :site => false
   end
 
   def up_vote

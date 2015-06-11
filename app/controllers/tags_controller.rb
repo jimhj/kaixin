@@ -26,5 +26,10 @@ class TagsController < ApplicationController
     else
       @tag.seo_description
     end
+
+    set_meta_tags :title => @page_title,
+                  :description => @page_description,
+                  :keywords => @page_keywords,
+                  :site => false    
   end
 end
