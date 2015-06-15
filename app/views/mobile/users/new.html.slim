@@ -2,12 +2,13 @@
   .panel.panel-default
     .panel-heading 注册帐号
     .panel-body
-      form.form
+      = form_for @user, url: mobile_signup_path, html: { class: 'form regist-form' } do |f|
+        = render 'mobile/share/form_error_messages', form: f
         .form-group
-          input.form-control.input-lg placeholder="邮箱"
+          = f.text_field :email, class: 'form-control input-lg', placeholder: '邮箱'
         .form-group
-          input.form-control.input-lg placeholder="昵称"
+          = f.text_field :login, class: 'form-control input-lg', placeholder: '昵称'
         .form-group
-          input.form-control.input-lg placeholder="密码"
-
-        button.btn.btn-block.btn-lg.btn-success 注册
+          = f.password_field :password, class: 'form-control input-lg', placeholder: '密码'
+        .form-group
+          input.btn.btn-success.btn-block.btn-lg type="submit" value="提交注册"

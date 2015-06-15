@@ -1,9 +1,10 @@
-$brand-primary: #514331;
+$brand-danger: #7a4624;
 // $navbar-border-radius: 0;
 // $nav-pills-border-radius: 0;
 $nav-pills-active-link-hover-bg: #FFF;
 // $panel-border-radius: 0;
 $border-radius-base: 0;
+$brand-primary: $brand-danger;
 
 @import "bootstrap";
 @import "font-awesome-sprockets";
@@ -20,6 +21,7 @@ $border-radius-base: 0;
 body {
   background-color: #F1F1F1;
   background: #F1F1F1 image-url('giftly.png') repeat;
+  font-family: "微软雅黑","microsoft yahei",verdana,lucida,Arial,sans-serif,"黑体";
 }
 
 a, a:visited {
@@ -43,16 +45,19 @@ a, a:visited {
   border-radius: 0px;
 }
 
+
 .kx-logo {
-  display: block;
+  display: inline-block;
   width: 80px;
   height: 30px;
+  margin: 0 auto;
   background-image: image-url('logo_small.png');  
 }
 
 .header {
-  padding: 10px 10px;
-  background-color: #ffba15;  
+  text-align: center;
+  padding: 5px 10px 0px 10px;
+  background-color: #ffd52b;  
   &, a { color: #FFF; }
 }
 
@@ -80,7 +85,7 @@ a, a:visited {
 
   li a, li.active a {
     height: 100%;
-    color: $brand-primary;
+    color: $brand-danger;
     border-bottom: 4px solid #FFF;
 
     &:hover {
@@ -89,7 +94,7 @@ a, a:visited {
   }
 
   li.active a {
-    border-bottom: 4px solid #E36F22;
+    border-bottom: 4px solid $brand-danger;
   }
 }
 
