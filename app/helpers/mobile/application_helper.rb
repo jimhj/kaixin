@@ -4,6 +4,6 @@ module Mobile::ApplicationHelper
     next_page = page.to_i + 1
     parameters = request.query_parameters.merge(page: next_page)
 
-    link_to '下一页', url_for(parameters), class: 'btn btn-warning btn-lg btn-block'
+    link_to '下一页', url_for(parameters), class: 'btn btn-default btn-lg btn-block'
   end
 end

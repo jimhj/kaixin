@@ -202,3 +202,8 @@ zh-CN:
       long: "%Y年%b%d日 %H:%M"
       short: "%b%d日 %H:%M"
     pm: 下午
+
+  sessions:
+    flashes:
+      incorrect_email_or_password: 错误的邮箱或密码
+      login_required: 请先登录后操作

@@ -1,0 +1,18 @@
+.main-container
+  .panel.panel-default
+    .panel-heading 发表笑料
+    .panel-body
+      = form_for @joke, url: mobile_jokes_path, html: { class: 'form new-joke-form', multipart: true  } do |f|
+        = render 'mobile/share/form_error_messages', form: f
+        .form-group
+          = f.text_field :title, class: 'form-control input-lg', placeholder: '标题(选填)'
+        .form-group
+          = f.text_area :content, class: 'form-control input-lg', placeholder: '正文', rows: 5
+        .form-group
+          = f.file_field :photos, class: 'file', id: 'photo', multiple: true 
+        .checkbox
+          label
+            = f.check_box :anonymous, class: 'checkbox', id: 'anonymous'
+            | 匿名
+        .form-group
+          input.btn.btn-success.btn-block.btn-lg type="submit" value="立即发表"

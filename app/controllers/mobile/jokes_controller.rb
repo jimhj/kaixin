@@ -55,9 +55,30 @@ class Mobile::JokesController < Mobile::ApplicationController
                   :site => false            
   end
 
+  def new
+    @joke = current_user.jokes.new
+    @page_title = "发表笑料"
+    @joke.anonymous = true
+  end
+
+  def create
+    @joke = current_user.jokes.build joke_params    
+    @joke.ip = request.remote_ip
+
+    if @joke.save
+      redirect_to @joke
+    else
+      render :new
+    end    
+  end  
+
   private
   
   def paginate_params
     { page: params[:page], per_page: 10, total_entries: 2000 }
+  end  
+
+  def joke_params
+    params.require(:joke).permit(:title, :content, :anonymous, :photos => [])
   end  
 end

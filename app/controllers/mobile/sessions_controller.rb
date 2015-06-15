@@ -19,7 +19,7 @@ class Mobile::SessionsController < Mobile::ApplicationController
       remember_me
       redirect_back_or_default root_url
     else
-      flash[:error] = t('sessions.flashes.incorrect_email_or_password')
+      flash[:warning] = t('sessions.flashes.incorrect_email_or_password')
       redirect_to login_url
     end      
   end

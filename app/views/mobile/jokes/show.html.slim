@@ -9,28 +9,25 @@
         = render_joke_title @joke
         .body
           = simple_format @joke.content
-          = render_joke_photo @joke, device: "mobile"
+          = render_joke_photo @joke, device: "mobile", link: render_next_joke_link(@joke)
         .tags
           - @tags.each do |tag|
             a href="#{tag_path(tag.slug)}" ##{tag.name}#
 
-      .paginate.clearfix
-        a.btn.btn-warning href="#{render_prev_joke_link(@joke)}"
-          i.fa.fa-chevron-left
-        a.btn.btn-success href="#{render_next_joke_link(@joke)}"
-          span 下一条
-          i.fa.fa-chevron-right.ml-5
-
-    .panel-footer.action-bar
-      a href="#this"
+    .panel-footer.action-bar.clearfix
+      a.mr-10 href="#this"
         i.fa.fa-smile-o
         span= @joke.up_votes_count
-      a href="#this"
+      a.mr-10 href="#this"
         i.fa.fa-frown-o
         span= @joke.down_votes_count
-      a href="#this"
+      a.mr-10 href="#this"
         i.fa.fa-comment-o
-        span= @joke.comments_count
+        span= @joke.comments_count  
+      a.pull-right.paginate href="#{render_next_joke_link(@joke)}"
+        span 下一条
+        i.fa.fa-chevron-right.ml-5
+
 
   .panel.comment-list
     .panel-heading.clearfix.text-muted

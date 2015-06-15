@@ -56,6 +56,7 @@ Rails.application.routes.draw do
       root to: 'jokes#index'
       concerns :jokeable
       concerns :sessionable
+      resources :users
     end
   end
   

@@ -2,10 +2,11 @@
   .panel.panel-default
     .panel-heading 登录
     .panel-body
-      form.form
+      = form_tag login_path, class: 'form login-form' do
+        = render 'mobile/share/flash_messages'
         .form-group
-          input.form-control.input-lg placeholder="邮箱或昵称"
+          input.form-control.input-lg placeholder="邮箱或昵称" name="login" type="text"
         .form-group
-          input.form-control.input-lg placeholder="密码"
+          input.form-control.input-lg placeholder="密码" name="password" type="password"
 
-        button.btn.btn-block.btn-lg.btn-success 登录
+        button.btn.btn-block.btn-lg.btn-success type="submit" 登录

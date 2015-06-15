@@ -5,6 +5,7 @@ $nav-pills-active-link-hover-bg: #FFF;
 // $panel-border-radius: 0;
 $border-radius-base: 0;
 $brand-primary: $brand-danger;
+$text-color: #454545;
 
 @import "bootstrap";
 @import "font-awesome-sprockets";
@@ -69,6 +70,20 @@ a, a:visited {
   text-shadow: 1px solid #CCC;
 }
 
+// .dropdown-menu {
+//   background-color: #ffd52b;
+//   color: $brand-danger;
+//   border: none;
+//   box-shadow: none;
+//   & > li > a {
+//     color: $brand-danger;
+//   }
+//   li.divider {
+//     background-color: $brand-danger;
+//     height: 2px;
+//   }
+// }
+
 .header-nav ul.nav {
   background-color: #FFF;
 
@@ -101,4 +116,5 @@ a, a:visited {
 .main-container { margin-top: 10px; }
 .footer {
   margin-top: 40px;
+  margin-bottom: 40px;
 }

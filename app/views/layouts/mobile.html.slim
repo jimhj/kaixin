@@ -15,20 +15,31 @@ html
         a.menu-toggle data-toggle="dropdown" href="#this" data-target="#": i.fa.fa-ellipsis-v.strong
         ul.dropdown-menu
           li
-            a href="#{new_admin_joke_path}"
+            a href="#{new_mobile_joke_path}"
               i.fa.fa-pencil 
               span.ml-5 投稿    
-          li.divider              
-          li
-            a href="#{signup_path}" 
-              i.fa.fa-user
-              span.ml-5 注册
-          li.divider
-          li
-            a href="#{login_path}" 
-              i.fa.fa-sign-in
-              span.ml-5 登录
-
+          - if login?
+            li.divider
+            li
+              a href="#{mobile_user_path(current_user)}"
+                i.fa.fa-user
+                span.ml-5= current_user.login
+            li.divider
+            li
+              a href="#{logout_path}" data-method="DELETE"
+                i.fa.fa-power-off
+                span.ml-5 退出
+          - else
+            li.divider              
+            li
+              a href="#{signup_path}" 
+                i.fa.fa-user
+                span.ml-5 注册
+            li.divider
+            li
+              a href="#{login_path}" 
+                i.fa.fa-sign-in
+                span.ml-5 登录          
     .header-nav
       ul.nav.nav-pills
         li class=('active' if url_for == mobile_root_path or params[:action] == 'hot')

@@ -18,20 +18,18 @@
     font-size: 12px; 
   }
 
-  .paginate {
-    margin-top: 10px;
-    text-align: center;
-  }
-
   .action-bar {
     a { 
       color: #999999; 
-      margin-right: 10px;
     }
 
     i { 
       font-size: 24px; 
       margin-right: 2px;
+    }
+
+    a.paginate i {
+      font-size: 14px;
     }
   }
 }
