@@ -23,6 +23,7 @@ body {
   background-color: #F1F1F1;
   background: #F1F1F1 image-url('giftly.png') repeat;
   font-family: "微软雅黑","microsoft yahei",verdana,lucida,Arial,sans-serif,"黑体";
+  padding-top: 111px;
 }
 
 a, a:visited {
@@ -46,7 +47,6 @@ a, a:visited {
   border-radius: 0px;
 }
 
-
 .kx-logo {
   display: inline-block;
   width: 80px;
@@ -55,19 +55,26 @@ a, a:visited {
   background-image: image-url('logo_small.png');  
 }
 
+.header-container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+}
+
 .header {
   text-align: center;
-  padding: 5px 10px 0px 10px;
+  padding: 10px 10px;
   background-color: #ffd52b;  
   &, a { color: #FFF; }
 }
 
-.header a.menu-toggle {
+.header a.menu-toggle, a.plus {
   font-size: 21px;
   color: #FFFDF7;
   width: 20px;
   display: inline-block;
-  text-shadow: 1px solid #CCC;
 }
 
 // .dropdown-menu {
@@ -85,6 +92,7 @@ a, a:visited {
 // }
 
 .header-nav ul.nav {
+  border-bottom: 1px solid #DCDCDC;
   background-color: #FFF;
 
   li {
