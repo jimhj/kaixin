@@ -1,4 +1,6 @@
 class Mobile::JokesController < Mobile::ApplicationController
+  before_action :login_required, only: [:new, :create]
+  
   def index
     @jokes = Joke.preload(:comments, :user).order('created_at DESC')
     @jokes = @jokes.paginate(paginate_params) 
