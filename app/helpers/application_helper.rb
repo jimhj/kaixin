@@ -45,9 +45,10 @@ module ApplicationHelper
       content_tag 'div', class: 'photo' do
         version = (device == "desktop" ? :middle : :small)
         link ||= joke_path(joke)
+        image_title = joke.title.presence || joke.content.truncate(30)
 
         link_to link do
-          image_tag img.url(version)
+          image_tag img.url(version), title: image_title, alt: image_title
         end
       end
     end

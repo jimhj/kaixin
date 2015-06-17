@@ -6,26 +6,20 @@ class TagsController < ApplicationController
 
 
   def show
-    @tag = Tag.find_by! slug: params[:id]
-    @jokes = @tag.jokes.preload(:comments, :user).order('created_at DESC').paginate(page: params[:page], per_page: 10)
-
-    keywords = "tag爆笑图片,tag笑话".gsub!(/tag/, @tag.name)
-    description = ("开心100与千万网友一起分享最新最热的tag、tag图片、tag动态图、冷笑话、糗事笑话、成人笑话、经典笑话、内涵段子等笑话大全").gsub!(/tag/, @tag.name)
-
+    @tag           = Tag.find_by! slug: params[:id]
+    @jokes         = @tag.jokes.preload(:comments, :user).order('created_at DESC').paginate(page: params[:page], per_page: 10)
+    
+    title          = "tag笑话_tag笑话大全笑话_开心100".gsub!(/tag/, @tag.name)
+    keywords       = "tag,tag笑话".gsub!(/tag/, @tag.name)
+    description    = ("开心100提供最新tag笑话、tag笑话大全等笑话信息，为您精心选择最经典的tag笑话、最搞笑的tag笑话、最内涵的tag笑话、最有深度的tag笑话大全等tag笑话。").gsub!(/tag/, @tag.name)
+    
     @page_keywords = @tag.seo_keywords.presence || keywords
-
     @page_title = if @tag.seo_title.blank?
-      "#{@tag.name}_#{keywords.gsub!(/,\s?|，\s?/, '_')}"
+      title
     else
       "#{@tag.name}_#{@tag.seo_title}"
     end
-
-    @page_description = if @tag.seo_description.blank?
-      @sample_joke = @jokes.where.not(content: nil).sample
-      @sample_joke.try(:content) || description
-    else
-      @tag.seo_description
-    end
+    @page_description = @tag.seo_description.presence || description
 
     set_meta_tags :title => @page_title,
                   :description => @page_description,

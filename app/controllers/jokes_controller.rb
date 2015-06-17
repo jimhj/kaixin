@@ -54,7 +54,7 @@ class JokesController < ApplicationController
     @comments = @joke.comments
 
     keywords = @tags.pluck(:name).to_a
-    @page_title = @joke.title.presence || @joke.content
+    @page_title = @joke.title.presence || @joke.content.truncate(30)
     @page_keywords = ([@page_title] + keywords).join(',')
 
     @page_description = if @joke.title.blank?
