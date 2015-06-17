@@ -62,6 +62,9 @@ Rails.application.routes.draw do
   
   # 桌面站
   root 'jokes#index'
+  # 瀑布流的单页
+  get :hot, to: 'jokes#recommends', as: :recommend
+    
   concerns :jokeable
   resources :users
   resources :tags, only: [:index, :show]

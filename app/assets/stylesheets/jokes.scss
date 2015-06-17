@@ -158,3 +158,27 @@ ul.recommend {
   padding: 10px 10px;
   width: 650px;
 }
+
+// 瀑布流
+.box.grid {
+  @include clearfix;
+  background-color: transparent;
+
+  .grid-item {
+    width: 220px;
+    border: 1px solid #dcdcdc;
+    margin-bottom: 20px;
+  }
+
+  .grid-item .picture {
+    background-color: #fff;
+    padding: 10px 10px;
+  }
+
+  .grid-item .title {
+    border-top: 1px solid #dcdcdc;
+    background-color: #f8f8f8;
+    padding: 10px 10px;
+  }
+}
+

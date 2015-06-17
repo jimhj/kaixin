@@ -1,0 +1,18 @@
+= javascript_include_tag 'jokes'
+
+.box.grid
+  - @jokes.each do |joke|
+    .grid-item
+      .picture
+        a href="#{joke_path(joke)}"
+          = image_tag joke.photos[0].middle.url, width: '200'
+        .mt-10
+          i.kx.kx-up-voted
+          span= joke.up_votes_count
+          i.kx.kx-down-voted.ml-10
+          span= joke.down_votes_count
+          i.kx.kx-commented.ml-10
+          span= joke.comments_count           
+
+      .title
+        a href="#{joke_path(joke)}"= joke.title.presence || joke.content.truncate(30)

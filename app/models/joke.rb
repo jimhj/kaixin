@@ -37,6 +37,7 @@ class Joke < ActiveRecord::Base
                 .where.not(title: '').order('created_at DESC').limit(limit)
   }
 
+  # 随机推荐的
   scope :recommend, -> (limit = 10) { 
     find_by_sql(
       <<-SQL
@@ -44,6 +45,15 @@ class Joke < ActiveRecord::Base
       SQL
     )
   }
+
+  # 频道页推荐的
+  scope :recommends, -> (offset = 0) { 
+    find_by_sql(
+      <<-SQL
+        select * from jokes where recommended is true and photos is not null order by updated_at limit 20 offset #{offset};
+      SQL
+    )
+  }  
 
   after_create :update_hot
   after_touch :update_hot

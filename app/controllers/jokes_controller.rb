@@ -12,6 +12,11 @@ class JokesController < ApplicationController
     render action: :index
   end
 
+  def recommends
+    @jokes = Joke.recommends
+    @page_title = "热门笑料"
+  end
+
   def qutu
     @jokes = Joke.qutu.paginate(paginate_params)
     @page_title = "趣图"
