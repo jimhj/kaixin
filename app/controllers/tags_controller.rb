@@ -9,7 +9,7 @@ class TagsController < ApplicationController
     @tag           = Tag.find_by! slug: params[:id]
     @jokes         = @tag.jokes.preload(:comments, :user).order('created_at DESC').paginate(page: params[:page], per_page: 10)
     
-    title          = "tag笑话_tag笑话大全笑话_开心100".gsub!(/tag/, @tag.name)
+    title          = "tag笑话_tag笑话大全_笑话_开心100".gsub!(/tag/, @tag.name)
     keywords       = "tag,tag笑话".gsub!(/tag/, @tag.name)
     description    = ("开心100提供最新tag笑话、tag笑话大全等笑话信息，为您精心选择最经典的tag笑话、最搞笑的tag笑话、最内涵的tag笑话、最有深度的tag笑话大全等tag笑话。").gsub!(/tag/, @tag.name)
     

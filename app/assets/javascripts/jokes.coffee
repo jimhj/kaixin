@@ -40,7 +40,7 @@ $(document).ready ->
           return
 
         $items.imagesLoaded ->
-          $grid.append($items).masonry('appended', $items)
+          $grid.append($items).masonry('appended', $items).masonry('stamp', $items)
           loadingEventFired = false
           $loader.hide()
 
