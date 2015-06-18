@@ -2,16 +2,23 @@
 #= require imagesloaded.pkgd 
 
 $(document).ready ->
-  $('.box.grid').imagesLoaded ->
+  $loader = $('<div class="loading-holder"><i class="kx kx-loading"></i></div>')
+  loadingEventFired = true
+  currentPage = 1
+  $grid = null
 
-    $('.box.grid').masonry({
+  $('body').prepend $loader
+
+  $('.box.grid').imagesLoaded ->
+    $grid = $('.box.grid').masonry({
       itemSelector: '.grid-item'
       columnWidth: 222
       gutter: 20
     })
 
-  loadingEventFired = false
-  currentPage = 1
+    $('.box.grid').css('visibility', 'visible')
+    $loader.hide()
+    loadingEventFired = false     
 
   $(window).scroll ->
     distanceToFire = 200
@@ -22,17 +29,21 @@ $(document).ready ->
       loadingEventFired = true
       currentPage += 1
 
-      $loader = $('<div class="loading-holder"><i class="kx kx-loading"></i></div>')
       $loader.insertAfter '.box.grid'
+      $loader.show()
 
       $.get 'hot', { page: currentPage }, (resp) ->
-        $loader.remove()
-
         $items = $(resp).find('.grid-item')
-        return if $items.length == 0
 
-        $('.grid').append($items).masonry('appended', $items)
-        loadingEventFired = false
+        if $items.length == 0
+          $loader.hide()
+          return
+
+        $items.imagesLoaded ->
+          $grid.append($items).masonry('appended', $items)
+          loadingEventFired = false
+          $loader.hide()
+
 
 
 

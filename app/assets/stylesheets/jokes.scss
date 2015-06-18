@@ -162,6 +162,8 @@ ul.recommend {
 // 瀑布流
 .box.grid {
   @include clearfix;
+  // display: none;
+  visibility: hidden;
   background-color: transparent;
 
   .grid-item {

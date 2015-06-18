@@ -14,7 +14,7 @@ class JokesController < ApplicationController
 
   def recommends
     offset = (params[:page].presence || 0).to_i * 40
-    @jokes = Joke.recommends(offset)
+    @jokes = Joke.recommends(0)
     @page_title = "热门笑料"
   end
 
