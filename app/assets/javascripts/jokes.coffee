@@ -7,7 +7,7 @@ $(document).ready ->
   currentPage = 1
   $grid = null
 
-  $('body').prepend $loader
+  $('.main').prepend $loader
 
   $('.box.grid').imagesLoaded ->
     $grid = $('.box.grid').masonry({
