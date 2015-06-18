@@ -42,11 +42,12 @@ $(document).ready ->
         $ad_items = $('.grid').find('.adHolder').clone()
         $ad_items.removeClass('adHolder')
 
-        $grid.append($ad_items).masonry('appended', $ad_items).masonry('stamp', $ad_items)
-        $grid.append($items).masonry('appended', $items).masonry('stamp', $items)
+        $items.imagesLoaded -> 
+          $grid.append($ad_items).masonry('appended', $ad_items).masonry('stamp', $ad_items)
+          $grid.append($items).masonry('appended', $items).masonry('stamp', $items)
 
-        loadingEventFired = false
-        $loader.hide()
+          loadingEventFired = false
+          $loader.hide()
 
 
 
