@@ -38,11 +38,15 @@ $(document).ready ->
         if $items.length == 0
           $loader.hide()
           return
+        
+        $ad_items = $('.grid').find('.adHolder').clone()
+        $ad_items.removeClass('adHolder')
 
-        $items.imagesLoaded ->
-          $grid.append($items).masonry('appended', $items).masonry('stamp', $items)
-          loadingEventFired = false
-          $loader.hide()
+        $grid.append($ad_items).masonry('appended', $ad_items).masonry('stamp', $ad_items)
+        $grid.append($items).masonry('appended', $items).masonry('stamp', $items)
+
+        loadingEventFired = false
+        $loader.hide()
 
 
 

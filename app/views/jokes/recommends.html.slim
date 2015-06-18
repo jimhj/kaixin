@@ -19,6 +19,6 @@
         .title
           a href="#{joke_path(joke)}" target="_blank"= joke.title.presence || joke.content.truncate(30)
     - else
-      .grid-item
+      .grid-item.adHolder
         .picture
           = raw(record.body)
