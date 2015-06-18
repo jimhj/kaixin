@@ -63,7 +63,7 @@ Rails.application.routes.draw do
   # 桌面站
   root 'jokes#index'
   # 瀑布流的单页
-  get :hot, to: 'jokes#recommends', as: :recommend
+  get :hot, to: 'jokes#recommends', as: :recommends
     
   concerns :jokeable
   resources :users

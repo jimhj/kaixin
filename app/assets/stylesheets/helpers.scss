@@ -37,6 +37,14 @@ i.kx {
   display: inline-block;
   margin-right: 2px;
 
+  &.kx-loading {
+    background-image: image-url('loading.gif');
+    background-repeat: no-repeat;
+    width: 160px;
+    height: 20px;
+    background-color: transparent;
+  }
+
   &.kx-weibo {
     @include bg-img(19px, 15px);
     background-position: -25px 0px;

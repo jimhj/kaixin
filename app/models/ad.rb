@@ -5,7 +5,8 @@ class Ad < ActiveRecord::Base
     "右侧顶部广告位" => "RIGHT_SIDE_TOP",
     "右侧跟随广告位" => "RIGHT_SIDE_FIXED",
     "内页正文下方广告位" => "DETAIL",
-    "内页推荐图片下方广告位" => "RECOMMEND"
+    "内页推荐图片下方广告位" => "RECOMMEND",
+    "HOT频道随机广告位" => "HOT"
   }
 
   scope :published, -> { where(published: true) }

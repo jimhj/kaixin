@@ -50,7 +50,7 @@ class Joke < ActiveRecord::Base
   scope :recommends, -> (offset = 0) { 
     find_by_sql(
       <<-SQL
-        select * from jokes where recommended is true and photos is not null order by updated_at limit 20 offset #{offset};
+        select * from jokes where recommended is true and photos is not null order by updated_at limit 40 offset #{offset};
       SQL
     )
   }  
