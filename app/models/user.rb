@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   has_many :up_votings
   has_many :down_votings
 
-  validates :login, uniqueness: { case_sensitive: false }, format: { with: /\A[a-z0-9][a-z0-9-]*\z/i }
+  validates :login, uniqueness: { case_sensitive: false }, length: { maximum: 20, minimum: 2 }
   validates :email, uniqueness: { case_sensitive: false }, presence: true, format: { with: /\A([^@\s]+)@((?:[a-z0-9-]+\.)+[a-z]{2,})\z/i }  
   validates :mobile, uniqueness: { case_sensitive: false }, allow_blank: true  
   # validates :password, presence: true, confirmation: true, length: { minimum: 6 }, if: Proc.new { |user| 

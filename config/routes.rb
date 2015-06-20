@@ -5,15 +5,6 @@ class MobileConstraint
   end
 end 
 
-# class AdminConstraint
-#   def self.matches?(request)
-#     if request.session[:user_id]
-#       user = User.find request.session[:user_id]
-#       user && user.admin?
-#     end
-#   end
-# end
-
 Rails.application.routes.draw do
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
@@ -62,6 +53,11 @@ Rails.application.routes.draw do
   
   # 桌面站
   root 'jokes#index'
+
+  # 第三方登录
+  get 'auth/weibo/callback', to: 'auth#weibo_callback', as: :weibo_auth
+  # get 'auth/qq/callback', to: 'auth#qq_callback'
+
   # 瀑布流的单页
   get :hot, to: 'jokes#recommends', as: :recommends
     

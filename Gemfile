@@ -25,6 +25,9 @@ gem 'bcrypt', '~> 3.1.10'
 gem 'sidekiq', '~> 3.3.4'
 gem 'sinatra', require: nil
 
+# OAuth
+gem 'omniauth-oauth2', '~> 1.2.0'
+
 # Redis
 gem "hiredis", "~> 0.4.0"
 gem "redis", ">= 2.2.0"
