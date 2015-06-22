@@ -1,4 +1,5 @@
 class AuthController < ApplicationController
+  # skip_before_action :verify_authenticity_token
   before_action :no_login_required
 
   def weibo_callback
@@ -26,6 +27,6 @@ class AuthController < ApplicationController
 
     login_as user
     remember_me
-    redirect_back_or_default root_url root_url     
+    redirect_back_or_default root_url     
   end
 end

@@ -56,7 +56,7 @@ Rails.application.routes.draw do
 
   # 第三方登录
   get 'auth/weibo/callback', to: 'auth#weibo_callback', as: :weibo_auth
-  # get 'auth/qq/callback', to: 'auth#qq_callback'
+  get 'auth/qq/callback', to: 'auth#qq_callback', as: :qq_auth
 
   # 瀑布流的单页
   get :hot, to: 'jokes#recommends', as: :recommends
