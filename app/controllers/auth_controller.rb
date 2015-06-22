@@ -15,12 +15,11 @@ class AuthController < ApplicationController
   def callback(source_type)
     auth = request.env["omniauth.auth"]
     Rails.logger.info auth
-    user = User.find_or_create_by!("#{source_type}_uid" => auth.uid.to_s) do |u|
+    user = User.find_or_create_by!("#{source_type}_uid" => auth.uid.to_s, "login" => auth.info.name) do |u|
       if u.new_record?
         u.email = "#{SecureRandom.hex(6)}@#{source_type}.random.com"
         u.remote_avatar_url = File.join(auth.info.avatar_url, 'avatar.jpg')
         u.password = SecureRandom.hex(8)
-        u.login = auth.info.name
       end
       u.send("#{source_type}_token=", auth.credentials.token)
     end

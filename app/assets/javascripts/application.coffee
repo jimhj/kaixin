@@ -23,7 +23,9 @@ $(document).ready ->
     $('.right.links').replaceWith(res)
   , 'html'
 
-  $('.stickAd').sticky(topSpacing: 0)
+  $('.stickAd').sticky
+    topSpacing: 0    
+    bottomSpacing: 300
 
   $('.search .kx-zoom').click ->
     $(this).parent()[0].submit()

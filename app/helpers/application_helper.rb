@@ -43,7 +43,7 @@ module ApplicationHelper
     
     if img = joke.photos[ind]
       content_tag 'div', class: 'photo' do
-        version = (device == "desktop" ? :middle : :small)
+        version = (device == "desktop" ? :normal : :middle)
         link ||= joke_path(joke)
         image_title = joke.title.presence || joke.content.truncate(30)
 
