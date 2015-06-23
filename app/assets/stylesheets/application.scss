@@ -308,3 +308,34 @@ body {
     line-height: 22px;
   }
 }
+
+.float-nav {
+  display: block;
+  position: fixed;
+  z-index: 1001;
+  bottom: 20px;
+  right: 0;
+  font-size: 12px;
+  text-align: center;
+
+  i.kx {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  span.back_to_top {
+    display: block;
+    background-image: image-url('back_to_top.png');
+    background-repeat: no-repeat;
+    width: 31px;
+    height: 17px;
+    margin-bottom: 10px;
+  }
+
+  a {
+    display: block;
+    padding: 10px 15px;
+    background: #fff;
+    margin: 0 0 1px 0;    
+  }    
+}

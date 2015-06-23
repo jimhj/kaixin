@@ -85,6 +85,11 @@ i.kx {
     background-position: -98px -92px;
   }  
 
+  &.kx-commented-colorful {
+    @include bg-img(26px, 26px);
+    background-position: -98px -32px;
+  }    
+
   &.kx-qq {
     @include bg-img(16px, 16px);
     background-position: -76px 0px;
