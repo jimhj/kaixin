@@ -3,7 +3,7 @@
     .box-header
       h1= @tag.name 
       a.more.text-muted 一共 #{@jokes.count} 个 "#{@tag.name}" 相关笑话
-    .box-content= @tag.seo_description
+    .box-content= @page_description
 
   - @jokes.each do |joke|
     .joke-item
