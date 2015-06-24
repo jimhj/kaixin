@@ -27,15 +27,18 @@
         - @tags.each do |tag|
           a href="#{tag_path(tag.slug)}" ##{tag.name}#
     .operation
-      a.ding href="javascript:;" data-votable_type="jokes" data-votable_id=@joke.id data-vote="up_vote"
-        i.kx.kx-up-voted
-        span= @joke.up_votes_count
-      a.cai href="javascript:;" data-votable_type="jokes" data-votable_id=@joke.id data-vote="down_vote"
-        i.kx.kx-down-voted
-        span= @joke.down_votes_count
-      a.comment href="javascript:;" data-joke_id=@joke.id
-        i.kx.kx-commented
-        span= @joke.comments_count
+      .left
+        a.ding href="javascript:;" data-votable_type="jokes" data-votable_id=@joke.id data-vote="up_vote"
+          i.kx.kx-up-voted
+          span= @joke.up_votes_count
+        a.cai href="javascript:;" data-votable_type="jokes" data-votable_id=@joke.id data-vote="down_vote"
+          i.kx.kx-down-voted
+          span= @joke.down_votes_count
+        a.comment href="javascript:;" data-joke_id=@joke.id
+          i.kx.kx-commented
+          span= @joke.comments_count
+      .right
+        | <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a></div>  
 
   .box
     .box-content
@@ -110,3 +113,5 @@ javascript:
       return false;
     });
   });
+
+= render 'share/bd_share'

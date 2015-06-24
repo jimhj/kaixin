@@ -97,12 +97,20 @@
   padding: 15px 15px;
   background-color: #fafafa;
   border-top: 1px solid #f3f2f2;
+  .left {
+    a {
+      float: left;
+      margin-right: 20px;
+      font-size: 14px;
+      color: $brand-gray-light;
+    }
+  }
 
-  a {
-    float: left;
-    margin-right: 20px;
-    font-size: 14px;
-    color: $brand-gray-light;
+  .right a {
+    float: right;
+    margin: 0;
+    margin-left: 10px;    
+    &.bds_more { display: none; }
   }
 }
 

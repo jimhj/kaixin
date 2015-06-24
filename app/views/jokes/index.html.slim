@@ -30,15 +30,18 @@
                   span.text-muted= joke.hot_comment.up_votes_count
 
       .operation
-        a.ding href="javascript:;" data-votable_type="jokes" data-votable_id=joke.id data-vote="up_vote"
-          i.kx.kx-up-voted
-          span= joke.up_votes_count
-        a.cai href="javascript:;" data-votable_type="jokes" data-votable_id=joke.id data-vote="down_vote"
-          i.kx.kx-down-voted
-          span= joke.down_votes_count
-        a.comment.loadComment href="javascript:;" data-joke_id=joke.id
-          i.kx.kx-commented
-          span= joke.comments_count
+        .left
+          a.ding href="javascript:;" data-votable_type="jokes" data-votable_id=joke.id data-vote="up_vote"
+            i.kx.kx-up-voted
+            span= joke.up_votes_count
+          a.cai href="javascript:;" data-votable_type="jokes" data-votable_id=joke.id data-vote="down_vote"
+            i.kx.kx-down-voted
+            span= joke.down_votes_count
+          a.comment.loadComment href="javascript:;" data-joke_id=joke.id
+            i.kx.kx-commented
+            span= joke.comments_count
+        .right
+      
 
   = will_paginate @jokes, inner_window: 2
 
