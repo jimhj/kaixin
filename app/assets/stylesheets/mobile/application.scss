@@ -23,7 +23,7 @@ body {
   background-color: #F1F1F1;
   background: #F1F1F1 image-url('giftly.png') repeat;
   font-family: "微软雅黑","microsoft yahei",verdana,lucida,Arial,sans-serif,"黑体";
-  padding-top: 111px;
+  // padding-top: 111px;
 }
 
 a, a:visited {
@@ -56,9 +56,9 @@ a, a:visited {
 }
 
 .header-container {
-  position: fixed;
-  left: 0;
-  top: 0;
+  // position: fixed;
+  // left: 0;
+  // top: 0;
   width: 100%;
   z-index: 9999;
 }
@@ -90,6 +90,10 @@ a, a:visited {
 //     height: 2px;
 //   }
 // }
+
+.header-nav {
+  z-index: 9999;
+}
 
 .header-nav ul.nav {
   border-bottom: 1px solid #DCDCDC;
