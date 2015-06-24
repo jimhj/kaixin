@@ -35,7 +35,7 @@ $(document).ready ->
     $t        = $(this)
     joke_id   = $t.data 'joke_id'
     url       = "/jokes/#{joke_id}/comments"
-    $comments = $t.parent().next('.box')
+    $comments = $t.parents('.operation').next('.box')
 
     if $comments.length == 1
       if $comments.is(':hidden')
