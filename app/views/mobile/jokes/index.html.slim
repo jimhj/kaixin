@@ -12,10 +12,10 @@
             = simple_format joke.content
             = render_joke_photo joke, device: "mobile"
       .panel-footer.action-bar
-        a href="#{joke_path(joke)}"
+        a.mr-10 href="#{joke_path(joke)}"
           i.fa.fa-smile-o
           span= joke.up_votes_count
-        a href="#{joke_path(joke)}"
+        a.mr-10 href="#{joke_path(joke)}"
           i.fa.fa-frown-o
           span= joke.down_votes_count
         a href="#{joke_path(joke)}"
