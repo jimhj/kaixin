@@ -97,7 +97,8 @@
   padding: 15px 15px;
   background-color: #fafafa;
   border-top: 1px solid #f3f2f2;
-  .left {
+
+  & > .left {
     a {
       float: left;
       margin-right: 20px;

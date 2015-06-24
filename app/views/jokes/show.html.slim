@@ -27,7 +27,7 @@
         - @tags.each do |tag|
           a href="#{tag_path(tag.slug)}" ##{tag.name}#
     .operation
-      .left
+      .left.icons
         a.ding href="javascript:;" data-votable_type="jokes" data-votable_id=@joke.id data-vote="up_vote"
           i.kx.kx-up-voted
           span= @joke.up_votes_count

@@ -46,7 +46,7 @@ $(document).ready ->
       $.get url, (res) ->
         $comments = $(res)
         $comments.css 'display', 'none'
-        $t.parent().after $comments
+        $t.parents('.operation').after $comments
         $comments.slideDown()
       , 'html'
 
