@@ -22,7 +22,12 @@ $(document).ready ->
 
     $.post "/jokes/#{joke_id}/comments", { body: content }, (res) ->
       if res.success?
-        $('ul.comments').prepend res.html
+        if $('ul.comments').length == 0
+          $comments = $('<ul class="comments"></ul>')
+          $comments.append res.html
+          $('.comment-list .box-content').append $comments
+        else
+          $('ul.comments').prepend res.html
         $('.limit').find('.size').text 0
         $textarea.val ''
         $error.text ''
