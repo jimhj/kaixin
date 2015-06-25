@@ -23,9 +23,9 @@ $(document).ready ->
     $.post "/jokes/#{joke_id}/comments", { body: content }, (res) ->
       if res.success?
         if $('ul.comments').length == 0
-          $comments = $('<ul class="comments"></ul>')
+          $comments = $('<ul class="comments text-list"></ul>')
           $comments.append res.html
-          $('.comment-list .box-content').append $comments
+          $('.comment-list .box-content').empty().append $comments
         else
           $('ul.comments').prepend res.html
         $('.limit').find('.size').text 0
