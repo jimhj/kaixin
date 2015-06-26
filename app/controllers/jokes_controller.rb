@@ -13,12 +13,7 @@ class JokesController < ApplicationController
   end
 
   def recommends
-    offset = (params[:page].presence || 0).to_i * 40
-    @records = Joke.recommends(offset).to_a
-
-    if params[:page].blank?
-      @records = (@records + Ad.hot).shuffle
-    end
+    @records = Joke.recommends.paginate(per_page: 18, page: params[:page], total_entries: 2000)
     @page_title = "热门笑料"
   end
 
@@ -35,7 +30,7 @@ class JokesController < ApplicationController
   end
 
   def shenhuifu
-    @jokes = Joke.distinct.joins(:comments).where("comments.up_votes_count > 0").order('jokes.created_at DESC')
+    @jokes = Joke.distinct.joins(:comments).where("comments.up_votes_count > 0").order('jokes.created_at DESC').truncate(12)
     @jokes = @jokes.paginate(paginate_params)
     @page_title = "神回复"
     render action: :index

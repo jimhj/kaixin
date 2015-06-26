@@ -172,18 +172,36 @@ ul.recommend {
 .box.grid {
   @include clearfix;
   // display: none;
-  visibility: hidden;
+  // visibility: hidden;
   background-color: transparent;
 
   .grid-item {
-    width: 220px;
+    width: 230px;
     border: 1px solid #dcdcdc;
     margin-bottom: 20px;
+    float: left;
+    margin-right: 10px;
   }
 
   .grid-item .picture {
     background-color: #fff;
-    padding: 10px 10px;
+    padding: 10px 0px;
+
+    a.img {
+      text-align: center;
+      display: block;
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .operation {
+      text-align: left;
+      margin-left: 10px;
+    }
+  }
+
+  .adHolder .picture {
+    text-align: center;
   }
 
   .grid-item .title {
@@ -197,4 +215,9 @@ ul.recommend {
   width: 200px;
   margin: 0 auto;
 }
+
+// .pagination-box {
+//   text-align: center;
+//   margin: 10px auto;
+// }
 

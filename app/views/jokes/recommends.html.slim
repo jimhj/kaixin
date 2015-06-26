@@ -1,14 +1,12 @@
-= javascript_include_tag 'jokes'
-
 .box.grid
-  - @records.each do |record|
+  - (@records.to_a + Ad.hot).shuffle.each do |record|
     - if record.is_a?(Joke)
       - joke = record
       .grid-item
         .picture
-          a href="#{joke_path(joke)}" target="_blank"
+          a.img href="#{joke_path(joke)}" target="_blank"
             = image_tag joke.photos[0].middle.url, width: '200', title: joke.title.presence || joke.content.truncate(30)
-          .mt-10
+          .operation.mt-10
             i.kx.kx-up-voted
             span= joke.up_votes_count
             i.kx.kx-down-voted.ml-10
@@ -16,9 +14,32 @@
             i.kx.kx-commented.ml-10
             span= joke.comments_count           
 
-        .title
-          a href="#{joke_path(joke)}" target="_blank"= joke.title.presence || joke.content.truncate(30)
+        .title.clearfix
+          .left
+            a href="#{user_path(joke.user)}"
+              = image_tag joke.user.avatar.thumb.url, size: '30x30'
+          .left.ml-10
+            a href="#{joke_path(joke)}" target="_blank"= (joke.title.presence || "笑话#{joke.id}")
+            .text-muted
+              small.timeago title=joke.created_at
     - else
       .grid-item.adHolder
         .picture
-          = raw(record.body)
+          a.img
+            = raw(record.body)
+          .operation.mt-10
+            i.kx.kx-up-voted
+            span 999
+            i.kx.kx-down-voted.ml-10
+            span 999
+            i.kx.kx-commented.ml-10
+            span           
+        .title.clearfix
+          .left
+            = image_tag 'avatar.png', size: '30x30'
+          .left.ml-10
+            a href="#this" 笑话大全为您推荐 
+            .text-muted: small 刚刚
+
+.pagination-box
+  = will_paginate @records, inner_window: 2

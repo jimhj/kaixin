@@ -53,6 +53,5 @@ $(document).ready ->
         $comments.css 'display', 'none'
         $t.parents('.operation').after $comments
         $comments.slideDown()
+        $comments.find('.timeago').timeago()
       , 'html'
-
-    $comments.find('.timeago').timeago()

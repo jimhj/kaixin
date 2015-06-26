@@ -13,6 +13,5 @@ Rails.application.config.assets.precompile += %w(
   DD_belatedPNG.js html5shiv.js 
   mobile/application.js 
   mobile/application.css
-  jokes.js
 )
 Rails.application.config.assets.precompile << /\.(?:svg|eot|woff|ttf)\z/
