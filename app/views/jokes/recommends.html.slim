@@ -19,7 +19,7 @@
             a href="#{user_path(joke.user)}"
               = image_tag joke.user.avatar.thumb.url, size: '30x30'
           .left.ml-10
-            a href="#{joke_path(joke)}" target="_blank"= (joke.title.presence || "笑话#{joke.id}")
+            a href="#{joke_path(joke)}" title="#{joke.title.presence || joke.content.truncate(30)}" target="_blank"= (joke.title.presence || "笑话#{joke.id}").truncate(10)  
             .text-muted
               small.timeago title=joke.created_at
     - else

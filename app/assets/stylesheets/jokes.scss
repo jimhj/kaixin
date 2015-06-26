@@ -192,6 +192,11 @@ ul.recommend {
       display: block;
       height: 200px;
       overflow: hidden;
+
+      img {
+        vertical-align: middle;
+        // min-height: 200px;
+      }
     }
 
     .operation {
@@ -208,6 +213,9 @@ ul.recommend {
     border-top: 1px solid #dcdcdc;
     background-color: #f8f8f8;
     padding: 10px 10px;
+    img { 
+      border-radius: 15px;
+    }    
   }
 }
 
