@@ -30,7 +30,7 @@ class JokesController < ApplicationController
   end
 
   def shenhuifu
-    @jokes = Joke.distinct.joins(:comments).where("comments.up_votes_count > 0").order('jokes.created_at DESC').truncate(12)
+    @jokes = Joke.distinct.joins(:comments).where("comments.up_votes_count > 0").order('jokes.created_at DESC')
     @jokes = @jokes.paginate(paginate_params)
     @page_title = "神回复"
     render action: :index
