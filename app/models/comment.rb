@@ -3,6 +3,7 @@ class Comment < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :commentable, polymorphic: true, counter_cache: true
+  validates_length_of :body, within: 1..300, on: :create
 
   # scope :hot, -> {
   #   preload(:commentable, :user).order('up_votes_count DESC, created_at DESC')

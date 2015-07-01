@@ -1,0 +1,24 @@
+<%- if @comment.errors.empty? %>
+  var comment = '<div class="list-group-item clearfix">' +
+                  '<div class="pull-left avatar">' +
+                    '<a href="#this">' +
+                      '<img src="<%= @comment.user.avatar.thumb.url %>" width=40 height=40 />' +
+                    '</a>' +
+                  '</div>' +
+                  '<div class="pull-left body">' +
+                    '<div class="name">' +
+                      '<a href="#this"><%= @comment.user.login %></a>' +
+                    '</div>' +
+                    '<div class="list-group-item-text text-muted"><%= @comment.body %></div>' +
+                  '</div>' +
+                  '<div class="pull-right">' +
+                    '<a href="#this"><i class="fa fa-smile-o"></i><span class="ml-5">0</span></a>' +
+                  '</div>' +
+                '</div>'
+
+  $('.comment-list .panel-body').prepend(comment);
+<%- else %>
+  alert('<%= @comment.errors.full_messages.first %>');
+<% end -%>
+$('.post-comment input').val('');
+$('.post-comment button').button('reset');

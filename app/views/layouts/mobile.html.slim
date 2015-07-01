@@ -17,6 +17,11 @@ html
           ul.dropdown-menu  
             - if login?
               li
+                a href="#{new_mobile_joke_path}"
+                 i.fa.fa-plus
+                 span.ml-5 发表笑料
+              li.divider
+              li
                 a href="#{mobile_user_path(current_user)}"
                   i.fa.fa-user
                   span.ml-5= current_user.login
@@ -26,6 +31,16 @@ html
                   i.fa.fa-power-off
                   span.ml-5 退出
             - else
+              li
+                a href="/auth/weibo" 
+                  i.fa.fa-weibo
+                  span.ml-5 微博登录
+              li.divider
+              li
+                a href="/auth/qq" 
+                  i.fa.fa-qq
+                  span.ml-5 QQ登录
+              li.divider                              
               li
                 a href="#{signup_path}" 
                   i.fa.fa-user

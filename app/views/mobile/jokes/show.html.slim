@@ -41,15 +41,26 @@
               a href="#this"
                 = image_tag comment.user.avatar.thumb.url, size: '40x40'
             .pull-left.body
-              .name: a href="#"= comment.user.login
+              .name: a href="#this"= comment.user.login
               .list-group-item-text.text-muted= comment.body
             .pull-right
-              a href="#"
+              a href="#this"
                 i.fa.fa-smile-o
-                span= comment.up_votes_count
+                span.ml-5= comment.up_votes_count
         .list-group-item.post-comment.clearfix
-          form.form-inline
-            .input-group
-              input.form-control.input-lg placeholder="发表评论"
-              .input-group-btn
-                button.btn.btn-success.btn-lg 评论          
+          - if login?
+            = form_tag mobile_joke_comments_path(@joke), class: 'form-inline', remote: true do
+              .input-group
+                input.form-control.input-lg placeholder="发表评论" type="text" name="body"
+                .input-group-btn
+                  button.btn.btn-success.btn-lg type="submit" data-loading-text="..." 评论
+          - else
+            .text-muted.text-center
+              | 请先 <a href="#{mobile_login_path}">登录</a> 或者 <a href="#{mobile_signup_path}">注册</a> 后发表评论
+            .text-center.mt-5
+              a.btn.btn-danger.btn-sm
+                i.fa.fa-weibo
+                span.ml-5 微博登录
+              a.btn.btn-info.btn-sm
+                i.fa.fa-qq
+                span.ml-5 QQ登录

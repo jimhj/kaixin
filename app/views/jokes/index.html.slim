@@ -3,10 +3,10 @@
     .joke-item
       .user
         .avatar
-          a href="#{user_path(joke.user)}"
-            = image_tag joke.user.avatar.thumb.url
+          a href="#{user_path(joke.user)}" title="#{joke.user.login}"
+            = image_tag joke.user.avatar.thumb.url, title: joke.user.login, alt: joke.user.login
           .nickname
-            a href="#{user_path(joke.user)}"= joke.user.login
+            a href="#{user_path(joke.user)}" title="#{joke.user.login}"= joke.user.login
             p.text-muted.timeago title=joke.created_at
       .content
         = render_joke_title(joke)
@@ -43,7 +43,7 @@
         .right
       
 
-  = will_paginate @jokes, inner_window: 2
+  = will_paginate @jokes, inner_window: 1
 
 .right-side   
   .box

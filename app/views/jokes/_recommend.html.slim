@@ -2,5 +2,5 @@ ul.image-list.recommend
   - Joke.recommend.each do |joke|
     li class=(cycle('', '', '', '', 'no-margin'))
       a href="#{joke_path(joke)}"
-        = image_tag joke.photos[0].thumb.url
+        = image_tag joke.photos[0].thumb.url, title: joke.title, alt: joke.title
         .text title="#{joke.title}"= (joke.title || "").truncate(8)   
