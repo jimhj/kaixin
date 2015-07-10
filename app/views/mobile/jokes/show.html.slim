@@ -35,7 +35,7 @@
       .pull-right 共 #{@joke.comments_count} 条
     .panel-body
       .list-group
-        - @joke.comments.each do |comment|
+        - @joke.comments.order('created_at DESC').each do |comment|
           .list-group-item.clearfix
             .pull-left.avatar
               a href="#this"
@@ -58,9 +58,9 @@
             .text-muted.text-center
               | 请先 <a href="#{mobile_login_path}">登录</a> 或者 <a href="#{mobile_signup_path}">注册</a> 后发表评论
             .text-center.mt-5
-              a.btn.btn-danger.btn-sm
+              a.btn.btn-danger.btn-sm href="/auth/weibo"
                 i.fa.fa-weibo
                 span.ml-5 微博登录
-              a.btn.btn-info.btn-sm
+              a.btn.btn-info.btn-sm href="/auth/qq"
                 i.fa.fa-qq
                 span.ml-5 QQ登录

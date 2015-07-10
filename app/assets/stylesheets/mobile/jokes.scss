@@ -40,7 +40,10 @@
   }
 
   .avatar img { border-radius: 20px; }
-  .body { margin-left: 10px; }
+  .body { 
+    margin-left: 10px; 
+    max-width: 70%;
+  }
 
   .post-comment { background-color: #FAFAFA; }
   .post-comment input {
