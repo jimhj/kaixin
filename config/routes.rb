@@ -60,6 +60,12 @@ Rails.application.routes.draw do
 
   # 瀑布流的单页
   get :hot, to: 'jokes#recommends', as: :recommends
+
+  # 外链广告代码
+  scope 'ad', as: 'ad' do
+    get :recommends, to: 'ad#recommends'
+    get 'pics', to: 'ad#pics', as: :pics
+  end
     
   concerns :jokeable
   resources :users

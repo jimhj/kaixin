@@ -1,0 +1,58 @@
+html
+  head
+    meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+    css:
+      .recommends {
+        clear: both;
+        padding-top: 10px;
+        padding-left: 20px;
+      }
+
+      .recommends ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .recommends li {
+        float: left;
+        margin-bottom: 16px;
+        width: 120px;
+      }
+
+      .recommends li a, .recommends li a:visited {
+        color: #000;
+        zoom: 1;
+        font-size: 12px;
+        text-align: center;
+        text-decoration: none;                
+      }
+
+      .recommends li a:hover {
+        text-decoration: underline;
+        color: #1a9850;
+      }
+
+      .recommends li a .thumbnail {
+        margin-bottom: 5px;
+      }
+
+      .recommends li a span {
+        display: block;
+        height: 20px;
+      }
+
+      .thumbnail img {
+        height: 90px;
+        width: 120px;      
+      }
+
+  body
+    .recommends
+      ul
+        - @recommends.each do |joke|
+          li style="margin-right: #{@gap}px;"
+            a href="#{joke_path(joke, hmsr: @hmsr || '', hmmd: request.referer || '', hmpl: '', hmkw: SecureRandom.hex(8), hmci: '')}" title="#{joke.title.presence || joke.content.truncate(80)}" target="_blank"
+              .thumbnail
+                img src="#{joke.photos.first.thumb.url}" alt="#{joke.title.presence || joke.content.truncate(80)}"
+              span= (joke.title.presence || joke.content).truncate(8, omission: '')
