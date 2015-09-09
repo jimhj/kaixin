@@ -54,7 +54,7 @@ html
         - domain = URI(referer).domain
         - @recommends.each do |joke|
           li style="margin-right: #{@gap}px;"
-            a href="#{joke_path(joke, hmsr: @hmsr || '', hmmd: referer, hmpl: '', hmkw: SecureRandom.hex(8), hmci: domain)}" title="#{joke.title.presence || joke.content.truncate(80)}" target="_blank"
+            a href="#{joke_path(joke, hmsr: @hmsr || '', hmmd: domain, hmpl: '', hmkw: SecureRandom.hex(8), hmci: referer)}" title="#{joke.title.presence || joke.content.truncate(80)}" target="_blank"
               .thumbnail
                 img src="#{joke.photos.first.thumb.url}" alt="#{joke.title.presence || joke.content.truncate(80)}"
               span= (joke.title.presence || joke.content).truncate(8, omission: '')
