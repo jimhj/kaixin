@@ -50,8 +50,8 @@ html
   body
     .recommends
       ul
-        - referer = request.referer
-        - domain = URI(referer).domain
+        - referer = request.referer || ''
+        - domain = URI(referer).host rescue ''
         - @recommends.each do |joke|
           li style="margin-right: #{@gap}px;"
             a href="#{joke_path(joke, hmsr: @hmsr || '', hmmd: domain, hmpl: '', hmkw: SecureRandom.hex(8), hmci: referer)}" title="#{joke.title.presence || joke.content.truncate(80)}" target="_blank"
