@@ -57,10 +57,11 @@ html
       ul
         - referer = request.referer || ''
         - domain = URI(referer).host rescue ''
+        - time = Time.now.strftime('%Y%m%d%H')
         - @recommends.each_with_index do |joke, i|
           / - gap = ((i + 1) == @number) ? 0 : @gap
           li style="margin-right: #{@gap}px;"
-            a href="#{joke_path(joke, hmsr: @hmsr || '', hmmd: domain, hmpl: '', hmkw: SecureRandom.hex(8), hmci: referer)}" title="#{joke.title.presence || joke.content.truncate(80)}" target="_blank"
+            a href="#{joke_path(joke, hmsr: @hmsr || '', hmmd: domain, hmpl: time, hmkw: SecureRandom.hex(8), hmci: referer)}" title="#{joke.title.presence || joke.content.truncate(80)}" target="_blank"
               .thumbnail
                 img src="#{joke.photos.first.thumb.url}" alt="#{joke.title.presence || joke.content.truncate(80)}"
               span= (joke.title.presence || joke.content).truncate(8, omission: '')
