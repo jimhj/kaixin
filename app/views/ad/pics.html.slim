@@ -2,6 +2,11 @@ html
   head
     meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
     css:
+      body {
+        padding: 0;
+        margin: 0;
+      }
+
       .recommends {
         clear: both;
         padding-top: 10px;
@@ -52,9 +57,11 @@ html
       ul
         - referer = request.referer || ''
         - domain = URI(referer).host rescue ''
-        - @recommends.each do |joke|
-          li style="margin-right: #{@gap}px;"
+        - @recommends.each_with_index do |joke, i|
+          - gap = ((i + 1) == @number) ? 0 : @gap
+          li style="margin-right: #{gap}px;"
             a href="#{joke_path(joke, hmsr: @hmsr || '', hmmd: domain, hmpl: '', hmkw: SecureRandom.hex(8), hmci: referer)}" title="#{joke.title.presence || joke.content.truncate(80)}" target="_blank"
               .thumbnail
                 img src="#{joke.photos.first.thumb.url}" alt="#{joke.title.presence || joke.content.truncate(80)}"
               span= (joke.title.presence || joke.content).truncate(8, omission: '')
+     

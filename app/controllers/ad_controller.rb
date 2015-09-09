@@ -20,7 +20,7 @@ class AdController < ApplicationController
   end
 
   def pics
-    number = params[:number].presence || 8
+    @number = params[:number].presence || 8
     @gap = params[:gap]
     @hmsr = params[:c]
     @recommends = Joke.recommend(number.to_i)
