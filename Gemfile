@@ -59,6 +59,10 @@ gem 'meta-tags', '~> 2.0.0'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 
+# Grape for API
+gem 'grape', '~> 0.13.0'
+gem 'hashie-forbidden_attributes'
+
 group :development do
   # Deployment
   gem 'capistrano', '~> 3.4.0'

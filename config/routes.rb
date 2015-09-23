@@ -77,6 +77,10 @@ Rails.application.routes.draw do
     resource :profile, only: [:show, :update]
   end
 
+  # API
+  require 'dispatch'
+  mount Api::Dispatch => '/api'  
+
   # 管理后台
   namespace :admin do
     root to: 'jokes#index'
