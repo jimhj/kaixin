@@ -3,7 +3,8 @@ module V1
     resources :jokes do
       desc '获取笑话列表'
       get do
-        { hello: 'world' }
+        jokes = Joke.all
+        present jokes, with: V1::Entities::Jokes
       end
     end
   end

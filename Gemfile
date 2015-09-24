@@ -61,6 +61,7 @@ gem 'elasticsearch-rails'
 
 # Grape for API
 gem 'grape', '~> 0.13.0'
+gem 'grape-entity'
 gem 'hashie-forbidden_attributes'
 
 group :development do
