@@ -48,7 +48,7 @@ module ApplicationHelper
         image_title = joke.title.presence || joke.content.truncate(30)
 
         link_to link do
-          image_tag img.url(version), title: image_title, alt: image_title
+          image_tag img.url(version), title: strip_tags(image_title), alt: strip_tags(image_title)
         end
       end
     end
