@@ -11,7 +11,18 @@ class Joke < ActiveRecord::Base
 
   validates :title, uniqueness: true, length: { maximum: 40 }, allow_blank: true
   validates :content, presence: true, if: Proc.new { |joke| joke.title.blank? }
-  validates :content, uniqueness: true, if: Proc.new { |joke| joke.photos.blank? }
+  validates :content, uniqueness: true, if: Proc.new { |joke| joke.photos.blank? && joke.video_url.blank? }
+  validate :check_video, on: :create
+
+  def check_video
+    if !self.photos.blank? && !self.video_url.blank?
+      error.add(:base, '视频和图片只能选其一')
+    end
+
+    # if !self.video_url.blank? && self.video_cover_url.blank?
+    #   error.add(:video_cover_url, '视频预览图地址不能为空')
+    # end
+  end
 
   enum status: { 
     :pending  => 0,

@@ -9,6 +9,10 @@ Rails.application.routes.draw do
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
 
+  # API
+  # require 'dispatch'
+  # mount Api::Dispatch => '/api'  
+  
   concern :sessionable do
     get :signup, to: 'users#new'
     post :signup, to: 'users#create'
@@ -76,10 +80,6 @@ Rails.application.routes.draw do
     resource :password, only: [:show, :update]
     resource :profile, only: [:show, :update]
   end
-
-  # API
-  require 'dispatch'
-  mount Api::Dispatch => '/api'  
 
   # 管理后台
   namespace :admin do

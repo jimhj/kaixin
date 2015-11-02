@@ -11,7 +11,10 @@
       = render_joke_title(@joke)
       .body
         = simple_format @joke.content
-        = render_joke_photo @joke, link: render_next_joke_link(@joke)
+        - if @joke.video_url.present?
+          | <video src="#{@joke.video_url}" width="480" height="480" controls preload></video>
+        - else
+          = render_joke_photo @joke, link: render_next_joke_link(@joke)
 
         - Ad.detail.each do |ad|
           .text-center.mb-20.mt-30

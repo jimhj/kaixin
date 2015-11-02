@@ -20,6 +20,11 @@
         - @joke.photos.each do |photo|
           = image_tag photo.thumb.url
   .form-group
+    label.col-sm-3.control-label 视频地址(可选)
+    .col-sm-9
+      = f.text_field :video_url, class: 'form-control', placeholder: '视频的完整url地址'          
+
+  .form-group
     .col-sm-offset-3.col-sm-9
       .checkbox
         label 

@@ -77,7 +77,7 @@ class Admin::JokesController < Admin::ApplicationController
   end
 
   def joke_params
-    params.require(:joke).permit(:title, :content, :anonymous, :tag_list, :photos => [])
+    params.require(:joke).permit(:title, :content, :anonymous, :tag_list, :video_url, :video_cover_url, :photos => [])
   end
 
   def paginate_params

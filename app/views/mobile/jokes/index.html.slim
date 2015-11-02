@@ -10,7 +10,10 @@
           = render_joke_title joke
           .body
             = simple_format joke.content
-            = render_joke_photo joke, device: "mobile"
+            - if joke.video_url.present?
+              | <video src="#{joke.video_url}" width="100%" height="100%" controls preload></video>   
+            - else             
+              = render_joke_photo joke, device: "mobile"
       .panel-footer.action-bar
         a.mr-10 href="#{joke_path(joke)}"
           i.fa.fa-smile-o

@@ -8,6 +8,7 @@
 #= require kaixin
 #= require comments
 #= require votings
+#= require html5media.min
 #= require_self
 
 $(document).ready ->
