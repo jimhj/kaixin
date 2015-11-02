@@ -19,9 +19,9 @@ class Joke < ActiveRecord::Base
       error.add(:base, '视频和图片只能选其一')
     end
 
-    # if !self.video_url.blank? && self.video_cover_url.blank?
-    #   error.add(:video_cover_url, '视频预览图地址不能为空')
-    # end
+    if !self.video_url.blank? && self.video_cover_url.blank?
+      error.add(:video_cover_url, '视频预览图地址不能为空')
+    end
   end
 
   enum status: { 

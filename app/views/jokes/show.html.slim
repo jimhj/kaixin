@@ -12,7 +12,7 @@
       .body
         = simple_format @joke.content
         - if @joke.video_url.present?
-          | <video src="#{@joke.video_url}" width="480" height="480" controls preload></video>
+          | <video src="#{@joke.video_url}" width="480" height="480" poster="#{@joke.video_cover_url}" controls preload></video>
         - else
           = render_joke_photo @joke, link: render_next_joke_link(@joke)
 
