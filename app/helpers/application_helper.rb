@@ -20,21 +20,18 @@ module ApplicationHelper
   def render_joke_title(joke)
     title = joke.title
     return '' if title.blank?
-    sub_title = ''
+
     length = joke.photos.length
     if length > 1
       sub_title = content_tag 'span' do
         if action_name == "index"
-          %Q([组图])
+          %Q((组图))
         else
           %Q((#{params[:photo].presence || 1}/#{joke.photos.count}))
         end
-      end.to_s
-
-    # elsif joke.video_url.present?
-    #   sub_title = "<span>[视频]</span>"
+      end
+      title << sub_title.to_s
     end
-    title = "#{title}#{sub_title}"
 
     %Q(<h4><a href="#{joke_path(joke)}">#{title}</a></h4>).html_safe
   end
@@ -51,7 +48,7 @@ module ApplicationHelper
         image_title = joke.title.presence || joke.content.truncate(30)
 
         link_to link do
-          image_tag img.url(version), title: strip_tags(image_title), alt: strip_tags(image_title)
+          image_tag img.url(version), title: image_title, alt: image_title
         end
       end
     end
