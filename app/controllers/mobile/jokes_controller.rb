@@ -1,9 +1,9 @@
 class Mobile::JokesController < Mobile::ApplicationController
   before_action :login_required, only: [:new, :create]
-  
+
   def index
     @jokes = Joke.preload(:comments, :user).order('created_at DESC')
-    @jokes = @jokes.paginate(paginate_params) 
+    @jokes = @jokes.paginate(paginate_params)
   end
 
   def hot
@@ -15,6 +15,12 @@ class Mobile::JokesController < Mobile::ApplicationController
   def qutu
     @jokes = Joke.qutu.paginate(paginate_params)
     @page_title = "趣图"
+    render action: :index
+  end
+
+  def video
+    @jokes = Joke.where.not(video_url: nil).preload(:comments, :user).order('created_at DESC')
+    @jokes = @jokes.paginate(paginate_params)
     render action: :index
   end
 
@@ -33,7 +39,7 @@ class Mobile::JokesController < Mobile::ApplicationController
 
   def random
     @joke = Joke.random || Joke.order('hot DESC').first
-    redirect_to joke_path(@joke)    
+    redirect_to joke_path(@joke)
   end
 
   def show
@@ -54,7 +60,7 @@ class Mobile::JokesController < Mobile::ApplicationController
     set_meta_tags :title => @page_title,
                   :description => @page_description,
                   :keywords => @page_keywords,
-                  :site => false            
+                  :site => false
   end
 
   def new
@@ -64,23 +70,23 @@ class Mobile::JokesController < Mobile::ApplicationController
   end
 
   def create
-    @joke = current_user.jokes.build joke_params    
+    @joke = current_user.jokes.build joke_params
     @joke.ip = request.remote_ip
 
     if @joke.save
       redirect_to @joke
     else
       render :new
-    end    
-  end  
+    end
+  end
 
   private
-  
+
   def paginate_params
     { page: params[:page], per_page: 10, total_entries: 2000 }
-  end  
+  end
 
   def joke_params
     params.require(:joke).permit(:title, :content, :anonymous, :photos => [])
-  end  
+  end
 end

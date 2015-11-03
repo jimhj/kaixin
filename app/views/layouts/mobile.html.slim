@@ -1,20 +1,20 @@
 doctype html
 html
-  head 
+  head
     = render_meta_tags
     = stylesheet_link_tag    'mobile/application', media: 'all', "data-turbolinks-track" => true
     = javascript_include_tag 'mobile/application', "data-turbolinks-track" => true
     = csrf_meta_tags
     meta content="pc,mobile" name="applicable-device"
-    meta http-equiv="Cache-Control" content="no-transform"    
+    meta http-equiv="Cache-Control" content="no-transform"
     meta name="viewport" content="width=device-width, initial-scale=1.0"
   body
     .header-container
       .header.clearfix
-        a.kx-logo href="#{mobile_root_path}" 
+        a.kx-logo href="#{mobile_root_path}"
         .dropdown.pull-right
           a.menu-toggle data-toggle="dropdown" href="#this" data-target="#": i.fa.fa-ellipsis-v.strong
-          ul.dropdown-menu  
+          ul.dropdown-menu
             - if login?
               li
                 a href="#{new_mobile_joke_path}"
@@ -32,46 +32,46 @@ html
                   span.ml-5 退出
             - else
               li
-                a href="/auth/weibo" 
+                a href="/auth/weibo"
                   i.fa.fa-weibo
                   span.ml-5 微博登录
               li.divider
               li
-                a href="/auth/qq" 
+                a href="/auth/qq"
                   i.fa.fa-qq
                   span.ml-5 QQ登录
-              li.divider                              
+              li.divider
               li
-                a href="#{signup_path}" 
+                a href="#{signup_path}"
                   i.fa.fa-user
                   span.ml-5 注册
               li.divider
               li
-                a href="#{login_path}" 
+                a href="#{login_path}"
                   i.fa.fa-sign-in
-                  span.ml-5 登录 
+                  span.ml-5 登录
         a.pull-right.plus.mr-10 href="#{new_mobile_joke_path}"
-          i.fa.fa-plus                         
+          i.fa.fa-plus
       .header-nav
         ul.nav.nav-pills
-          li class=('active' if url_for == mobile_root_path)
-            a href="#{mobile_root_path}" 最新       
           li class=('active' if action_name == 'hot')
             a href="#{hot_jokes_path}" 热门
+            li class=('active' if action_name == 'video')
+              a href="#{video_jokes_path}" 视频
           li class=('active' if action_name == 'qutu')
             a href="#{qutu_jokes_path}" 趣图
           li class=('active' if action_name == 'duanzi')
             a href="#{duanzi_jokes_path}" 段子
-          li: a href="#{random_mobile_jokes_path}" 随机  
+          li: a href="#{random_mobile_jokes_path}" 穿越
 
     = yield
-    .footer.text-center.text-muted Copyright 2005-2015 kaixin100.com
-    
+    .footer.text-center.text-muted: small Copyright 2008-2018 开心100 www.kaixin100.com 版权所有
+
   javascript:
     var _hmt = _hmt || [];
     (function() {
       var hm = document.createElement("script");
       hm.src = "//hm.baidu.com/hm.js?e3840f963bf7aa7b7fb51455cf965137";
-      var s = document.getElementsByTagName("script")[0]; 
+      var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(hm, s);
     })();

@@ -1,9 +1,9 @@
 class MobileConstraint
   def self.matches?(request)
     agent_str = request.user_agent.to_s.downcase
-    (agent_str =~ Regexp.new(MOBILE_USER_AGENTS)) or request.subdomain == 'm' 
+    (agent_str =~ Regexp.new(MOBILE_USER_AGENTS)) or request.subdomain == 'm'
   end
-end 
+end
 
 Rails.application.routes.draw do
   require 'sidekiq/web'
@@ -11,8 +11,8 @@ Rails.application.routes.draw do
 
   # API
   # require 'dispatch'
-  # mount Api::Dispatch => '/api'  
-  
+  # mount Api::Dispatch => '/api'
+
   concern :sessionable do
     get :signup, to: 'users#new'
     post :signup, to: 'users#create'
@@ -25,12 +25,12 @@ Rails.application.routes.draw do
   concern :votable do
     post :up_vote
     post :down_vote
-  end  
+  end
 
   concern :jokeable do
     resources :jokes do
       concerns :votable
-      resources :comments, shallow: true do 
+      resources :comments, shallow: true do
         concerns :votable
       end
 
@@ -41,8 +41,9 @@ Rails.application.routes.draw do
         get :duanzi
         get :random
         get :search
+        get :video
       end
-    end    
+    end
   end
 
   # 移动站的页面
@@ -54,7 +55,7 @@ Rails.application.routes.draw do
       resources :users
     end
   end
-  
+
   # 桌面站
   root 'jokes#index'
 
@@ -70,7 +71,7 @@ Rails.application.routes.draw do
     get :recommends, to: 'ad#recommends'
     get 'pics', to: 'ad#pics', as: :pics
   end
-    
+
   concerns :jokeable
   resources :users
   resources :tags, only: [:index, :show]
@@ -98,9 +99,9 @@ Rails.application.routes.draw do
         post :recommend
         post :unrecommend
       end
-    end      
-    
-    resources :tags    
+    end
+
+    resources :tags
     resources :users
     resources :comments
     resources :websites

@@ -2,7 +2,7 @@ class JokesController < ApplicationController
   before_action :login_required, only: [:new, :create]
 
   def index
-    @jokes = Joke.approved.preload(:comments, :user).order('created_at DESC')
+    @jokes = Joke.preload(:comments, :user).order('created_at DESC')
     @jokes = @jokes.paginate(paginate_params)
   end
 
@@ -20,6 +20,12 @@ class JokesController < ApplicationController
   def qutu
     @jokes = Joke.qutu.paginate(paginate_params)
     @page_title = "趣图"
+    render action: :index
+  end
+
+  def video
+    @jokes = Joke.where.not(video_url: nil).preload(:comments, :user).order('created_at DESC')
+    @jokes = @jokes.paginate(paginate_params)
     render action: :index
   end
 
@@ -43,14 +49,14 @@ class JokesController < ApplicationController
   end
 
   def create
-    @joke = current_user.jokes.build joke_params    
+    @joke = current_user.jokes.build joke_params
     @joke.ip = request.remote_ip
 
     if @joke.save
       redirect_to @joke
     else
       render :new
-    end    
+    end
   end
 
   def show
@@ -88,8 +94,8 @@ class JokesController < ApplicationController
     voting = @joke.down_votings.build
     voting.user = current_user
     voting.save
-    
-    render text: voting.to_json  
+
+    render text: voting.to_json
   end
 
   def search
@@ -106,8 +112,8 @@ class JokesController < ApplicationController
           status: 'approved'
         }
       }
-    ).paginate(paginate_params).records      
-  end  
+    ).paginate(paginate_params).records
+  end
 
   private
 
