@@ -21,6 +21,7 @@ class Mobile::JokesController < Mobile::ApplicationController
   def video
     @jokes = Joke.where.not(video_url: nil).preload(:comments, :user).order('created_at DESC')
     @jokes = @jokes.paginate(paginate_params)
+    @page_title = '视频'
     render action: :index
   end
 
