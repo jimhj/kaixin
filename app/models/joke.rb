@@ -1,9 +1,9 @@
 class Joke < ActiveRecord::Base
-  include Votable  
+  include Votable
   include Elasticsearch::Model
-  include Elasticsearch::Model::Callbacks  
+  include Elasticsearch::Model::Callbacks
   mount_uploaders :photos, PhotoUploader
-  
+
   belongs_to :user
   has_many :comments, dependent: :destroy, as: :commentable
   has_many :taggings
@@ -24,9 +24,9 @@ class Joke < ActiveRecord::Base
     end
   end
 
-  enum status: { 
+  enum status: {
     :pending  => 0,
-    :approved => 1, 
+    :approved => 1,
     :rejected => 2
   }
 
@@ -41,15 +41,16 @@ class Joke < ActiveRecord::Base
   scope :qutu, -> (limit = 6) {
     approved.where.not(photos: nil).order('created_at DESC').limit(limit)
   }
-  
+
   scope :duanzi, -> (limit = 10) {
     approved.where(photos: nil)
+                .where(video_url: nil)
                 .where.not(title: nil)
                 .where.not(title: '').order('created_at DESC').limit(limit)
   }
 
   # 随机推荐的
-  scope :recommend, -> (limit = 10) { 
+  scope :recommend, -> (limit = 10) {
     find_by_sql(
       <<-SQL
         select * from jokes where recommended is true and photos is not null order by random() limit #{limit};
@@ -77,7 +78,7 @@ class Joke < ActiveRecord::Base
     SQL
 
     find_by_sql(sql).first
-  end  
+  end
 
   def tag_list
     tags.pluck(:name)
