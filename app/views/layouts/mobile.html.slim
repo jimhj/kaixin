@@ -11,7 +11,12 @@ html
   body
     .header-container
       .header.clearfix
-        a.kx-logo href="#{mobile_root_path}"
+        - if controller_name == 'tags' && action_name == 'show'
+          .brand-name
+            i.fa.fa-tag
+            span.ml-5= @tag.name
+        - else
+          a.kx-logo href="#{mobile_root_path}"
         .dropdown.pull-right
           a.menu-toggle data-toggle="dropdown" href="#this" data-target="#": i.fa.fa-ellipsis-v.strong
           ul.dropdown-menu

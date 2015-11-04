@@ -1,4 +1,4 @@
-class TagsController < ApplicationController
+class Mobile::TagsController < Mobile::ApplicationController
   def index
     @tags = Tag.order('created_at ASC')
     @page_title = "热门标签"

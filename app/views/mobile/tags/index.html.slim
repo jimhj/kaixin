@@ -1,0 +1,5 @@
+.main-container
+  ul.tag-list-container.clearfix.list-unstyled
+    - @tags.each do |tag|
+      li
+        a class=('active' if tag.hot?) href="#{tag_path(tag.slug)}"= tag.name

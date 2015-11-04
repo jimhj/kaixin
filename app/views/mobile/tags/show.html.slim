@@ -1,0 +1,29 @@
+.main-container
+  - @jokes.each do |joke|
+    .panel.joke-item
+      .panel-body
+        .user.clearfix
+          a.avatar.pull-left href="#{user_path(joke.user)}"
+            = image_tag joke.user.avatar.thumb.url, size: '40x40'
+          a.name.pull-left href="#{user_path(joke.user)}"= joke.user.login
+        .content
+          = render_joke_title joke
+          .body
+            = simple_format joke.content
+            - if joke.video_url.present?
+              | <video src="#{joke.video_url}" width="100%" height="100%" poster="#{joke.video_cover_url}" controls preload></video>
+            - else
+              = render_joke_photo joke, device: "mobile"
+      .panel-footer.action-bar
+        a.mr-10 href="#{joke_path(joke)}"
+          i.fa.fa-smile-o
+          span= joke.up_votes_count
+        a.mr-10 href="#{joke_path(joke)}"
+          i.fa.fa-frown-o
+          span= joke.down_votes_count
+        a href="#{joke_path(joke)}"
+          i.fa.fa-comment-o
+          span= joke.comments_count
+
+.m-pagination
+  = mobile_paginate

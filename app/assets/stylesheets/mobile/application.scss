@@ -11,6 +11,7 @@ $text-color: #454545;
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "mobile/jokes";
+@import "mobile/tags";
 
 @each $margin in 2, 5, 10, 15, 20, 25, 30, 50 {
   .ml-#{$margin} { margin-left: #{$margin}px; }
@@ -52,7 +53,15 @@ a, a:visited {
   width: 80px;
   height: 30px;
   margin: 0 auto;
-  background-image: image-url('logo_small.png');  
+  background-image: image-url('logo_small.png');
+}
+
+.brand-name {
+  display: inline-block;
+  height: 20px;
+  margin: 0px auto;
+  font-size: 20px;
+  color: $brand-primary;
 }
 
 .header-container {
@@ -66,7 +75,7 @@ a, a:visited {
 .header {
   text-align: center;
   padding: 10px 10px;
-  background-color: #ffd52b;  
+  background-color: #ffd52b;
   &, a { color: #FFF; }
 }
 
@@ -107,7 +116,7 @@ a, a:visited {
   }
 
   li.active {
-    
+
   }
 
   li a, li.active a {
