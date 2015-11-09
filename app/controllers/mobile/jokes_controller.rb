@@ -2,7 +2,7 @@ class Mobile::JokesController < Mobile::ApplicationController
   before_action :login_required, only: [:new, :create]
 
   def index
-    @jokes = Joke.preload(:comments, :user).order('created_at DESC')
+    @jokes = Joke.approved.preload(:comments, :user).order('created_at DESC')
     @jokes = @jokes.paginate(paginate_params)
   end
 
@@ -19,7 +19,7 @@ class Mobile::JokesController < Mobile::ApplicationController
   end
 
   def video
-    @jokes = Joke.where.not(video_url: nil).preload(:comments, :user).order('created_at DESC')
+    @jokes = Joke.where.not(video_cover_url: nil).not(video_url: nil).preload(:comments, :user).order('created_at DESC')
     @jokes = @jokes.paginate(paginate_params)
     @page_title = '视频'
     render action: :index
@@ -45,6 +45,12 @@ class Mobile::JokesController < Mobile::ApplicationController
 
   def show
     @joke = Joke.find params[:id]
+
+    if !@joke.video_url.blank? or !@joke.video_cover_url.blank?
+      redirect_to root_url
+      return
+    end
+
     @tags = @joke.tags
     @comments = @joke.comments
 

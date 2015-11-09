@@ -30,6 +30,10 @@ class Joke < ActiveRecord::Base
     :rejected => 2
   }
 
+  default_scope {
+    where(video_url: [nil, '']).where(video_cover_url: [nil, ''])
+  }
+
   scope :approved, -> {
     where(status: Joke.statuses[:approved]).preload(:user)
   }

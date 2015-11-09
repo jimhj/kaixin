@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   # require 'dispatch'
   # mount Api::Dispatch => '/api'
 
+  get '/jokes/video' => redirect('/')
+
   concern :sessionable do
     get :signup, to: 'users#new'
     post :signup, to: 'users#create'
@@ -49,6 +51,7 @@ Rails.application.routes.draw do
   # 移动站的页面
   constraints(MobileConstraint) do
     scope module: 'mobile', as: :mobile do
+      get '/jokes/video' => redirect('/')
       root to: 'jokes#index'
       concerns :jokeable
       concerns :sessionable

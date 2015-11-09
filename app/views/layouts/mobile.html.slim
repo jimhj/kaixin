@@ -59,8 +59,10 @@ html
           i.fa.fa-plus
       .header-nav
         ul.nav.nav-pills
-          li class=('active' if action_name == 'video')
-            a href="#{video_jokes_path}" 视频
+        li class=('active' if url_for == mobile_root_path)
+          a href="#{mobile_root_path}" 最新        
+          / li class=('active' if action_name == 'video')
+          /   a href="#{video_jokes_path}" 视频
           li class=('active' if action_name == 'qutu')
             a href="#{qutu_jokes_path}" 趣图
           li class=('active' if action_name == 'duanzi')
