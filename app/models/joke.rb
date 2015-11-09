@@ -30,24 +30,24 @@ class Joke < ActiveRecord::Base
     :rejected => 2
   }
 
-  default_scope {
+  scope :without_video, -> {
     where(video_url: [nil, '']).where(video_cover_url: [nil, ''])
   }
 
   scope :approved, -> {
-    where(status: Joke.statuses[:approved]).preload(:user)
+    without_video.where(status: Joke.statuses[:approved]).preload(:user)
   }
 
   scope :hot, -> {
-    approved.order('up_votes_count DESC, created_at DESC')
+    without_video.approved.order('up_votes_count DESC, created_at DESC')
   }
 
   scope :qutu, -> (limit = 6) {
-    approved.where.not(photos: nil).order('created_at DESC').limit(limit)
+    without_video.approved.where.not(photos: nil).order('created_at DESC').limit(limit)
   }
 
   scope :duanzi, -> (limit = 10) {
-    approved.where(photos: nil)
+    without_video.approved.where(photos: nil)
                 .where(video_url: nil)
                 .where.not(title: nil)
                 .where.not(title: '').order('created_at DESC').limit(limit)
@@ -64,7 +64,7 @@ class Joke < ActiveRecord::Base
 
   # 频道页推荐的
   scope :recommends, -> {
-    where(recommended: true).where.not(photos: nil).order('created_at DESC')
+    without_video.where(recommended: true).where.not(photos: nil).order('created_at DESC')
   }
 
   after_create :update_hot
