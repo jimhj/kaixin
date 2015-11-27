@@ -1,4 +1,5 @@
 class JokesController < ApplicationController
+  before_action :check_if_block
   before_action :login_required, only: [:new, :create]
 
   def index
@@ -62,6 +63,11 @@ class JokesController < ApplicationController
 
   def show
     @joke = Joke.find params[:id]
+
+    if @joke.rejected?
+      render status: 404, file: '/public/404.html', layout: false
+      return      
+    end
 
     if !@joke.video_url.blank? or !@joke.video_cover_url.blank?
       redirect_to root_url

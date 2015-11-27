@@ -26,5 +26,5 @@ class User < ActiveRecord::Base
 
   def admin?
     CONFIG['admin_emails'] && CONFIG['admin_emails'].include?(email)
-  end  
+  end
 end

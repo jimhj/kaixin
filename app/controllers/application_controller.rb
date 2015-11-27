@@ -5,13 +5,22 @@ class ApplicationController < ActionController::Base
 
   helper_method :login?, :current_user
 
+  def check_if_block
+    if login? && current_user.block?
+      logout
+      flash[:warn] = '您已被禁言，请联系管理员'
+      redirect_to login_path
+    end    
+  end
+
   private
 
   class AccessDenied < Exception; end
 
+
   def login_required
     unless login?
-      flash[:warning] = t('sessions.flashes.login_required')
+      flash[:warn] = t('sessions.flashes.login_required')
       redirect_to login_path(return_to: (request.fullpath if request.get?))
     end
   end

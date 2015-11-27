@@ -106,7 +106,12 @@ Rails.application.routes.draw do
     end
 
     resources :tags
-    resources :users
+    resources :users do
+      member do
+        post :block
+        post :unblock
+      end
+    end
     resources :comments
     resources :websites
     resources :ads

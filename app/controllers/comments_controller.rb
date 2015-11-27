@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_action :check_if_block  
   before_action :login_required, only: [:create]
 
   def index

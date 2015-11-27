@@ -1,5 +1,5 @@
 class Admin::JokesController < Admin::ApplicationController
-  before_action :find_joke, only: [:edit, :update, :approve, :reject, :recommend, :unrecommend]
+  before_action :find_joke, only: [:edit, :update, :approve, :reject, :recommend, :unrecommend, :destroy]
 
   def index
     @jokes = Joke.preload(:comments, :user).order('created_at DESC')
@@ -68,6 +68,11 @@ class Admin::JokesController < Admin::ApplicationController
 
   def unrecommend
     @joke.update_attribute :recommended, false
+  end
+
+  def destroy
+    @joke.destroy
+    redirect_to :back
   end
 
   private

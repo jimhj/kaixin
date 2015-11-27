@@ -14,6 +14,7 @@
           th 笑话数
           th 评论数
           th 注册时间
+          th 操作
 
 
       tbody
@@ -27,6 +28,11 @@
             td= user.jokes.count
             td= user.comments.count
             td= user.created_at.strftime('%F %T')
+            td
+              - if user.block?
+                a.btn.btn-danger.btn-xs href="#{unblock_admin_user_path(user)}" data-method="post" 解除屏蔽
+              - else
+                a.btn.btn-default.btn-xs href="#{block_admin_user_path(user)}" data-method="post" 屏蔽此用户
 
     = will_paginate @users, renderer: BootstrapPagination::Rails
 

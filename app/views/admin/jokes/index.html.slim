@@ -18,6 +18,7 @@
           th 时间
           th 操作
           th 操作
+          th 操作
       tbody
         - @jokes.each do |joke|
           tr class="joke-item-#{joke.id}"
@@ -42,6 +43,8 @@
                 a.btn.btn-default.btn-xs data-method="POST" data-remote=true href="#{unrecommend_admin_joke_path(joke)}" 取消推荐
               - else
                 a.btn.btn-info.btn-xs data-method="POST" data-remote=true href="#{recommend_admin_joke_path(joke)}" 推荐
+            td
+              a.btn.btn-default.btn-xs data-method="DELETE" data-confirm="确认删除吗" href="#{admin_joke_path(joke)}" 删除
 
     = will_paginate @jokes, renderer: BootstrapPagination::Rails
 

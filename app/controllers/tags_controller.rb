@@ -1,4 +1,6 @@
 class TagsController < ApplicationController
+  before_action :check_if_block
+  
   def index
     @tags = Tag.order('created_at ASC')
     @page_title = "热门标签"

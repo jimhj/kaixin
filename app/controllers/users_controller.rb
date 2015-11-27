@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :check_if_block
   before_action :no_login_required, only: [:new, :create]
 
   def new
