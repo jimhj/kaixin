@@ -71,7 +71,7 @@ class Admin::JokesController < Admin::ApplicationController
   end
 
   def destroy
-    @joke.destroy
+    @joke.destroy rescue nil
     redirect_to :back
   end
 

@@ -63,7 +63,6 @@ class JokesController < ApplicationController
 
   def show
     @joke = Joke.find params[:id]
-
     if @joke.rejected?
       render status: 404, file: '/public/404.html', layout: false
       return      
