@@ -30,6 +30,12 @@ class Admin::TagsController < Admin::ApplicationController
     end    
   end
 
+  def search
+    q = params[:q]
+    @tags = Tag.where("name ~ '#{q}' or seo_title ~ '#{q}' or seo_description ~ '#{q}' or seo_keywords ~ '#{q}'").order('created_at DESC').paginate(paginate_params)
+    render :index
+  end
+
   private
 
   def find_tag

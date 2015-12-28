@@ -10,10 +10,8 @@ Rails.application.routes.draw do
   mount Sidekiq::Web => '/sidekiq'
 
   # API
-  # if Rails.env.development?
-  #   require 'dispatch'
-  #   mount Api::Dispatch => '/api'
-  # end
+  # require 'dispatch'
+  # mount Api::Dispatch => '/api'
 
   get '/jokes/video' => redirect('/')
 
@@ -107,7 +105,12 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :tags
+    resources :tags do
+      collection do
+        get :search
+      end
+    end
+
     resources :users do
       member do
         post :block
