@@ -59,10 +59,9 @@ module ApplicationHelper
     ind = 1 if ind.zero?
     ind = ind - 1
     length = joke.photos.length
-    prev_joke = Joke.where("id > ?", joke.id).order("id ASC").first
 
     if length < 2 || ind < 1
-      joke_path(prev_joke) rescue nil
+      joke_path(joke.prev) rescue nil
     else
       joke_path(joke, photo: ind)
     end 
@@ -73,10 +72,9 @@ module ApplicationHelper
     ind = 1 if ind.zero?
     ind = ind + 1  
     length = joke.photos.length
-    next_joke = Joke.where("id < ?", joke.id).order("id DESC").first
 
     if length < 2 || ind > length
-      joke_path(next_joke) rescue nil
+      joke_path(joke.next) rescue nil
     else
       joke_path(joke, photo: ind)        
     end     

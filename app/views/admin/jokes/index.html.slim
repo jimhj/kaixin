@@ -23,7 +23,7 @@
         - @jokes.each do |joke|
           tr class="joke-item-#{joke.id}"
             td
-              a href="#{edit_admin_joke_path(joke)}"= joke.id
+              a href="#{joke_path(joke)}" target="_blank"= joke.id
             td.title= joke.title
             td.body= joke.content.truncate(200)
             td.photos
@@ -44,7 +44,8 @@
               - else
                 a.btn.btn-info.btn-xs data-method="POST" data-remote=true href="#{recommend_admin_joke_path(joke)}" 推荐
             td
-              a.btn.btn-default.btn-xs data-method="DELETE" data-confirm="确认删除吗" href="#{admin_joke_path(joke)}" 删除
+              a.btn.btn-default.btn-xs href="#{edit_admin_joke_path(joke)}" 编辑
+              a.btn.btn-danger.btn-xs data-method="DELETE" data-confirm="确认删除吗" href="#{admin_joke_path(joke)}" 删除
 
     = will_paginate @jokes, renderer: BootstrapPagination::Rails
 

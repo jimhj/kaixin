@@ -48,7 +48,7 @@ class Admin::JokesController < Admin::ApplicationController
 
   def update
     if @joke.update_attributes(joke_params)
-      redirect_to admin_jokes_path
+      redirect_to edit_admin_joke_path(@joke.next)
     else
       render :edit
     end

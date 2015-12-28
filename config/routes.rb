@@ -10,8 +10,10 @@ Rails.application.routes.draw do
   mount Sidekiq::Web => '/sidekiq'
 
   # API
-  # require 'dispatch'
-  # mount Api::Dispatch => '/api'
+  # if Rails.env.development?
+  #   require 'dispatch'
+  #   mount Api::Dispatch => '/api'
+  # end
 
   get '/jokes/video' => redirect('/')
 

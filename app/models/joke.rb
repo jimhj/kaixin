@@ -132,4 +132,12 @@ class Joke < ActiveRecord::Base
   def hot_comment
     Rails.cache.read("joke:#{self.id}:hot_comment")
   end
+
+  def next
+    Joke.where("id < ?", id).order("id DESC").first
+  end
+
+  def prev
+    Joke.where("id > ?", id).order("id ASC").first
+  end
 end
