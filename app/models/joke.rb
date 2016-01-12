@@ -42,15 +42,15 @@ class Joke < ActiveRecord::Base
     without_video.approved.order('up_votes_count DESC, created_at DESC')
   }
 
-  scope :qutu, -> (limit = 6) {
-    without_video.approved.where.not(photos: nil).order('created_at DESC').limit(limit)
+  scope :qutu, -> {
+    without_video.approved.where.not(photos: nil).order('created_at DESC')
   }
 
-  scope :duanzi, -> (limit = 10) {
+  scope :duanzi, -> {
     without_video.approved.where(photos: nil)
                 .where(video_url: nil)
                 .where.not(title: nil)
-                .where.not(title: '').order('created_at DESC').limit(limit)
+                .where.not(title: '').order('created_at DESC')
   }
 
   # 随机推荐的

@@ -1,5 +1,5 @@
 ul.image-list.odd-margin
-  - Joke.qutu.each do |joke|
+  - Joke.qutu.limit(6).each do |joke|
     li class=(cycle('odd', 'even'))
       a href="#{joke_path(joke)}"
         = image_tag joke.photos[0].thumb.url, title: joke.title, alt: joke.title
