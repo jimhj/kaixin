@@ -48,9 +48,9 @@ class Joke < ActiveRecord::Base
 
   scope :duanzi, -> {
     without_video.approved.where(photos: nil)
-                .where(video_url: nil)
-                .where.not(title: nil)
-                .where.not(title: '').order('id DESC')
+                .where(video_url: [nil, ''])
+                .where.not(title: [nil, ''])
+                .order('id DESC')
   }
 
   # 随机推荐的
