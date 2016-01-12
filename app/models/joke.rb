@@ -39,18 +39,18 @@ class Joke < ActiveRecord::Base
   }
 
   scope :hot, -> {
-    without_video.approved.order('up_votes_count DESC, created_at DESC')
+    without_video.approved.order('up_votes_count DESC, id DESC')
   }
 
   scope :qutu, -> {
-    without_video.approved.where.not(photos: nil).order('created_at DESC')
+    without_video.approved.where.not(photos: nil).order('id DESC')
   }
 
   scope :duanzi, -> {
     without_video.approved.where(photos: nil)
                 .where(video_url: nil)
                 .where.not(title: nil)
-                .where.not(title: '').order('created_at DESC')
+                .where.not(title: '').order('id DESC')
   }
 
   # 随机推荐的
@@ -64,7 +64,7 @@ class Joke < ActiveRecord::Base
 
   # 频道页推荐的
   scope :recommends, -> {
-    without_video.where(recommended: true).where.not(photos: nil).order('created_at DESC')
+    without_video.where(recommended: true).where.not(photos: nil).order('id DESC')
   }
 
   after_create :update_hot
